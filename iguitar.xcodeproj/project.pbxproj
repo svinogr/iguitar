@@ -3,25 +3,73 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		600216C422BB7EA9003CAC87 /* RealmDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600216C322BB7EA9003CAC87 /* RealmDao.swift */; };
+		601571D522C2471300E8D574 /* GroupDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601571D422C2471300E8D574 /* GroupDao.swift */; };
+		602467D622C5F25B00D57E00 /* AddNewSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602467D522C5F25B00D57E00 /* AddNewSongViewController.swift */; };
+		602467DB22C6015900D57E00 /* AddNewItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602467DA22C6015900D57E00 /* AddNewItemProtocol.swift */; };
+		602467DD22C6212A00D57E00 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602467DC22C6212A00D57E00 /* TableViewController.swift */; };
+		602467DF22C6245B00D57E00 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602467DE22C6245B00D57E00 /* File.swift */; };
+		602467E122C6320A00D57E00 /* AckordDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602467E022C6320A00D57E00 /* AckordDao.swift */; };
+		6072B3FE22BA0F5100F9E5F6 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B3FD22BA0F5100F9E5F6 /* GroupViewController.swift */; };
+		6072B40022BA12A400F9E5F6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B3FF22BA12A400F9E5F6 /* Group.swift */; };
+		6072B40622BA146100F9E5F6 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B40522BA146100F9E5F6 /* Song.swift */; };
+		6072B40822BA15A500F9E5F6 /* SongViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B40722BA15A500F9E5F6 /* SongViewCell.swift */; };
+		6072B40B22BA275500F9E5F6 /* AckordViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B40A22BA275500F9E5F6 /* AckordViewCell.swift */; };
+		6072B40D22BA4AE800F9E5F6 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B40C22BA4AE800F9E5F6 /* SongViewController.swift */; };
+		6072B40F22BA4D1D00F9E5F6 /* Ackord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B40E22BA4D1D00F9E5F6 /* Ackord.swift */; };
+		607B3CE722C0F8CA006D8022 /* AddNewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607B3CE622C0F8CA006D8022 /* AddNewGroupViewController.swift */; };
 		609A449D22B8B1DF0037102C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A449C22B8B1DF0037102C /* AppDelegate.swift */; };
-		609A449F22B8B1DF0037102C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A449E22B8B1DF0037102C /* ViewController.swift */; };
+		609A449F22B8B1DF0037102C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A449E22B8B1DF0037102C /* MainViewController.swift */; };
 		609A44A222B8B1DF0037102C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 609A44A022B8B1DF0037102C /* Main.storyboard */; };
 		609A44A422B8B1E00037102C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 609A44A322B8B1E00037102C /* Assets.xcassets */; };
 		609A44A722B8B1E00037102C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 609A44A522B8B1E00037102C /* LaunchScreen.storyboard */; };
+		609A44AF22B8B6330037102C /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A44AE22B8B6330037102C /* MainViewCell.swift */; };
+		609A44B122B8B6440037102C /* AlphabetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A44B022B8B6440037102C /* AlphabetViewCell.swift */; };
+		609A44B422B8C3050037102C /* AlphabetStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A44B322B8C3050037102C /* AlphabetStructure.swift */; };
+		60AEFAAF22BCC212007FD02C /* CommonWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AEFAAE22BCC212007FD02C /* CommonWithId.swift */; };
+		60AEFAB322BCFB6B007FD02C /* FavoriteGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AEFAB222BCFB6B007FD02C /* FavoriteGroup.swift */; };
+		60B57CEB22C0A95D0013304E /* FavoriteSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B57CEA22C0A95D0013304E /* FavoriteSongViewController.swift */; };
+		60B57CED22C0C5F00013304E /* MyGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B57CEC22C0C5F00013304E /* MyGroupViewController.swift */; };
+		68325E18A0E25DFF1E8D9AD5 /* Pods_iguitar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A78213B1CCE1480683B8B8C /* Pods_iguitar.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4996A6B109361137DD2B736A /* Pods-iguitar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iguitar.release.xcconfig"; path = "Target Support Files/Pods-iguitar/Pods-iguitar.release.xcconfig"; sourceTree = "<group>"; };
+		600216C322BB7EA9003CAC87 /* RealmDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDao.swift; sourceTree = "<group>"; };
+		601571D422C2471300E8D574 /* GroupDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDao.swift; sourceTree = "<group>"; };
+		602467D522C5F25B00D57E00 /* AddNewSongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSongViewController.swift; sourceTree = "<group>"; };
+		602467DA22C6015900D57E00 /* AddNewItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewItemProtocol.swift; sourceTree = "<group>"; };
+		602467DC22C6212A00D57E00 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		602467DE22C6245B00D57E00 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		602467E022C6320A00D57E00 /* AckordDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AckordDao.swift; sourceTree = "<group>"; };
+		6072B3FD22BA0F5100F9E5F6 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		6072B3FF22BA12A400F9E5F6 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		6072B40522BA146100F9E5F6 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		6072B40722BA15A500F9E5F6 /* SongViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewCell.swift; sourceTree = "<group>"; };
+		6072B40A22BA275500F9E5F6 /* AckordViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AckordViewCell.swift; sourceTree = "<group>"; };
+		6072B40C22BA4AE800F9E5F6 /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
+		6072B40E22BA4D1D00F9E5F6 /* Ackord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ackord.swift; sourceTree = "<group>"; };
+		607B3CE622C0F8CA006D8022 /* AddNewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGroupViewController.swift; sourceTree = "<group>"; };
 		609A449922B8B1DF0037102C /* iguitar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iguitar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		609A449C22B8B1DF0037102C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		609A449E22B8B1DF0037102C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		609A449E22B8B1DF0037102C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		609A44A122B8B1DF0037102C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		609A44A322B8B1E00037102C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		609A44A622B8B1E00037102C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		609A44A822B8B1E00037102C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		609A44AE22B8B6330037102C /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
+		609A44B022B8B6440037102C /* AlphabetViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetViewCell.swift; sourceTree = "<group>"; };
+		609A44B322B8C3050037102C /* AlphabetStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetStructure.swift; sourceTree = "<group>"; };
+		60AEFAAE22BCC212007FD02C /* CommonWithId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWithId.swift; sourceTree = "<group>"; };
+		60AEFAB222BCFB6B007FD02C /* FavoriteGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteGroup.swift; sourceTree = "<group>"; };
+		60B57CEA22C0A95D0013304E /* FavoriteSongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSongViewController.swift; sourceTree = "<group>"; };
+		60B57CEC22C0C5F00013304E /* MyGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupViewController.swift; sourceTree = "<group>"; };
+		8A78213B1CCE1480683B8B8C /* Pods_iguitar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iguitar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BB59C9A7A526B8E5352567A /* Pods-iguitar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iguitar.debug.xcconfig"; path = "Target Support Files/Pods-iguitar/Pods-iguitar.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +77,81 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68325E18A0E25DFF1E8D9AD5 /* Pods_iguitar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E3596524A8A815F088BF8DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8A78213B1CCE1480683B8B8C /* Pods_iguitar.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		602467D722C5F80400D57E00 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				602467DA22C6015900D57E00 /* AddNewItemProtocol.swift */,
+				602467DC22C6212A00D57E00 /* TableViewController.swift */,
+			);
+			name = Abstract;
+			path = main;
+			sourceTree = "<group>";
+		};
+		6072B40122BA13BB00F9E5F6 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				607B3CE622C0F8CA006D8022 /* AddNewGroupViewController.swift */,
+				6072B3FD22BA0F5100F9E5F6 /* GroupViewController.swift */,
+				60B57CEA22C0A95D0013304E /* FavoriteSongViewController.swift */,
+				6072B40722BA15A500F9E5F6 /* SongViewCell.swift */,
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
+		6072B40222BA140000F9E5F6 /* Song */ = {
+			isa = PBXGroup;
+			children = (
+				6072B40A22BA275500F9E5F6 /* AckordViewCell.swift */,
+				6072B40C22BA4AE800F9E5F6 /* SongViewController.swift */,
+				602467D522C5F25B00D57E00 /* AddNewSongViewController.swift */,
+			);
+			path = Song;
+			sourceTree = "<group>";
+		};
+		6072B40322BA141E00F9E5F6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6072B3FF22BA12A400F9E5F6 /* Group.swift */,
+				60AEFAAE22BCC212007FD02C /* CommonWithId.swift */,
+				6072B40522BA146100F9E5F6 /* Song.swift */,
+				6072B40E22BA4D1D00F9E5F6 /* Ackord.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6072B40422BA143100F9E5F6 /* Dao */ = {
+			isa = PBXGroup;
+			children = (
+				600216C322BB7EA9003CAC87 /* RealmDao.swift */,
+				602467E022C6320A00D57E00 /* AckordDao.swift */,
+				601571D422C2471300E8D574 /* GroupDao.swift */,
+				602467DE22C6245B00D57E00 /* File.swift */,
+			);
+			path = Dao;
+			sourceTree = "<group>";
+		};
 		609A449022B8B1DF0037102C = {
 			isa = PBXGroup;
 			children = (
 				609A449B22B8B1DF0037102C /* iguitar */,
 				609A449A22B8B1DF0037102C /* Products */,
+				E28C5C6D6A1761DF21670C37 /* Pods */,
+				3E3596524A8A815F088BF8DD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +166,41 @@
 		609A449B22B8B1DF0037102C /* iguitar */ = {
 			isa = PBXGroup;
 			children = (
+				602467D722C5F80400D57E00 /* Abstract */,
+				6072B40422BA143100F9E5F6 /* Dao */,
+				6072B40322BA141E00F9E5F6 /* Model */,
+				6072B40222BA140000F9E5F6 /* Song */,
+				6072B40122BA13BB00F9E5F6 /* Group */,
 				609A449C22B8B1DF0037102C /* AppDelegate.swift */,
-				609A449E22B8B1DF0037102C /* ViewController.swift */,
+				609A44B222B8B65B0037102C /* main */,
 				609A44A022B8B1DF0037102C /* Main.storyboard */,
 				609A44A322B8B1E00037102C /* Assets.xcassets */,
 				609A44A522B8B1E00037102C /* LaunchScreen.storyboard */,
 				609A44A822B8B1E00037102C /* Info.plist */,
 			);
 			path = iguitar;
+			sourceTree = "<group>";
+		};
+		609A44B222B8B65B0037102C /* main */ = {
+			isa = PBXGroup;
+			children = (
+				609A449E22B8B1DF0037102C /* MainViewController.swift */,
+				60B57CEC22C0C5F00013304E /* MyGroupViewController.swift */,
+				60AEFAB222BCFB6B007FD02C /* FavoriteGroup.swift */,
+				609A44AE22B8B6330037102C /* MainViewCell.swift */,
+				609A44B322B8C3050037102C /* AlphabetStructure.swift */,
+				609A44B022B8B6440037102C /* AlphabetViewCell.swift */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		E28C5C6D6A1761DF21670C37 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9BB59C9A7A526B8E5352567A /* Pods-iguitar.debug.xcconfig */,
+				4996A6B109361137DD2B736A /* Pods-iguitar.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +210,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 609A44AB22B8B1E00037102C /* Build configuration list for PBXNativeTarget "iguitar" */;
 			buildPhases = (
+				6CC81320E21BC0A6E7602DEC /* [CP] Check Pods Manifest.lock */,
 				609A449522B8B1DF0037102C /* Sources */,
 				609A449622B8B1DF0037102C /* Frameworks */,
 				609A449722B8B1DF0037102C /* Resources */,
+				92E4AB499FC4AC8C5313B4DB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,13 +271,77 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6CC81320E21BC0A6E7602DEC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iguitar-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92E4AB499FC4AC8C5313B4DB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iguitar/Pods-iguitar-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iguitar/Pods-iguitar-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iguitar/Pods-iguitar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		609A449522B8B1DF0037102C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				609A449F22B8B1DF0037102C /* ViewController.swift in Sources */,
+				6072B40022BA12A400F9E5F6 /* Group.swift in Sources */,
+				6072B3FE22BA0F5100F9E5F6 /* GroupViewController.swift in Sources */,
+				602467E122C6320A00D57E00 /* AckordDao.swift in Sources */,
+				602467D622C5F25B00D57E00 /* AddNewSongViewController.swift in Sources */,
+				60B57CED22C0C5F00013304E /* MyGroupViewController.swift in Sources */,
+				60B57CEB22C0A95D0013304E /* FavoriteSongViewController.swift in Sources */,
+				607B3CE722C0F8CA006D8022 /* AddNewGroupViewController.swift in Sources */,
+				602467DF22C6245B00D57E00 /* File.swift in Sources */,
+				609A44AF22B8B6330037102C /* MainViewCell.swift in Sources */,
+				600216C422BB7EA9003CAC87 /* RealmDao.swift in Sources */,
+				6072B40822BA15A500F9E5F6 /* SongViewCell.swift in Sources */,
+				60AEFAAF22BCC212007FD02C /* CommonWithId.swift in Sources */,
+				6072B40B22BA275500F9E5F6 /* AckordViewCell.swift in Sources */,
+				601571D522C2471300E8D574 /* GroupDao.swift in Sources */,
+				609A44B122B8B6440037102C /* AlphabetViewCell.swift in Sources */,
+				6072B40622BA146100F9E5F6 /* Song.swift in Sources */,
+				6072B40F22BA4D1D00F9E5F6 /* Ackord.swift in Sources */,
+				60AEFAB322BCFB6B007FD02C /* FavoriteGroup.swift in Sources */,
+				609A44B422B8C3050037102C /* AlphabetStructure.swift in Sources */,
+				602467DD22C6212A00D57E00 /* TableViewController.swift in Sources */,
+				609A449F22B8B1DF0037102C /* MainViewController.swift in Sources */,
+				602467DB22C6015900D57E00 /* AddNewItemProtocol.swift in Sources */,
 				609A449D22B8B1DF0037102C /* AppDelegate.swift in Sources */,
+				6072B40D22BA4AE800F9E5F6 /* SongViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +485,7 @@
 		};
 		609A44AC22B8B1E00037102C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BB59C9A7A526B8E5352567A /* Pods-iguitar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +504,7 @@
 		};
 		609A44AD22B8B1E00037102C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4996A6B109361137DD2B736A /* Pods-iguitar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
