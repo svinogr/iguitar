@@ -31,7 +31,7 @@ class AddNewGroupViewController: UITableViewController {
     
     @IBAction func save(_ sender: Any) {
          let saveGroup = getGroupForSave()
-        
+      
         if(isUpdate) {
             let checkSame = checkSameByName(name: saveGroup.name)
             saveGroup.id = group!.id
@@ -122,7 +122,6 @@ class AddNewGroupViewController: UITableViewController {
     }
 
     private func setupGroup() {
-        
         let image: UIImage
         
         if (group?.imgData == nil) {

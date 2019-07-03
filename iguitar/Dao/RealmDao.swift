@@ -57,7 +57,7 @@ class RealmDao<T: CommomWithId> {
     }
     
     public func getBy(name: String) ->Results<T>? {
-        return realm.objects(T.self).filter("name[c] == %@", name.capitalized)
+        return realm.objects(T.self).filter("name == %@", name.capitalized)
     }
     
     public func contains(name: String) -> Results<T>{
