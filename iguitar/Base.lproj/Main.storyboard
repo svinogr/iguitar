@@ -143,6 +143,17 @@
                                             <segue destination="JIo-tk-18o" kind="show" identifier="showGroup" id="9Dy-iU-mbB"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="songCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="songCell" id="ROd-XP-qgX" customClass="SongViewCell" customModule="iguitar" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="294" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ROd-XP-qgX" id="6Eh-RA-ewR">
+                                            <rect key="frame" x="0.0" y="0.0" width="294" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="xKk-XH-OQ9" kind="show" identifier="showSong" id="4q1-iz-9UE"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Br4-wg-zR5" id="hfh-ij-jSp"/>
@@ -179,6 +190,9 @@
                                     <segment title="Группы"/>
                                     <segment title="Песни"/>
                                 </segments>
+                                <connections>
+                                    <action selector="sort:" destination="Br4-wg-zR5" eventType="valueChanged" id="ohG-x4-LXb"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -200,6 +214,9 @@
                     <connections>
                         <outlet property="alphabetTableView" destination="FvG-UJ-pqP" id="Nfg-z9-nPq"/>
                         <outlet property="mainTableView" destination="HIw-uP-Fzf" id="UOC-Y5-BvC"/>
+                        <outlet property="segments" destination="cKI-Ar-V42" id="862-og-6Z0"/>
+                        <segue destination="iwC-m9-kau" kind="show" identifier="updateGroup" id="zcL-wa-mkk"/>
+                        <segue destination="xtK-ah-bOb" kind="show" identifier="updateSong" id="1t8-qc-qqR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DXX-2n-MMW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -749,11 +766,11 @@
             </objects>
             <point key="canvasLocation" x="-488" y="863"/>
         </scene>
-        <!--Группы-->
+        <!--Избранное-->
         <scene sceneID="gMb-Ar-h3P">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f6j-jz-4qD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Группы" id="Rfh-cD-czR"/>
+                    <tabBarItem key="tabBarItem" title="Избранное" id="Rfh-cD-czR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0gr-FO-KyW">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -927,9 +944,9 @@
         <image name="Photo" width="194.66667175292969" height="195.66667175292969"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="boR-jb-Paq"/>
-        <segue reference="OTv-4H-AUB"/>
-        <segue reference="OCn-Tt-Lbo"/>
-        <segue reference="qxb-fZ-WDm"/>
+        <segue reference="1t8-qc-qqR"/>
+        <segue reference="zcL-wa-mkk"/>
+        <segue reference="4q1-iz-9UE"/>
+        <segue reference="9Dy-iU-mbB"/>
     </inferredMetricsTieBreakers>
 </document>

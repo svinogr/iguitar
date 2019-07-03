@@ -14,7 +14,11 @@ class FavoriteGroup: MainViewController {
         realmGroup = groupDao.getFavorite()
     }
     
+    override func setupSongs() {
+        realmSongs = songDao.getFavorite()
+    }
+    
     override func setupNavigationBar() {
-        title = "Избранные группы"
+        title = "Избранные"
     }
 }

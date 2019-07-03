@@ -106,8 +106,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         let updateAction = UITableViewRowAction(style: .default, title: "изменить"){ (action, indexPath) in
+            if (self.segments.selectedSegmentIndex == 0) {
             self.performSegue(withIdentifier: "updateGroup", sender: self.realmGroup[indexPath.row])
-            print(indexPath)
+            } else {
+                 self.performSegue(withIdentifier: "updateSong", sender: self.realmSongs[indexPath.row])
+            }
         }
         
         deleteAction.backgroundColor = .red
@@ -513,7 +516,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func sort(_ sender: Any) {
+        if (newItemBtn != nil) {
          newItemBtn.isEnabled = !newItemBtn.isEnabled
+        }
         
         if(segments.selectedSegmentIndex == 0) {
             setNotificationTokenForGroup()
