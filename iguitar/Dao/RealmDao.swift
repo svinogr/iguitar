@@ -51,6 +51,11 @@ class RealmDao<T: CommomWithId> {
         return  realm.objects(T.self).filter("isFavorite = \(fav)")
     }
     
+    public func getFavoriteWithAsc() -> Results<T> {
+        let fav = true
+        return  realm.objects(T.self).filter("isFavorite = \(fav) ").sorted(byKeyPath: "name", ascending: true)
+    }
+    
     public func getUsersItems() -> Results<T> {
         let user = true
         return realm.objects(T.self).filter("isUser = \(user)")
@@ -63,6 +68,11 @@ class RealmDao<T: CommomWithId> {
     public func contains(name: String) -> Results<T>{
        let objects =  realm.objects(T.self)
         return objects.filter("name CONTAINS[c] %@", name)
+    }
+    
+    public func containsAsc(name: String) -> Results<T>{
+        let objects =  self.contains(name: name)
+        return objects.filter("name CONTAINS[c] %@", name).sorted(byKeyPath: "name", ascending: true)
     }
    
 }

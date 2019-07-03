@@ -81,28 +81,15 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "удалить") { (action, indexPath) in
           let index = indexPath.row
-            
-//            if(self.searchBarIsActive) {
-//                switch self.segments.selectedSegmentIndex {
-//                case 0:
-//                    self.groupDao.deleteWithChilds(item: self.realmFilteredGroup![index])
-//              //      tableView.deleteRows(at: [indexPath], with: .automatic) //потому что не рабоатет нотификатион
-//
-//                case 1:
-//                    self.songDao.delete(item: self.realmFilteredSongs![index])
-//                   //  tableView.deleteRows(at: [indexPath], with: .automatic) //потому что не рабоатет нотификатион
-//                default:
-//                  print("nothing to del")
-//                }
-//            } else {
+
                 switch self.segments.selectedSegmentIndex {
                 case 0: self.groupDao.deleteWithChilds(item: self.realmGroup![index])
                 case 1:
                     self.songDao.delete(item:self.realmSongs![index])
                 default:
                    print("nothing to del")
-            //    }
-            }
+               }
+            
         }
         
         let updateAction = UITableViewRowAction(style: .default, title: "изменить"){ (action, indexPath) in
@@ -150,7 +137,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.textLabel?.text = song.name
             default:
                   cell = (tableView.dequeueReusableCell(withIdentifier: "mainCell") as! SongViewCell)
-
             }
     
         }else {
@@ -283,6 +269,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     private func setNotificationTokenForGroup() {
+        if(notificationToken != nil){
+            notificationToken!.invalidate()
+        }
         
         notificationToken = realmGroup.observe { [weak self] (changes: RealmCollectionChange) in
             //   guard let tableView = self?.tableView else { return }
@@ -294,6 +283,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             case .update(_, let deletions, let insertions, let modifications):
                 // Query results have changed, so apply them to the UITableView
                 print("from group realm")
+            
                 self!.mainTableView.beginUpdates()
                 self!.mainTableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
                                                with: .automatic)
@@ -312,6 +302,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     private func setNotificationTokenForSong() {
+        if(notificationToken != nil){
+            notificationToken!.invalidate()
+        }
         
         notificationToken = realmSongs.observe { [weak self] (changes: RealmCollectionChange) in
             //   guard let tableView = self?.tableView else { return }
@@ -441,8 +434,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
       // temFunccraete()
         realmGroup = groupDao.getAllItemsSortByName()
       //  realmFilteredGroup = realm.objects(Group.self).filter(NSPredicate(value: false))
-        
-        
     }
     
     private func getAlphabetStructure(title: String, arr: [String]) -> AlphabetStructure {
@@ -533,50 +524,18 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             updateSearchResults(for: searchController)
         }
     }
-}
-
-extension MainViewController: UISearchResultsUpdating, UISearchBarDelegate {
-    func updateSearchResults(for searchController: UISearchController) {
-        
-//        if(segments.selectedSegmentIndex == 0) {
-//            print("end search 1 + act0")
-//            setNotificationTokenForGroup2()
-//        }else {
-//            print("end search 1 + acti")
-//            setNotificationTokenForSong2()}
-//        updateSearchResults(for: searchController)
-//
-        filterBy(text: searchController.searchBar.text!)
-    }
     
-//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        if(segments.selectedSegmentIndex == 0) {
-//            print("end search 0")
-//            setNotificationTokenForGroup()
-//        }else {
-//             print("end search 1")
-//            setNotificationTokenForSong()}
-//    }
-    
-    
-//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-//        if(segments.selectedSegmentIndex == 0) {
-//            print("end search 0 + act")
-//            setNotificationTokenForGroup2()
-//        }else {
-//            print("end search 1 + acti")
-//            setNotificationTokenForSong2()}
-//    }
-    
-    private func filterBy(text: String) {
+    func filterBy(text: String) {
         switch segments.selectedSegmentIndex {
         case 0:
-            //  setNotificationTokenForGroup2()
+            //  setNotificationTokenForGroup2(
+           
             if(text.isEmpty) {
                 realmGroup = groupDao.getAllItemsSortByName()
             }else{
                 realmGroup = groupDao.contains(name: text)
             }
+             setNotificationTokenForGroup()
         case 1:
             //setNotificationTokenForSong2()
             if(text.isEmpty) {
@@ -584,11 +543,19 @@ extension MainViewController: UISearchResultsUpdating, UISearchBarDelegate {
             } else {
                 realmSongs =  songDao.contains(name: text)
             }
+            
+            setNotificationTokenForSong()
         default:
             print("error search")
         }
-    
+        
         mainTableView.reloadData()
+    }
+}
+
+extension MainViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterBy(text: searchController.searchBar.text!)
     }
 }
 
