@@ -33,6 +33,17 @@
                                             <segue destination="JIo-tk-18o" kind="show" identifier="showGroup" id="qxb-fZ-WDm"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="songCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="songCell" id="SUM-eu-xjF" customClass="SongViewCell" customModule="iguitar" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="294" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SUM-eu-xjF" id="Vpz-YO-YVg">
+                                            <rect key="frame" x="0.0" y="0.0" width="294" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="xKk-XH-OQ9" kind="show" identifier="showSong" id="OCn-Tt-Lbo"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="h62-ZO-vVv"/>
@@ -43,7 +54,7 @@
                                 <rect key="frame" x="322" y="99" width="72" height="588"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="72" id="AMd-BJ-lG0"/>
+                                    <constraint firstAttribute="width" constant="72" id="9dW-At-xZE"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="alphabetCell" id="bgZ-CO-gS7" customClass="AlphabetViewCell" customModule="iguitar" customModuleProvider="target">
@@ -60,29 +71,32 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="zyb-hM-SjP"/>
                                 </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="B5p-eM-ZJt">
-                                <rect key="frame" x="0.0" y="72" width="414" height="20"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="42l-q7-RdE">
+                                <rect key="frame" x="0.0" y="64" width="414" height="28"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="19" id="DMy-Rc-P4i"/>
+                                    <constraint firstAttribute="height" constant="27" id="Tox-a8-cr4"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="группы"/>
-                                    <segment title="песни"/>
+                                    <segment title="Группы"/>
+                                    <segment title="Песни"/>
                                 </segments>
+                                <connections>
+                                    <action selector="sort:" destination="BYZ-38-t0r" eventType="valueChanged" id="1ph-wB-abO"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xKS-Dt-DAr" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="BtT-CJ-3op"/>
-                            <constraint firstItem="NWH-Tl-auf" firstAttribute="top" secondItem="B5p-eM-ZJt" secondAttribute="bottom" constant="8" symbolic="YES" id="F8G-0Z-ZYF"/>
-                            <constraint firstItem="B5p-eM-ZJt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="NHk-Du-DTu"/>
-                            <constraint firstItem="NWH-Tl-auf" firstAttribute="top" secondItem="xKS-Dt-DAr" secondAttribute="top" id="OpP-M7-5Ye"/>
-                            <constraint firstItem="xKS-Dt-DAr" firstAttribute="leading" secondItem="NWH-Tl-auf" secondAttribute="trailing" constant="8" symbolic="YES" id="Oq5-1W-0vl"/>
-                            <constraint firstItem="NWH-Tl-auf" firstAttribute="bottom" secondItem="xKS-Dt-DAr" secondAttribute="bottom" id="Rfa-64-oLF"/>
-                            <constraint firstItem="NWH-Tl-auf" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="RiC-Gd-bEr"/>
-                            <constraint firstAttribute="trailing" secondItem="B5p-eM-ZJt" secondAttribute="trailing" id="WPQ-2d-ZvP"/>
-                            <constraint firstItem="NWH-Tl-auf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="thk-Qb-5hH"/>
-                            <constraint firstItem="B5p-eM-ZJt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xi5-wy-9il"/>
+                            <constraint firstItem="42l-q7-RdE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0QI-v3-IXn"/>
+                            <constraint firstItem="42l-q7-RdE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="2pg-oz-iwq"/>
+                            <constraint firstAttribute="trailing" secondItem="42l-q7-RdE" secondAttribute="trailing" id="4m9-xv-vhZ"/>
+                            <constraint firstItem="NWH-Tl-auf" firstAttribute="top" secondItem="42l-q7-RdE" secondAttribute="bottom" constant="8" symbolic="YES" id="QzY-U7-Jpc"/>
+                            <constraint firstItem="xKS-Dt-DAr" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="R6T-5y-LB9"/>
+                            <constraint firstItem="NWH-Tl-auf" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="VBY-8F-Mwe"/>
+                            <constraint firstItem="NWH-Tl-auf" firstAttribute="bottom" secondItem="xKS-Dt-DAr" secondAttribute="bottom" id="Wfr-lw-B5i"/>
+                            <constraint firstItem="xKS-Dt-DAr" firstAttribute="leading" secondItem="NWH-Tl-auf" secondAttribute="trailing" constant="8" symbolic="YES" id="lw0-18-wrk"/>
+                            <constraint firstItem="NWH-Tl-auf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="sbE-9c-VVa"/>
+                            <constraint firstItem="NWH-Tl-auf" firstAttribute="top" secondItem="xKS-Dt-DAr" secondAttribute="top" id="waO-Et-gpw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -96,7 +110,10 @@
                     <connections>
                         <outlet property="alphabetTableView" destination="xKS-Dt-DAr" id="A1E-Eu-bTr"/>
                         <outlet property="mainTableView" destination="NWH-Tl-auf" id="wgo-fT-KSB"/>
+                        <outlet property="newItemBtn" destination="Nrx-FK-Adw" id="Fur-kT-DlU"/>
+                        <outlet property="segments" destination="42l-q7-RdE" id="efc-CT-9Nk"/>
                         <segue destination="iwC-m9-kau" kind="show" identifier="updateGroup" id="OTv-4H-AUB"/>
+                        <segue destination="xtK-ah-bOb" kind="show" identifier="updateSong" id="boR-jb-Paq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -112,7 +129,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="main" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HIw-uP-Fzf">
-                                <rect key="frame" x="20" y="64" width="294" height="623"/>
+                                <rect key="frame" x="20" y="99" width="294" height="588"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mainCell" id="P4O-dU-52R" customClass="MainViewCell" customModule="iguitar" customModuleProvider="target">
@@ -133,10 +150,10 @@
                                 </connections>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="alphabet" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FvG-UJ-pqP">
-                                <rect key="frame" x="322" y="64" width="72" height="623"/>
+                                <rect key="frame" x="322" y="99" width="72" height="588"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="72" id="whM-gB-lys"/>
+                                    <constraint firstAttribute="width" constant="72" id="LKi-yl-sCm"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="alphabetCell" id="o1Z-dT-Lsn" customClass="AlphabetViewCell" customModule="iguitar" customModuleProvider="target">
@@ -153,19 +170,29 @@
                                     <outlet property="delegate" destination="Br4-wg-zR5" id="H4t-q1-IoE"/>
                                 </connections>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cKI-Ar-V42">
+                                <rect key="frame" x="0.0" y="64" width="414" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="tWD-5i-R3e"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Группы"/>
+                                    <segment title="Песни"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="FvG-UJ-pqP" firstAttribute="bottom" secondItem="gXi-Oa-Xi3" secondAttribute="bottom" id="6f0-C6-F0M"/>
-                            <constraint firstItem="FvG-UJ-pqP" firstAttribute="top" secondItem="gXi-Oa-Xi3" secondAttribute="top" id="7rZ-F1-zmz"/>
-                            <constraint firstItem="HIw-uP-Fzf" firstAttribute="bottom" secondItem="gXi-Oa-Xi3" secondAttribute="bottom" id="BsN-Wj-eyr"/>
-                            <constraint firstItem="FvG-UJ-pqP" firstAttribute="leading" secondItem="HIw-uP-Fzf" secondAttribute="trailing" constant="8" id="F76-RZ-C8t"/>
-                            <constraint firstItem="FvG-UJ-pqP" firstAttribute="leading" secondItem="HIw-uP-Fzf" secondAttribute="trailing" constant="8" id="G3a-jL-3Qc"/>
-                            <constraint firstItem="gXi-Oa-Xi3" firstAttribute="trailing" secondItem="FvG-UJ-pqP" secondAttribute="trailing" constant="20" id="eIU-4E-P1R"/>
-                            <constraint firstItem="FvG-UJ-pqP" firstAttribute="leading" secondItem="HIw-uP-Fzf" secondAttribute="trailing" constant="8" id="fsa-Gf-1dq"/>
-                            <constraint firstItem="HIw-uP-Fzf" firstAttribute="top" secondItem="gXi-Oa-Xi3" secondAttribute="top" id="lvu-EA-Cg9"/>
-                            <constraint firstItem="HIw-uP-Fzf" firstAttribute="leading" secondItem="gXi-Oa-Xi3" secondAttribute="leading" constant="20" id="vwE-8j-hkS"/>
-                            <constraint firstItem="FvG-UJ-pqP" firstAttribute="leading" secondItem="HIw-uP-Fzf" secondAttribute="trailing" constant="8" id="yAi-8C-LSg"/>
+                            <constraint firstItem="HIw-uP-Fzf" firstAttribute="top" secondItem="FvG-UJ-pqP" secondAttribute="top" id="3zO-ZJ-3td"/>
+                            <constraint firstItem="HIw-uP-Fzf" firstAttribute="bottom" secondItem="FvG-UJ-pqP" secondAttribute="bottom" id="6t2-LJ-bxX"/>
+                            <constraint firstItem="HIw-uP-Fzf" firstAttribute="leading" secondItem="USB-ts-a23" secondAttribute="leadingMargin" id="Uze-jM-K12"/>
+                            <constraint firstItem="HIw-uP-Fzf" firstAttribute="top" secondItem="cKI-Ar-V42" secondAttribute="bottom" constant="8" symbolic="YES" id="VmZ-gY-0uf"/>
+                            <constraint firstItem="HIw-uP-Fzf" firstAttribute="bottom" secondItem="gXi-Oa-Xi3" secondAttribute="bottom" id="Xak-yM-eeJ"/>
+                            <constraint firstItem="FvG-UJ-pqP" firstAttribute="trailing" secondItem="USB-ts-a23" secondAttribute="trailingMargin" id="cII-0f-ein"/>
+                            <constraint firstItem="FvG-UJ-pqP" firstAttribute="leading" secondItem="HIw-uP-Fzf" secondAttribute="trailing" constant="8" symbolic="YES" id="gOF-uW-zh4"/>
+                            <constraint firstItem="cKI-Ar-V42" firstAttribute="leading" secondItem="USB-ts-a23" secondAttribute="leading" id="i7h-fy-Pjw"/>
+                            <constraint firstItem="cKI-Ar-V42" firstAttribute="top" secondItem="gXi-Oa-Xi3" secondAttribute="top" id="rIO-fD-xnc"/>
+                            <constraint firstAttribute="trailing" secondItem="cKI-Ar-V42" secondAttribute="trailing" id="yLh-Eq-2h4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gXi-Oa-Xi3"/>
                     </view>
@@ -177,7 +204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DXX-2n-MMW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1949" y="863"/>
+            <point key="canvasLocation" x="1947.826086956522" y="862.50000000000011"/>
         </scene>
         <!--Favorite Song View Controller-->
         <scene sceneID="wBO-Qu-FIl">
@@ -423,7 +450,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="alphabet" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wTF-bg-vtx">
-                                <rect key="frame" x="322" y="64" width="72" height="672"/>
+                                <rect key="frame" x="322" y="64" width="72" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="c88-A3-li0"/>
@@ -473,7 +500,7 @@
                                 </connections>
                             </tableView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6SX-4W-aUl">
-                                <rect key="frame" x="20" y="64" width="294" height="652"/>
+                                <rect key="frame" x="20" y="64" width="294" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -900,9 +927,9 @@
         <image name="Photo" width="194.66667175292969" height="195.66667175292969"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lAI-2B-ILd"/>
+        <segue reference="boR-jb-Paq"/>
         <segue reference="OTv-4H-AUB"/>
-        <segue reference="CX1-kZ-JEf"/>
-        <segue reference="C97-88-Lmn"/>
+        <segue reference="OCn-Tt-Lbo"/>
+        <segue reference="qxb-fZ-WDm"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -11,5 +11,15 @@ import RealmSwift
 
 class GroupDao: RealmDao<Group> {
     
+    public func deleteWithChilds(item: Group) {
+        try! realm.write {
+            for song in item.listSongs {
+                realm.delete(song)
+            }
+            realm.delete(item)
+        }
+        
+        
+    }
   
 }

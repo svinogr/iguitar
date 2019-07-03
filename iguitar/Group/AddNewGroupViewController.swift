@@ -50,12 +50,10 @@ class AddNewGroupViewController: UITableViewController {
                 displayErrore()
                 return
             }
-                groupDao.create(newItem: saveGroup)
-            
+               _ = groupDao.create(newItem: saveGroup)
         }
         
        dismiss(animated: true, completion: nil)
-        
     }
     
     private func checkSameByName(name: String) -> Bool {
@@ -104,7 +102,6 @@ class AddNewGroupViewController: UITableViewController {
     }
     
     private func getGroupForSave() -> Group {
-      
         let group = Group()
         group.name = nameGroup.text!
         group.imgData = imageView.image?.jpegData(compressionQuality: 0.75)
@@ -114,7 +111,6 @@ class AddNewGroupViewController: UITableViewController {
     // MARK: - Table view data source
     
     @objc func emptyField() { // tgis
-      
         if(nameGroup.text!.isEmpty) {
             saveBtn.isEnabled = false
             title = "Новая группа"

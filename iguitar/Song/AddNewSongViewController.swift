@@ -46,7 +46,7 @@ class AddNewSongViewController: UITableViewController {
                 return
             }
             
-            songDao.create(newItem: saveSong)
+            _ = songDao.create(newItem: saveSong)
         }
         
         dismiss(animated: true, completion: nil)
