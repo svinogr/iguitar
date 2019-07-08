@@ -18,4 +18,35 @@ class SongDao: RealmDao<Song> {
     override func containsAsc(name: String) -> Results<Song> {
      return   super.contains(name: name).sorted(byKeyPath: "name", ascending: true)
     }
+    
+    override func getFavoriteWithAscContains(name: String) -> Results<Song> {
+        let objects  = containsAsc(name: name)
+        let fav = true
+        return objects.filter("isFavorite = %@", fav)
+    }
+    
+    override func getUsersItemsWithAscContains(name: String) -> Results<Song> {
+        let objects  = containsAsc(name: name)
+        let fav = true
+        return objects.filter("isUser = %@", fav)
+    }
+    
+    override func create(newItem: Song) -> Song {
+        try! realm.write{
+            let id = incrementID()
+            newItem.id = id
+            realm.add(newItem)
+            print(newItem.parentId)
+            let group = realm.objects(Group.self).filter("id = %@", newItem.parentId)
+            group[0].listSongs.append(newItem)
+        }
+        
+        return newItem
+    }
+    
+    public func addToFavorite(item: Song) {
+        try! realm.write {
+            item.isFavorite = !item.isFavorite
+        }
+    }
 }

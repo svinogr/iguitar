@@ -50,7 +50,8 @@ class AddNewGroupViewController: UITableViewController {
                 displayErrore()
                 return
             }
-               _ = groupDao.create(newItem: saveGroup)
+            saveGroup.isUser = true
+            _ = groupDao.create(newItem: saveGroup)
         }
         
        dismiss(animated: true, completion: nil)
@@ -72,7 +73,7 @@ class AddNewGroupViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nameGroup.addTarget(self, action: #selector(emptyField), for: .editingChanged)
+        nameGroup.addTarget(self, action: #selector(emptyFieldListener), for: .editingChanged)
         
         saveBtn.isEnabled = false
         
@@ -110,7 +111,7 @@ class AddNewGroupViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-    @objc func emptyField() { // tgis
+    @objc func emptyFieldListener() { // tgis
         if(nameGroup.text!.isEmpty) {
             saveBtn.isEnabled = false
             title = "Новая группа"

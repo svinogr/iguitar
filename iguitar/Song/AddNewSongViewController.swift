@@ -35,9 +35,6 @@ class AddNewSongViewController: UITableViewController {
             }
             
             songDao.update(oldItem: saveSong)
-            /// посмотреть тчо быдкт gecnbnm пустить цикл для сохранения акордов
-            
-            
         } else {
             let checkSame = checkSameByName(name: saveSong.name)
             
@@ -46,28 +43,27 @@ class AddNewSongViewController: UITableViewController {
                 return
             }
             
+            saveSong.isUser = true
             _ = songDao.create(newItem: saveSong)
         }
         
         dismiss(animated: true, completion: nil)
     }
     
-    
     @IBOutlet weak var saveBtn: UIBarButtonItem!
     
     
     private func getSongForSave() -> Song {
-        
         let song = Song()
         song.name = songName.text!
         song.text = textSong.text!
+        song.parentId = self.song!.parentId
         setAckordsFor(song: song)
         
         return song
     }
     
     private func setAckordsFor(song: Song) {
-    
         let line =  ackords.text!
         
         if (!line.isEmpty) {return}
@@ -90,7 +86,6 @@ class AddNewSongViewController: UITableViewController {
     }
     
     private func chekAckordBy(name: String) -> Ackord {
-        
        let ackords =  ackordDao.getBy(name: name.lowercased())
         
         if (ackords!.count > 0) {
@@ -101,11 +96,9 @@ class AddNewSongViewController: UITableViewController {
             
             return ackord
         }
-        
     }
     
     private func checkSameByName(name: String) -> Bool {
-        
         let songs = songDao.getBy(name: name)!
         return songs.count > 0
     }
@@ -113,29 +106,36 @@ class AddNewSongViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        songName.addTarget(self, action: #selector(emptyField), for: .editingChanged)
+        songName.addTarget(self, action: #selector(emptyFieldListener), for: .editingChanged)
         
         saveBtn.isEnabled = false
         
-        if(song != nil) {
-            isUpdate = true
-            
-        }else {
-            song = Song()
+        if(isUpdate) {
+            ackords.addTarget(self, action: #selector(updateFieldListener), for: .editingChanged)
+            textSong.delegate = self
         }
+        
+//        if(song != nil) {
+//            isUpdate = true
+//        }else {
+//            song = Song()
+//        }
         
         setupSong()
     }
     
+    @objc func updateFieldListener() {
+        if(!songName.text!.isEmpty) {
+            saveBtn.isEnabled = true}
+    }
+    
     func setupSong() {
-        
         songName.text = song?.name
         setAckordsForView()
         textSong.text = song?.text
     }
     
     private func setAckordsForView() {
-        
         var line = ""
         
         for i in 0..<song!.ackords.count {
@@ -149,21 +149,17 @@ class AddNewSongViewController: UITableViewController {
         ackords.text = line
     }
     
-    @objc func emptyField() { // tgis
-        
+    @objc func emptyFieldListener() { // tgis
         if(songName.text!.isEmpty) {
             saveBtn.isEnabled = false
             title = "Новая песня"
-            
         } else {
             saveBtn.isEnabled = true
             title = songName.text!
         }
     }
     
-    
     private func displayErrore(){
-        
         let aContr = UIAlertController(title: nil, message: "Такое название песни уже есть в приложении", preferredStyle: .alert)
         let aAction = UIAlertAction(title: "ok", style: .cancel, handler: nil)
         aContr.addAction(aAction)
@@ -183,4 +179,10 @@ class AddNewSongViewController: UITableViewController {
         return 3
     }
 
+}
+
+extension AddNewSongViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        updateFieldListener()
+    }
 }

@@ -26,7 +26,7 @@ class RealmDao<T: CommomWithId> {
         }
     }
     
-    private  func incrementID() -> Int {
+    func incrementID() -> Int {
         return (realm.objects(T.self).max(ofProperty: "id") as Int? ?? 0) + 1
     }
     
@@ -52,13 +52,25 @@ class RealmDao<T: CommomWithId> {
     }
     
     public func getFavoriteWithAsc() -> Results<T> {
+        let objects = getFavorite()
         let fav = true
-        return  realm.objects(T.self).filter("isFavorite = \(fav) ").sorted(byKeyPath: "name", ascending: true)
+        return  objects.sorted(byKeyPath: "name", ascending: fav)
     }
     
     public func getUsersItems() -> Results<T> {
         let user = true
         return realm.objects(T.self).filter("isUser = \(user)")
+    }
+    
+    public func getUsersItemsWithAsc() -> Results<T> {
+        let objects = getUsersItems()
+        let user = true
+        return objects.sorted(byKeyPath: "name", ascending: user)
+    }
+    
+    public func getUsersItemsWithAscContains(name: String) -> Results<T> {
+        let objects = getUsersItemsWithAsc()
+        return objects.filter("name = %@", name)
     }
     
     public func getBy(name: String) ->Results<T>? {
@@ -72,7 +84,12 @@ class RealmDao<T: CommomWithId> {
     
     public func containsAsc(name: String) -> Results<T>{
         let objects =  self.contains(name: name)
-        return objects.filter("name CONTAINS[c] %@", name).sorted(byKeyPath: "name", ascending: true)
+        return objects.sorted(byKeyPath: "name", ascending: true)
     }
-   
+    
+    public func getFavoriteWithAscContains(name: String) -> Results<T> {
+        let object = containsAsc(name: name)
+        let fav = true
+        return  object.filter("isFavorite = %@", fav)
+    }
 }

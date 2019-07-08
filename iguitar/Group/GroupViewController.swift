@@ -109,10 +109,20 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let top = segue.destination as! UINavigationController
             
             let song = sender as! Song
+            song.parentId = group.id
             
             let addNSC = top.viewControllers[0] as! AddNewSongViewController
             addNSC.song = song
+            addNSC.isUpdate = true
+        case "addNewSong":
+            let top = segue.destination as! UINavigationController
             
+            let song = Song()
+            song.parentId = group.id
+            
+            let addNSC = top.viewControllers[0] as! AddNewSongViewController
+            addNSC.song = song
+            addNSC.isUpdate = false
         case "showSong":
             guard let index =  tableView.indexPathForSelectedRow?.row else { return }
             
@@ -156,15 +166,5 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
     deinit {
         notificationToken = nil
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

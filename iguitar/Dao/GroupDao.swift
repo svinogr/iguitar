@@ -18,8 +18,11 @@ class GroupDao: RealmDao<Group> {
             }
             realm.delete(item)
         }
-        
-        
     }
-  
+    
+    public func addToFavorite(item: Group) {
+        try! realm.write {
+            item.isFavorite = !item.isFavorite
+        }
+    }
 }

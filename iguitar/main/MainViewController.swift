@@ -22,8 +22,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var realmGroup: Results<Group>!
     
     var realmSongs: Results<Song>!
-  
-   
+    
+    
     var notificationToken: NotificationToken? = nil
     var notificationTokenFiltered: NotificationToken? = nil
     
@@ -37,7 +37,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     var isOpenedYet = false
-    var testMainAr = ["Kino", "Alice", "KISH", "Murzilka", "DDT", "COY", "Sector GAza", "Bi2", "Splin", "Antares", "BG", "Beatles", "Queen", "Scorpions", "Uha", "Modern Talking", "Knyaz", "Polina", "Fixics",]
+  
     var groupsArr = [Group]()
     
     let testAlphaAr = ["1-9", "A-Z", "А-Я"]
@@ -50,23 +50,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.restorationIdentifier == "main" {
-            
-//            if (searchBarIsActive){
-//                switch segments.selectedSegmentIndex {
-//                case 0: return  realmFilteredGroup!.isEmpty ? 0:  realmFilteredGroup!.count
-//                case 1: return  realmFilteredSongs!.isEmpty ? 0:  realmFilteredSongs!.count
-//                default:
-//                   return 0
-//                }
-//            } else {
-            
-                switch segments.selectedSegmentIndex {
-                case 0: return  realmGroup.isEmpty ? 0:  realmGroup.count
-                case 1: return  realmSongs.isEmpty ? 0:  realmSongs.count
-                default:
-                     return 0
-//                }
-         }
+            switch segments.selectedSegmentIndex {
+            case 0: return  realmGroup.isEmpty ? 0:  realmGroup.count
+            case 1: return  realmSongs.isEmpty ? 0:  realmSongs.count
+            default:
+                return 0
+            }
         }
         else {
             if alpgabetDataCell[section].isOpened {
@@ -80,30 +69,40 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "удалить") { (action, indexPath) in
-          let index = indexPath.row
-
-                switch self.segments.selectedSegmentIndex {
-                case 0: self.groupDao.deleteWithChilds(item: self.realmGroup![index])
-                case 1:
-                    self.songDao.delete(item:self.realmSongs![index])
-                default:
-                   print("nothing to del")
-               }
-            
+            let index = indexPath.row
+            switch self.segments.selectedSegmentIndex {
+            case 0: self.groupDao.deleteWithChilds(item: self.realmGroup![index])
+            case 1:
+                self.songDao.delete(item:self.realmSongs![index])
+            default:
+                print("nothing to del")
+            }
+        }
+        
+        let favoriteAction = UITableViewRowAction(style: .destructive, title: "избранное") { (action, indexPath) in
+            let index = indexPath.row
+            switch self.segments.selectedSegmentIndex {
+            case 0: self.groupDao.addToFavorite(item: self.realmGroup![index])
+            case 1:
+                self.songDao.addToFavorite(item:self.realmSongs![index])
+            default:
+                print("nothing to del")
+            }
         }
         
         let updateAction = UITableViewRowAction(style: .default, title: "изменить"){ (action, indexPath) in
             if (self.segments.selectedSegmentIndex == 0) {
-            self.performSegue(withIdentifier: "updateGroup", sender: self.realmGroup[indexPath.row])
+                self.performSegue(withIdentifier: "updateGroup", sender: self.realmGroup[indexPath.row])
             } else {
-                 self.performSegue(withIdentifier: "updateSong", sender: self.realmSongs[indexPath.row])
+                self.performSegue(withIdentifier: "updateSong", sender: self.realmSongs[indexPath.row])
             }
         }
         
         deleteAction.backgroundColor = .red
         updateAction.backgroundColor = .green
+        favoriteAction.backgroundColor = .yellow
         
-        return[updateAction, deleteAction]
+        return[favoriteAction, updateAction, deleteAction]
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -112,44 +111,63 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: UITableViewCell
+        // var cell: UITableViewCell
         
         if tableView.restorationIdentifier == "main" {
             
-            switch segments.selectedSegmentIndex {
-            case 0:  cell = (tableView.dequeueReusableCell(withIdentifier: "mainCell") as! MainViewCell)
-              let group: Group
-//            if(searchBarIsActive) {
-//                group = realmFilteredGroup![indexPath.row]
-//            }else {
+            if (segments.selectedSegmentIndex == 0) {
+                let  cell = tableView.dequeueReusableCell(withIdentifier: "mainCell") as! MainViewCell
+                let group: Group
                 group = realmGroup[indexPath.row]
                 
-         //   }
-                  cell.textLabel?.text = group.name
-            case 1:  cell = (tableView.dequeueReusableCell(withIdentifier: "songCell") as! SongViewCell)
-            let song: Song
-//            if(searchBarIsActive) {
-//                song = realmFilteredSongs![indexPath.row]
-//            }else {
+                let image: UIImage
+                
+                if (group.imgData == nil) {
+                    image = UIImage(named: "Photo")!
+                } else {
+                    image = UIImage(data: group.imgData!)!
+                }
+                
+                cell.imageViewGroup.image = image
+                cell.imageViewGroup.layer.cornerRadius = cell.imageViewGroup.frame.width / 2
+                cell.imageViewGroup.clipsToBounds = true
+                cell.labalGroupName.text = group.name
+                cell.labelSongQuantity.text = String(format: "кол-во песен: %X", group.listSongs.count)
+               
+                if(group.isFavorite) {
+                    cell.imageViewFavorite.image = UIImage(named: "emptyStar")
+                } else {
+                    cell.imageViewFavorite.image = nil
+                }
+    
+                return cell
+            } else {
+                let  cell = tableView.dequeueReusableCell(withIdentifier: "songCell") as! SongViewCell
+                let song: Song
+                
                 song = realmSongs[indexPath.row]
                 
-      //      }
-            cell.textLabel?.text = song.name
-            default:
-                  cell = (tableView.dequeueReusableCell(withIdentifier: "mainCell") as! SongViewCell)
+                cell.nameSangLabel.text = song.name
+                if(song.isFavorite) {
+                    cell.favoriteImage.image = UIImage(named: "emptyStar")
+                } else {
+                    cell.favoriteImage.image = nil
+                }
+                return cell
             }
-    
-        }else {
-              cell = (tableView.dequeueReusableCell(withIdentifier: "alphabetCell") as! AlphabetViewCell)
             
-            if indexPath.row == 0 {
+        }else {
+            let  cell = (tableView.dequeueReusableCell(withIdentifier: "alphabetCell") as! AlphabetViewCell)
+            
+            if (indexPath.row == 0) {
                 cell.textLabel?.text = alpgabetDataCell[indexPath.section].title
             }else {
                 cell.textLabel?.text = alpgabetDataCell[indexPath.section].data[indexPath.row - 1]
             }
+            return cell
         }
         
-        return cell
+        //return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -179,37 +197,20 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         switch segments.selectedSegmentIndex {
         case 0:
-//        if(searchBarIsActive) {
-//            for i in realmFilteredGroup! {
-//                if i.name.first! == Character(letter)  {
-//                    index = realmFilteredGroup!.firstIndex(of: i)  /// сделать в фоновом потоке
-//                    break
-//                }
-//            }
-//        } else {
             for i in realmGroup {
                 if i.name.first! == Character(letter)  {
                     index = realmGroup.firstIndex(of: i)  /// сделать в фоновом потоке
                     break
                 }
             }
-//        }
         case 1:
-//            if(searchBarIsActive) {
-//                for i in realmFilteredSongs! {
-//                    if i.name.first! == Character(letter)  {
-//                        index = realmFilteredSongs!.firstIndex(of: i)  /// сделать в фоновом потоке
-//                        break
-//                    }
-//                }
-//            } else {
-                for i in realmSongs {
-                    if i.name.first! == Character(letter)  {
-                        index = realmSongs.firstIndex(of: i)  /// сделать в фоновом потоке
-                        break
-                    }
+            for i in realmSongs {
+                if i.name.first! == Character(letter)  {
+                    index = realmSongs.firstIndex(of: i)  /// сделать в фоновом потоке
+                    break
                 }
-           // }
+            }
+            
         default:
             print(1)
         }
@@ -217,17 +218,15 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         if index == nil{ return}
         let row = IndexPath(row: index!, section: 0)
         
-       mainTableView.scrollToRow(at: row, at: .middle, animated: true)
-  // mainTableView.selectRow(at: row, animated: true, scrollPosition: .middle)
-  
+        mainTableView.scrollToRow(at: row, at: .middle, animated: true)
     }
+    
     //MARK: DIDLOW
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupNavigationBar()
         setupSearch()
-        testMainAr.sort()
         setupGroups()
         setupSongs()
         setNotificationTokenForGroup()
@@ -239,23 +238,17 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         alpgabetDataCell.append(num)
         alpgabetDataCell.append(en)
         alpgabetDataCell.append(ru)
-        // Do any additional setup after loading the view.
     }
     
-     func setupNavigationBar() {
-        title = "Все группы"
+    func setupNavigationBar() {
+        title = "Все"
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-       
-       // let sections = IndexSet.init(integer: IndexPath(item: 0, section: 1).section)
-      //  alphabetTableView.reloadSections(sections, with: .none)
-       // alphabetTableView.reloadData()
-     //   alphabetTableView.selectRow(at: IndexPath(item: 0, section: 1), animated: true, scrollPosition: .middle)
-       // alphabetTableView.reloadData()
+        
         if(!isOpenedYet){
-        self.tableView(alphabetTableView, didSelectRowAt: IndexPath(item: 0, section: 2))
+            self.tableView(alphabetTableView, didSelectRowAt: IndexPath(item: 0, section: 2))
             isOpenedYet = true
         }
     }
@@ -279,11 +272,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             case .initial:
                 // Results are now populated and can be accessed without blocking the UI
                 self!.mainTableView.reloadData()
-
+                
             case .update(_, let deletions, let insertions, let modifications):
                 // Query results have changed, so apply them to the UITableView
                 print("from group realm")
-            
+                
                 self!.mainTableView.beginUpdates()
                 self!.mainTableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
                                                with: .automatic)
@@ -298,7 +291,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print(error)
             }
         }
-        
     }
     
     private func setNotificationTokenForSong() {
@@ -332,73 +324,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-//    private func setNotificationTokenForSong2() {
-//
-//        notificationToken = realmFilteredSongs!.observe { [weak self] (changes: RealmCollectionChange) in
-//            //   guard let tableView = self?.tableView else { return }
-//            switch changes {
-//            case .initial:
-//                // Results are now populated and can be accessed without blocking the UI
-//                self!.mainTableView.reloadData()
-//
-//            case .update(_, let deletions, let insertions, let modifications):
-//                // Query results have changed, so apply them to the UITableView
-//                print("from song realm")
-//                self!.mainTableView.beginUpdates()
-//                self!.mainTableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
-//                                               with: .automatic)
-//                self!.mainTableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
-//                                               with: .automatic)
-//                self!.mainTableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
-//                                               with: .automatic)
-//                self!.mainTableView.endUpdates()
-//            case .error(let error):
-//                // An error occurred while opening the Realm file on the background worker thread
-//                // fatalError("\(error)")
-//                print(error)
-//            }
-//        }
-//    }
-    
-//    private func setNotificationTokenForGroup2() {
-//
-//        notificationToken = realmFilteredGroup.observe { [weak self] (changes: RealmCollectionChange) in
-//            //   guard let tableView = self?.tableView else { return }
-//            switch changes {
-//            case .initial:
-//                // Results are now populated and can be accessed without blocking the UI
-//                self!.mainTableView.reloadData()
-//
-//            case .update(_, let deletions, let insertions, let modifications):
-//                // Query results have changed, so apply them to the UITableView
-//                print("from song realm")
-//                self!.mainTableView.beginUpdates()
-//                self!.mainTableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
-//                                               with: .automatic)
-//                self!.mainTableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
-//                                               with: .automatic)
-//                self!.mainTableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
-//                                               with: .automatic)
-//                self!.mainTableView.endUpdates()
-//            case .error(let error):
-//                // An error occurred while opening the Realm file on the background worker thread
-//                // fatalError("\(error)")
-//                print(error)
-//            }
-//        }
-//    }
-//
-    
-    
     deinit {
         notificationToken = nil
     }
     
     func setupSongs() {
         realmSongs = songDao.getAllItemsSortByName()
-      //  realmFilteredSongs = realm.objects(Song.self).filter(NSPredicate(value: false))
     }
-    
     
     func temFunccraete() {
         let acDao = AckordDao()
@@ -407,7 +339,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             let group = Group()
             group.name = "Группа \(i)"
             
-           
+            
             for y in 0...3 {
                 let song = Song()
                 song.name = "песня \(y)"
@@ -415,11 +347,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 for _ in 0...2 {
                     let acckord = Ackord()
                     acckord.name = "dm"
-                  _ =  acDao.create(newItem: acckord)
+                    _ =  acDao.create(newItem: acckord)
                     song.ackords.append(acckord)
                 }
                 
-               _ = songDao.create(newItem: song)
+                _ = songDao.create(newItem: song)
                 group.listSongs.append(song)
             }
             _ = groupDao.create(newItem: group)
@@ -430,10 +362,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-     func setupGroups() {
-      // temFunccraete()
+    func setupGroups() {
+        // temFunccraete()
         realmGroup = groupDao.getAllItemsSortByName()
-      //  realmFilteredGroup = realm.objects(Group.self).filter(NSPredicate(value: false))
     }
     
     private func getAlphabetStructure(title: String, arr: [String]) -> AlphabetStructure {
@@ -445,6 +376,19 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         return structure
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if(tableView.restorationIdentifier == "main"){
+            switch segments.selectedSegmentIndex {
+            case 0:  return 85
+            case 1:  return 50
+            default:
+               return 85
+            }
+        } else {
+            return 50
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -482,33 +426,23 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     private func getSelectedItem() -> CommomWithId? {
-    guard let index =  mainTableView.indexPathForSelectedRow?.row else { return nil}
+        guard let index =  mainTableView.indexPathForSelectedRow?.row else { return nil}
+        
         let item: CommomWithId?
         
-//        if(searchBarIsActive) {
-//
-//            switch segments.selectedSegmentIndex {
-//            case 0: item = realmFilteredGroup![index]
-//            case 1: item = realmFilteredSongs![index]
-//            default:
-//                item = nil
-//            }
-//
-//        } else {
-            switch segments.selectedSegmentIndex {
-            case 0: item = realmGroup![index]
-            case 1: item = realmSongs![index]
-            default:
-                item = nil
-            }
-       // }
-
+        switch segments.selectedSegmentIndex {
+        case 0: item = realmGroup![index]
+        case 1: item = realmSongs![index]
+        default:
+            item = nil
+        }
+        
         return item
     }
     
     @IBAction func sort(_ sender: Any) {
         if (newItemBtn != nil) {
-         newItemBtn.isEnabled = !newItemBtn.isEnabled
+            newItemBtn.isEnabled = !newItemBtn.isEnabled
         }
         
         if(segments.selectedSegmentIndex == 0) {
@@ -528,16 +462,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func filterBy(text: String) {
         switch segments.selectedSegmentIndex {
         case 0:
-            //  setNotificationTokenForGroup2(
-           
             if(text.isEmpty) {
                 realmGroup = groupDao.getAllItemsSortByName()
             }else{
                 realmGroup = groupDao.contains(name: text)
             }
-             setNotificationTokenForGroup()
+            setNotificationTokenForGroup()
         case 1:
-            //setNotificationTokenForSong2()
             if(text.isEmpty) {
                 realmSongs = songDao.getAllItemsSortByName()
             } else {
@@ -558,4 +489,5 @@ extension MainViewController: UISearchResultsUpdating, UISearchBarDelegate {
         filterBy(text: searchController.searchBar.text!)
     }
 }
+
 

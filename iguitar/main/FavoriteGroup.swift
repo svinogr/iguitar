@@ -28,13 +28,13 @@ class FavoriteGroup: MainViewController {
             if(text.isEmpty) {
                 realmGroup = groupDao.getFavoriteWithAsc()
             }else{
-                realmGroup = groupDao.contains(name: text)
+                realmGroup = groupDao.getFavoriteWithAscContains(name: text)
             }
         case 1:
             if(text.isEmpty) {
                 realmSongs = songDao.getFavoriteWithAsc()
             } else {
-                realmSongs =  songDao.contains(name: text)
+                realmSongs =  songDao.getFavoriteWithAscContains(name: text)
             }
         default:
             print("error search")

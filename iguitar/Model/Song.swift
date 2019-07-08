@@ -15,5 +15,6 @@ class Song: CommomWithId {
     @objc dynamic var isUser = false
     @objc dynamic var isFavorite = false
     let ackords = List<Ackord>()
+    var parentId = 0
 }
 
