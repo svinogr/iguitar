@@ -103,9 +103,14 @@ class AddNewSongViewController: UITableViewController {
         return songs.count > 0
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      
+            view.endEditing(true)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.tableFooterView = UIView()
         songName.addTarget(self, action: #selector(emptyFieldListener), for: .editingChanged)
         
         saveBtn.isEnabled = false

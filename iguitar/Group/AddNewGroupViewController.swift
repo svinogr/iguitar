@@ -58,23 +58,23 @@ class AddNewGroupViewController: UITableViewController {
     }
     
     private func checkSameByName(name: String) -> Bool {
-        
         let group = groupDao.getBy(name: name)!
         return group.count > 0
     }
     
     @IBOutlet weak var saveBtn: UIBarButtonItem!
     
-    @IBAction func choosePhotoGroup(_ sender: Any) {
-    
+    @IBAction func choosePhotoGroup(_ sender: UIImageView) {
         chooseImage(by: .photoLibrary)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.tableFooterView = UIView()
         nameGroup.addTarget(self, action: #selector(emptyFieldListener), for: .editingChanged)
         
+       
         saveBtn.isEnabled = false
         
         if(group != nil) {
@@ -93,8 +93,15 @@ class AddNewGroupViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (indexPath.row == 0) {
+            chooseImage(by: .photoLibrary)
+        } else {
+            view.endEditing(true)
+        }
+    }
+    
     private func displayErrore(){
-      
         let aContr = UIAlertController(title: nil, message: "Такая группа уже есть в приложении", preferredStyle: .alert)
         let aAction = UIAlertAction(title: "ok", style: .cancel, handler: nil)
         aContr.addAction(aAction)

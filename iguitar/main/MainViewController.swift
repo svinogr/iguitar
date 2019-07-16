@@ -16,6 +16,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var segments: UISegmentedControl!
     @IBOutlet weak var newItemBtn: UIBarButtonItem!
     
+    let tintColor = UIColor(displayP3Red: 138/255, green: 42/255, blue: 16/255, alpha: 0.80)
     let groupDao =   GroupDao()
     let songDao = SongDao()
     
@@ -139,7 +140,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 } else {
                     cell.imageViewFavorite.image = nil
                 }
-    
+                
+                cell.backgroundColor = UIColor(patternImage: UIImage())
                 return cell
             } else {
                 let  cell = tableView.dequeueReusableCell(withIdentifier: "songCell") as! SongViewCell
@@ -153,17 +155,21 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 } else {
                     cell.favoriteImage.image = nil
                 }
+                
+                cell.backgroundColor = UIColor(patternImage: UIImage())
                 return cell
             }
             
         }else {
             let  cell = (tableView.dequeueReusableCell(withIdentifier: "alphabetCell") as! AlphabetViewCell)
-            
+             cell.backgroundColor = UIColor(patternImage: UIImage())
             if (indexPath.row == 0) {
                 cell.textLabel?.text = alpgabetDataCell[indexPath.section].title
             }else {
                 cell.textLabel?.text = alpgabetDataCell[indexPath.section].data[indexPath.row - 1]
             }
+            
+             cell.backgroundColor = UIColor(patternImage: UIImage())
             return cell
         }
         
@@ -238,6 +244,22 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         alpgabetDataCell.append(num)
         alpgabetDataCell.append(en)
         alpgabetDataCell.append(ru)
+        setStyleApp()
+    }
+    func setStyleApp() {
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "woodBackground")!)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.tabBarController?.tabBar.backgroundImage = UIImage()
+       
+        navigationItem.rightBarButtonItem?.tintColor = tintColor
+        
+        mainTableView.backgroundColor = UIColor(patternImage: UIImage())
+        alphabetTableView.backgroundColor = UIColor(patternImage: UIImage())
+       
+        segments.tintColor = tintColor.withAlphaComponent(0.3)
+        let fontAttribute = [NSAttributedString.Key.font: UIFont(name: "Apple SD Gothic Neo", size: 14)!,
+                             NSAttributedString.Key.foregroundColor: UIColor.black]
+        segments.setTitleTextAttributes(fontAttribute, for: .normal)
     }
     
     func setupNavigationBar() {
@@ -251,6 +273,21 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.tableView(alphabetTableView, didSelectRowAt: IndexPath(item: 0, section: 2))
             isOpenedYet = true
         }
+        
+        if let textField = self.navigationItem.searchController?.searchBar.value(forKey: "searchField") as? UITextField {
+            let backgroundView = textField.subviews.first
+            if #available(iOS 11.0, *) { // If `searchController` is in `navigationItem`
+                backgroundView?.backgroundColor = tintColor.withAlphaComponent(0.3) //Or any transparent color that matches with the `navigationBar color`
+                backgroundView?.subviews.forEach({ $0.removeFromSuperview() }) // Fixes an UI bug when searchBar appears or hides when scrolling
+            }
+            
+            backgroundView?.layer.cornerRadius = 10.5
+            backgroundView?.layer.masksToBounds = true
+            
+           
+            //Continue changing more properties...
+        }
+           searchController.searchBar.tintColor = tintColor
     }
     
     private func setupSearch() {
