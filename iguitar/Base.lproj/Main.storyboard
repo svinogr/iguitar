@@ -546,8 +546,32 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xX5-M1-VGF" id="4GT-Jw-B9W">
                                             <rect key="frame" x="0.0" y="0.0" width="378" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayL-pW-ze9">
+                                                    <rect key="frame" x="8" y="11.666666666666666" width="334" height="20.666666666666671"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iKF-24-agR">
+                                                    <rect key="frame" x="350" y="12" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="iiW-xj-e3D"/>
+                                                        <constraint firstAttribute="height" constant="20" id="tQX-uh-3lw"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="iKF-24-agR" secondAttribute="trailing" constant="8" id="4fx-Cr-dfB"/>
+                                                <constraint firstItem="iKF-24-agR" firstAttribute="leading" secondItem="ayL-pW-ze9" secondAttribute="trailing" constant="8" id="8b7-yH-zVx"/>
+                                                <constraint firstItem="ayL-pW-ze9" firstAttribute="leading" secondItem="4GT-Jw-B9W" secondAttribute="leading" constant="8" id="KNG-Nv-URH"/>
+                                                <constraint firstItem="iKF-24-agR" firstAttribute="centerY" secondItem="4GT-Jw-B9W" secondAttribute="centerY" id="c1Y-0z-VU0"/>
+                                                <constraint firstItem="ayL-pW-ze9" firstAttribute="centerY" secondItem="4GT-Jw-B9W" secondAttribute="centerY" id="nN1-IF-eNP"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="favoriteImage" destination="iKF-24-agR" id="pLR-ZT-vUa"/>
+                                            <outlet property="nameSangLabel" destination="ayL-pW-ze9" id="QMX-HA-jDn"/>
                                             <segue destination="xKk-XH-OQ9" kind="show" identifier="showSong" id="gZZ-PO-fi3"/>
                                         </connections>
                                     </tableViewCell>
@@ -1182,6 +1206,6 @@
         <segue reference="lAI-2B-ILd"/>
         <segue reference="OTv-4H-AUB"/>
         <segue reference="gZZ-PO-fi3"/>
-        <segue reference="bds-Hp-AKe"/>
+        <segue reference="uPP-OP-kYn"/>
     </inferredMetricsTieBreakers>
 </document>

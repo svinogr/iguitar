@@ -58,10 +58,12 @@ class SongViewController: UIViewController, UITableViewDelegate, UITableViewData
         navigationItem.rightBarButtonItem?.tintColor = tintColor
         tableView.cellForRow(at: IndexPath(item: 0, section: 0))?.backgroundColor = UIColor(patternImage: UIImage())
         
-
         textSong.backgroundColor = UIColor(patternImage: UIImage())
         textSong.layer.cornerRadius = 6 // подобрано вручную- пересчитать
         textSong.clipsToBounds = true
+        
+        let top = navigationController?.navigationBar.topItem
+        top?.backBarButtonItem?.tintColor = tintColor
     }
     
     private func setupNavigationBar() {
@@ -75,6 +77,9 @@ class SongViewController: UIViewController, UITableViewDelegate, UITableViewData
         textSong.text = song.text
     }
 
+    
+ 
+    
     /*
     // MARK: - Navigation
 

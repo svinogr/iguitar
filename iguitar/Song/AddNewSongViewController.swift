@@ -141,9 +141,9 @@ class AddNewSongViewController: UITableViewController {
         tableView.cellForRow(at: IndexPath(item: 1, section: 0))?.backgroundColor = UIColor(patternImage: UIImage())
         tableView.cellForRow(at: IndexPath(item: 2, section: 0))?.backgroundColor = UIColor(patternImage: UIImage())
         
-        songName.backgroundColor = tintColor
-        ackords.backgroundColor = tintColor
-        textSong.backgroundColor = tintColor
+        songName.backgroundColor = tintColor.withAlphaComponent(0.3)
+        ackords.backgroundColor = tintColor.withAlphaComponent(0.3)
+        textSong.backgroundColor = tintColor.withAlphaComponent(0.3)
         textSong.layer.cornerRadius = 6 // подобрано вручную- пересчитать
         textSong.clipsToBounds = true
     }

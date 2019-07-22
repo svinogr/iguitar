@@ -11,7 +11,6 @@ import UIKit
 class SongViewCell: UITableViewCell {
 
     @IBOutlet weak var nameSangLabel: UILabel!
-    
     @IBOutlet weak var favoriteImage: UIImageView!
     
 }
