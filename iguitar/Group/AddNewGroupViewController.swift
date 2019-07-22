@@ -74,7 +74,6 @@ class AddNewGroupViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         nameGroup.addTarget(self, action: #selector(emptyFieldListener), for: .editingChanged)
         
-       
         saveBtn.isEnabled = false
         
         if(group != nil) {
@@ -84,14 +83,15 @@ class AddNewGroupViewController: UITableViewController {
             group = Group()
         }
      
-      setupGroup()
-
+        setupGroup()
+        setStyleApp()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (indexPath.row == 0) {
@@ -101,12 +101,25 @@ class AddNewGroupViewController: UITableViewController {
         }
     }
     
+    func setStyleApp() {
+        tableView.backgroundColor = UIColor(patternImage: UIImage())
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "woodBackground")!)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        
+        navigationItem.leftBarButtonItem?.tintColor = tintColor
+        navigationItem.rightBarButtonItem?.tintColor = tintColor
+        tableView.cellForRow(at: IndexPath(item: 0, section: 0))?.backgroundColor = UIColor(patternImage: UIImage())
+        tableView.cellForRow(at: IndexPath(item: 1, section: 0))?.backgroundColor = UIColor(patternImage: UIImage())
+       
+        nameGroup.backgroundColor = tintColor
+    }
+    
     private func displayErrore(){
         let aContr = UIAlertController(title: nil, message: "Такая группа уже есть в приложении", preferredStyle: .alert)
         let aAction = UIAlertAction(title: "ok", style: .cancel, handler: nil)
         aContr.addAction(aAction)
         
-            present(aContr, animated: true, completion: nil)
+        present(aContr, animated: true, completion: nil)
     }
     
     private func getGroupForSave() -> Group {
@@ -131,6 +144,7 @@ class AddNewGroupViewController: UITableViewController {
 
     private func setupGroup() {
         let image: UIImage
+        imageView.backgroundColor = UIColor(patternImage: UIImage())
         
         if (group?.imgData == nil) {
             image = UIImage(named: "Photo")!

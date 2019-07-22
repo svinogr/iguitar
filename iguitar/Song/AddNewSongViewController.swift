@@ -127,6 +127,25 @@ class AddNewSongViewController: UITableViewController {
 //        }
         
         setupSong()
+        setStyleApp()
+    }
+    
+    func setStyleApp() {
+        tableView.backgroundColor = UIColor(patternImage: UIImage())
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "woodBackground")!)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        
+        navigationItem.leftBarButtonItem?.tintColor = tintColor
+        navigationItem.rightBarButtonItem?.tintColor = tintColor
+        tableView.cellForRow(at: IndexPath(item: 0, section: 0))?.backgroundColor = UIColor(patternImage: UIImage())
+        tableView.cellForRow(at: IndexPath(item: 1, section: 0))?.backgroundColor = UIColor(patternImage: UIImage())
+        tableView.cellForRow(at: IndexPath(item: 2, section: 0))?.backgroundColor = UIColor(patternImage: UIImage())
+        
+        songName.backgroundColor = tintColor
+        ackords.backgroundColor = tintColor
+        textSong.backgroundColor = tintColor
+        textSong.layer.cornerRadius = 6 // подобрано вручную- пересчитать
+        textSong.clipsToBounds = true
     }
     
     @objc func updateFieldListener() {

@@ -9,6 +9,8 @@
 import UIKit
 import RealmSwift
 
+let tintColor = UIColor(displayP3Red: 138/255, green: 42/255, blue: 16/255, alpha: 0.80)
+
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var mainTableView: UITableView!
@@ -16,7 +18,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var segments: UISegmentedControl!
     @IBOutlet weak var newItemBtn: UIBarButtonItem!
     
-    let tintColor = UIColor(displayP3Red: 138/255, green: 42/255, blue: 16/255, alpha: 0.80)
+    
     let groupDao =   GroupDao()
     let songDao = SongDao()
     
@@ -68,9 +70,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "удалить") { (action, indexPath) in
-            let index = indexPath.row
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let index = indexPath.row
+        
+        let delete = UIContextualAction(style: .destructive, title: "", handler: {
+            (a, b, c) in
+          
+            print(self.realmGroup[index])
             switch self.segments.selectedSegmentIndex {
             case 0: self.groupDao.deleteWithChilds(item: self.realmGroup![index])
             case 1:
@@ -78,34 +84,85 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             default:
                 print("nothing to del")
             }
-        }
+            
+        })
+        delete.image = UIImage(named: "trash")
         
-        let favoriteAction = UITableViewRowAction(style: .destructive, title: "избранное") { (action, indexPath) in
-            let index = indexPath.row
-            switch self.segments.selectedSegmentIndex {
-            case 0: self.groupDao.addToFavorite(item: self.realmGroup![index])
-            case 1:
-                self.songDao.addToFavorite(item:self.realmSongs![index])
-            default:
-                print("nothing to del")
-            }
-        }
-        
-        let updateAction = UITableViewRowAction(style: .default, title: "изменить"){ (action, indexPath) in
-            if (self.segments.selectedSegmentIndex == 0) {
-                self.performSegue(withIdentifier: "updateGroup", sender: self.realmGroup[indexPath.row])
-            } else {
-                self.performSegue(withIdentifier: "updateSong", sender: self.realmSongs[indexPath.row])
-            }
-        }
-        
-        deleteAction.backgroundColor = .red
-        updateAction.backgroundColor = .green
-        favoriteAction.backgroundColor = .yellow
-        
-        return[favoriteAction, updateAction, deleteAction]
+        let updateAction = UIContextualAction(style: .normal, title: "изменить"){ (action, indexPath, c) in
+                        if (self.segments.selectedSegmentIndex == 0) {
+                            self.performSegue(withIdentifier: "updateGroup", sender: self.realmGroup![index])
+                        } else {
+                            self.performSegue(withIdentifier: "updateSong", sender: self.realmSongs![index])
+                        }
+                    }
+
+        let config = UISwipeActionsConfiguration(actions:[delete, updateAction])
+        config.performsFirstActionWithFullSwipe = false
+    
+        return config
     }
     
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let index = indexPath.row
+
+        let favoriteAction = UIContextualAction(style: .normal, title: "избранное") { (action, indexPath, c) in
+                        switch self.segments.selectedSegmentIndex {
+                        case 0: self.groupDao.addToFavorite(item: self.realmGroup![index])
+                        case 1:
+                            self.songDao.addToFavorite(item:self.realmSongs![index])
+                        default:
+                            print("nothing to del")
+                        }
+                    }
+        
+        let config = UISwipeActionsConfiguration(actions: [favoriteAction])
+        config.performsFirstActionWithFullSwipe = false
+        
+        return config
+    }
+    
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        let deleteAction = MyTableRowAction(style: .default, title: "") { (action, indexPath) in
+//            let index = indexPath.row
+//            switch self.segments.selectedSegmentIndex {
+//            case 0: self.groupDao.deleteWithChilds(item: self.realmGroup![index])
+//            case 1:
+//                self.songDao.delete(item:self.realmSongs![index])
+//            default:
+//                print("nothing to del")
+//            }
+//        }
+//
+//        let favoriteAction = MyTableRowAction(style: .destructive, title: "избранное") { (action, indexPath) in
+//            let index = indexPath.row
+//            switch self.segments.selectedSegmentIndex {
+//            case 0: self.groupDao.addToFavorite(item: self.realmGroup![index])
+//            case 1:
+//                self.songDao.addToFavorite(item:self.realmSongs![index])
+//            default:
+//                print("nothing to del")
+//            }
+//        }
+//
+//        let updateAction = UITableViewRowAction(style: .default, title: "изменить"){ (action, indexPath) in
+//            if (self.segments.selectedSegmentIndex == 0) {
+//                self.performSegue(withIdentifier: "updateGroup", sender: self.realmGroup[indexPath.row])
+//            } else {
+//                self.performSegue(withIdentifier: "updateSong", sender: self.realmSongs[indexPath.row])
+//            }
+//        }
+//
+//        let image = UIImage(named: "Photo")
+//       // deleteAction.image = image
+//      //  deleteAction.backgroundColor = UIColor(patternImage: image!)
+//        updateAction.backgroundColor = .green
+//        favoriteAction.setIcon(iconImage: image!, backColor: UIColor(patternImage: UIImage()), cellHeight: tableView.rowHeight, customSwipPartWidth: 30, iconSizePercentage: 80)
+//        favoriteAction.valu
+//
+//
+//        return[favoriteAction, updateAction, deleteAction]
+//    }
+//
     func numberOfSections(in tableView: UITableView) -> Int {
         if tableView.restorationIdentifier == "main" { return 1}
         else {return alpgabetDataCell.count}
@@ -246,6 +303,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         alpgabetDataCell.append(ru)
         setStyleApp()
     }
+    
     func setStyleApp() {
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "woodBackground")!)
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -257,6 +315,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         alphabetTableView.backgroundColor = UIColor(patternImage: UIImage())
        
         segments.tintColor = tintColor.withAlphaComponent(0.3)
+        
         let fontAttribute = [NSAttributedString.Key.font: UIFont(name: "Apple SD Gothic Neo", size: 14)!,
                              NSAttributedString.Key.foregroundColor: UIColor.black]
         segments.setTitleTextAttributes(fontAttribute, for: .normal)

@@ -22,6 +22,7 @@
 		6072B40D22BA4AE800F9E5F6 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B40C22BA4AE800F9E5F6 /* SongViewController.swift */; };
 		6072B40F22BA4D1D00F9E5F6 /* Ackord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B40E22BA4D1D00F9E5F6 /* Ackord.swift */; };
 		607B3CE722C0F8CA006D8022 /* AddNewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607B3CE622C0F8CA006D8022 /* AddNewGroupViewController.swift */; };
+		6084B95022E1B147003053EB /* myTableRowAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6084B94F22E1B147003053EB /* myTableRowAction.swift */; };
 		609A449D22B8B1DF0037102C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A449C22B8B1DF0037102C /* AppDelegate.swift */; };
 		609A449F22B8B1DF0037102C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A449E22B8B1DF0037102C /* MainViewController.swift */; };
 		609A44A222B8B1DF0037102C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 609A44A022B8B1DF0037102C /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 		6072B40C22BA4AE800F9E5F6 /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 		6072B40E22BA4D1D00F9E5F6 /* Ackord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ackord.swift; sourceTree = "<group>"; };
 		607B3CE622C0F8CA006D8022 /* AddNewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGroupViewController.swift; sourceTree = "<group>"; };
+		6084B94F22E1B147003053EB /* myTableRowAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTableRowAction.swift; sourceTree = "<group>"; };
 		609A449922B8B1DF0037102C /* iguitar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iguitar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		609A449C22B8B1DF0037102C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		609A449E22B8B1DF0037102C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				609A44AE22B8B6330037102C /* MainViewCell.swift */,
 				609A44B322B8C3050037102C /* AlphabetStructure.swift */,
 				609A44B022B8B6440037102C /* AlphabetViewCell.swift */,
+				6084B94F22E1B147003053EB /* myTableRowAction.swift */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				609A44AF22B8B6330037102C /* MainViewCell.swift in Sources */,
 				600216C422BB7EA9003CAC87 /* RealmDao.swift in Sources */,
 				6072B40822BA15A500F9E5F6 /* SongViewCell.swift in Sources */,
+				6084B95022E1B147003053EB /* myTableRowAction.swift in Sources */,
 				60AEFAAF22BCC212007FD02C /* CommonWithId.swift in Sources */,
 				6072B40B22BA275500F9E5F6 /* AckordViewCell.swift in Sources */,
 				601571D522C2471300E8D574 /* GroupDao.swift in Sources */,

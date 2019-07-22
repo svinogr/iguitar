@@ -37,23 +37,23 @@
                                                     </constraints>
                                                 </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P6u-wz-YEl">
-                                                    <rect key="frame" x="274" y="32.333333333333336" width="20" height="20"/>
+                                                    <rect key="frame" x="266" y="32.333333333333336" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="kTG-hH-dTF"/>
                                                         <constraint firstAttribute="width" constant="20" id="v31-0a-YX7"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KQc-Ym-OAh">
-                                                    <rect key="frame" x="74" y="19.666666666666668" width="192" height="45.666666666666657"/>
+                                                    <rect key="frame" x="74" y="19.666666666666668" width="184" height="45.666666666666657"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Группа" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fhn-Td-1eT">
-                                                            <rect key="frame" x="0.0" y="0.0" width="192" height="20.666666666666668"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="184" height="20.666666666666668"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="песни:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOs-tK-2xv">
-                                                            <rect key="frame" x="0.0" y="28.666666666666671" width="192" height="17"/>
+                                                            <rect key="frame" x="0.0" y="28.666666666666671" width="184" height="17"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -87,13 +87,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название песни" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bO9-w5-ita">
-                                                    <rect key="frame" x="24" y="32" width="242" height="20.666666666666671"/>
+                                                    <rect key="frame" x="24" y="32" width="234" height="20.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Twm-Oz-Ovu">
-                                                    <rect key="frame" x="274" y="32.333333333333336" width="20" height="20"/>
+                                                    <rect key="frame" x="266" y="32.333333333333336" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="UKv-4g-Vgl"/>
                                                         <constraint firstAttribute="height" constant="20" id="bfB-9W-C4m"/>
@@ -450,17 +450,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="gkZ-GG-5t3">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="80"/>
+                                                <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gkZ-GG-5t3">
+                                                    <rect key="frame" x="20" y="16" width="374" height="64"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название группы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4i-yM-bP8">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="31"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="20.666666666666668"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="название группы" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OTl-VY-LA3">
-                                                            <rect key="frame" x="0.0" y="49" width="374" height="31"/>
+                                                            <rect key="frame" x="0.0" y="28.666666666666661" width="374" height="35.333333333333343"/>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits"/>
@@ -469,7 +469,7 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="gkZ-GG-5t3" firstAttribute="top" secondItem="a3O-5V-Tqn" secondAttribute="top" id="9BZ-1s-A4N"/>
+                                                <constraint firstItem="gkZ-GG-5t3" firstAttribute="top" secondItem="a3O-5V-Tqn" secondAttribute="top" constant="16" id="9BZ-1s-A4N"/>
                                                 <constraint firstAttribute="bottom" secondItem="gkZ-GG-5t3" secondAttribute="bottom" id="VIe-5s-YHG"/>
                                                 <constraint firstAttribute="trailing" secondItem="gkZ-GG-5t3" secondAttribute="trailing" constant="20" id="YyN-0l-w3Y"/>
                                                 <constraint firstItem="gkZ-GG-5t3" firstAttribute="leading" secondItem="a3O-5V-Tqn" secondAttribute="leading" constant="20" id="c0V-WI-tMX"/>
@@ -645,36 +645,48 @@
                                     <outlet property="delegate" destination="xKk-XH-OQ9" id="9lm-9D-Vav"/>
                                 </connections>
                             </tableView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6SX-4W-aUl">
-                                <rect key="frame" x="20" y="64" width="294" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="voo-gt-Dz3">
+                                <rect key="frame" x="0.0" y="64" width="322" height="623"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="caS-5A-p88">
+                                        <rect key="frame" x="8" y="0.0" width="306" height="623"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="caS-5A-p88" firstAttribute="centerY" secondItem="voo-gt-Dz3" secondAttribute="centerY" id="0wV-QA-3wc"/>
+                                    <constraint firstItem="caS-5A-p88" firstAttribute="leading" secondItem="voo-gt-Dz3" secondAttribute="leadingMargin" id="40h-6c-1HN"/>
+                                    <constraint firstItem="caS-5A-p88" firstAttribute="trailing" secondItem="voo-gt-Dz3" secondAttribute="trailingMargin" id="69p-pC-lhP"/>
+                                    <constraint firstItem="caS-5A-p88" firstAttribute="top" secondItem="voo-gt-Dz3" secondAttribute="top" id="VCZ-Vq-E05"/>
+                                    <constraint firstItem="caS-5A-p88" firstAttribute="centerX" secondItem="voo-gt-Dz3" secondAttribute="centerX" id="apD-Yh-OCg"/>
+                                    <constraint firstAttribute="bottom" secondItem="caS-5A-p88" secondAttribute="bottom" id="olr-60-JV7"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Ozp-vd-msJ" firstAttribute="bottom" secondItem="6SX-4W-aUl" secondAttribute="bottom" constant="20" id="N3n-cE-HSK"/>
-                            <constraint firstItem="6SX-4W-aUl" firstAttribute="top" secondItem="Ozp-vd-msJ" secondAttribute="top" id="YyA-6y-QU5"/>
                             <constraint firstItem="wTF-bg-vtx" firstAttribute="top" secondItem="Ozp-vd-msJ" secondAttribute="top" id="aDc-3y-tjq"/>
+                            <constraint firstItem="wTF-bg-vtx" firstAttribute="leading" secondItem="voo-gt-Dz3" secondAttribute="trailing" id="ehg-zb-UY7"/>
                             <constraint firstItem="wTF-bg-vtx" firstAttribute="bottom" secondItem="Ozp-vd-msJ" secondAttribute="bottom" id="gBp-6h-aTA"/>
+                            <constraint firstItem="Ozp-vd-msJ" firstAttribute="bottom" secondItem="voo-gt-Dz3" secondAttribute="bottom" id="gJY-Q9-GuF"/>
                             <constraint firstItem="Ozp-vd-msJ" firstAttribute="trailing" secondItem="wTF-bg-vtx" secondAttribute="trailing" constant="20" id="hIo-4b-E3I"/>
-                            <constraint firstItem="wTF-bg-vtx" firstAttribute="leading" secondItem="6SX-4W-aUl" secondAttribute="trailing" constant="8" id="r0R-zK-iW7"/>
-                            <constraint firstItem="6SX-4W-aUl" firstAttribute="leading" secondItem="Ozp-vd-msJ" secondAttribute="leading" constant="20" id="vXE-pc-mrr"/>
-                            <constraint firstItem="wTF-bg-vtx" firstAttribute="leading" secondItem="6SX-4W-aUl" secondAttribute="trailing" constant="8" id="ysO-J9-QP2"/>
+                            <constraint firstItem="voo-gt-Dz3" firstAttribute="leading" secondItem="Ozp-vd-msJ" secondAttribute="leading" id="sqc-tx-T5X"/>
+                            <constraint firstItem="voo-gt-Dz3" firstAttribute="top" secondItem="Ozp-vd-msJ" secondAttribute="top" id="zB9-3C-sSh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ozp-vd-msJ"/>
                     </view>
                     <navigationItem key="navigationItem" id="iYf-2L-cJt"/>
                     <connections>
                         <outlet property="tableView" destination="wTF-bg-vtx" id="cZw-UR-kpD"/>
-                        <outlet property="textSong" destination="6SX-4W-aUl" id="cgg-Oa-ycC"/>
+                        <outlet property="textSong" destination="caS-5A-p88" id="DuW-v2-qKl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WNh-R6-iv2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4836" y="430"/>
+            <point key="canvasLocation" x="4834.7826086956529" y="429.61956521739131"/>
         </scene>
         <!--Главная-->
         <scene sceneID="X9i-gt-gTj">
@@ -732,8 +744,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="68z-Bx-dGW">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="80"/>
+                                                <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="68z-Bx-dGW">
+                                                    <rect key="frame" x="20" y="16" width="374" height="64"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название песни" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubo-z3-JZo">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="20.666666666666668"/>
@@ -742,7 +754,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="название песни" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lxu-67-GPI">
-                                                            <rect key="frame" x="0.0" y="38.666666666666657" width="374" height="41.333333333333343"/>
+                                                            <rect key="frame" x="0.0" y="28.666666666666661" width="374" height="35.333333333333343"/>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits"/>
@@ -751,7 +763,7 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="68z-Bx-dGW" firstAttribute="top" secondItem="70x-50-xZz" secondAttribute="top" id="Ivx-7z-8sL"/>
+                                                <constraint firstItem="68z-Bx-dGW" firstAttribute="top" secondItem="70x-50-xZz" secondAttribute="top" constant="16" id="FR3-ho-Ypc"/>
                                                 <constraint firstAttribute="bottom" secondItem="68z-Bx-dGW" secondAttribute="bottom" id="TTt-qO-YaA"/>
                                                 <constraint firstItem="68z-Bx-dGW" firstAttribute="leading" secondItem="70x-50-xZz" secondAttribute="leading" constant="20" id="dHv-JQ-AZD"/>
                                                 <constraint firstAttribute="trailing" secondItem="68z-Bx-dGW" secondAttribute="trailing" constant="20" id="lbK-om-jwZ"/>
@@ -765,8 +777,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="g9h-a8-X06">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="80"/>
+                                                <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="g9h-a8-X06">
+                                                    <rect key="frame" x="20" y="16" width="374" height="64"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Аккорды" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPq-lo-cl6">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="20.666666666666668"/>
@@ -775,7 +787,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="аккорды через запятую: Am, G.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rSr-qZ-3gK">
-                                                            <rect key="frame" x="0.0" y="38.666666666666657" width="374" height="41.333333333333343"/>
+                                                            <rect key="frame" x="0.0" y="28.666666666666661" width="374" height="35.333333333333343"/>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits"/>
@@ -785,9 +797,9 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="g9h-a8-X06" firstAttribute="leading" secondItem="cHM-zS-WB5" secondAttribute="leading" constant="20" id="AZA-xP-FbI"/>
-                                                <constraint firstItem="g9h-a8-X06" firstAttribute="top" secondItem="cHM-zS-WB5" secondAttribute="top" id="Fj7-90-DfO"/>
                                                 <constraint firstAttribute="trailing" secondItem="g9h-a8-X06" secondAttribute="trailing" constant="20" id="mDp-TL-4Ij"/>
                                                 <constraint firstAttribute="bottom" secondItem="g9h-a8-X06" secondAttribute="bottom" id="tjj-9h-QFI"/>
+                                                <constraint firstItem="g9h-a8-X06" firstAttribute="top" secondItem="cHM-zS-WB5" secondAttribute="top" constant="16" id="v4h-S9-b8Y"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -798,8 +810,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="236"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="IeS-lm-XBy">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="236"/>
+                                                <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IeS-lm-XBy">
+                                                    <rect key="frame" x="20" y="16" width="374" height="220"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Текст" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svX-Eu-M4s">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="20.666666666666668"/>
@@ -808,7 +820,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bHs-uA-3TP">
-                                                            <rect key="frame" x="0.0" y="38.666666666666671" width="374" height="197.33333333333331"/>
+                                                            <rect key="frame" x="0.0" y="28.666666666666671" width="374" height="191.33333333333331"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
@@ -820,7 +832,7 @@
                                             <constraints>
                                                 <constraint firstItem="IeS-lm-XBy" firstAttribute="leading" secondItem="vAu-iO-L05" secondAttribute="leading" constant="20" id="3w8-Em-a5C"/>
                                                 <constraint firstAttribute="bottom" secondItem="IeS-lm-XBy" secondAttribute="bottom" id="H8g-Sd-hfd"/>
-                                                <constraint firstItem="IeS-lm-XBy" firstAttribute="top" secondItem="vAu-iO-L05" secondAttribute="top" id="o4G-go-wxU"/>
+                                                <constraint firstItem="IeS-lm-XBy" firstAttribute="top" secondItem="vAu-iO-L05" secondAttribute="top" constant="16" id="o4G-go-wxU"/>
                                                 <constraint firstAttribute="trailing" secondItem="IeS-lm-XBy" secondAttribute="trailing" constant="20" id="tk3-du-HFF"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -994,7 +1006,6 @@
                                                 <constraint firstItem="pvy-iu-eQa" firstAttribute="leading" secondItem="lP4-Qd-efZ" secondAttribute="leading" constant="8" id="vh0-SD-2dm"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.38222469889999999" green="1" blue="0.33841577839999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="imageViewFavorite" destination="0SX-Zi-S4E" id="ylS-6R-v2Q"/>
                                             <outlet property="imageViewGroup" destination="pvy-iu-eQa" id="oej-gf-unJ"/>
@@ -1032,7 +1043,6 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="zHq-jd-Ayp" secondAttribute="trailing" constant="8" id="n75-KI-A7O"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.38222469889999999" green="1" blue="0.33841577839999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="favoriteImage" destination="wgy-sb-gv4" id="FLq-6Q-Dbv"/>
                                             <outlet property="nameSangLabel" destination="zHq-jd-Ayp" id="uNO-70-A7y"/>
@@ -1169,9 +1179,9 @@
         <image name="Photo" width="194.66667175292969" height="195.66667175292969"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="boR-jb-Paq"/>
+        <segue reference="lAI-2B-ILd"/>
         <segue reference="OTv-4H-AUB"/>
-        <segue reference="BdW-vi-Hpk"/>
+        <segue reference="gZZ-PO-fi3"/>
         <segue reference="bds-Hp-AKe"/>
     </inferredMetricsTieBreakers>
 </document>

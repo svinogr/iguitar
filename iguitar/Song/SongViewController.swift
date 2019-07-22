@@ -46,8 +46,22 @@ class SongViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         setupSong()
         setupNavigationBar()
+        setStyleApp()
+    }
+    
+    func setStyleApp() {
+        tableView.backgroundColor = UIColor(patternImage: UIImage())
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "woodBackground")!)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        
+        navigationItem.leftBarButtonItem?.tintColor = tintColor
+        navigationItem.rightBarButtonItem?.tintColor = tintColor
+        tableView.cellForRow(at: IndexPath(item: 0, section: 0))?.backgroundColor = UIColor(patternImage: UIImage())
+        
 
-        // Do any additional setup after loading the view.
+        textSong.backgroundColor = UIColor(patternImage: UIImage())
+        textSong.layer.cornerRadius = 6 // подобрано вручную- пересчитать
+        textSong.clipsToBounds = true
     }
     
     private func setupNavigationBar() {
@@ -58,7 +72,6 @@ class SongViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     private func setupSong() {
-       
         textSong.text = song.text
     }
 

@@ -43,17 +43,18 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "songCell") as! SongViewCell
         cell.textLabel?.text = group.listSongs[indexPath.row].name
+        cell.backgroundColor = UIColor(patternImage: UIImage())
         
         return cell
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-       songDao = SongDao()
+        songDao = SongDao()
         setupImage()
         setupNavigationBar()
         setNotificationToken()
+        setStyleApp()
         // Do any additional setup after loading the view.
     }
     
@@ -69,32 +70,26 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let top = navigationController?.navigationBar.topItem
         top?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil) // убираем кнопку кансел и все что идет после стрелочки кнопки назад
+        top?.backBarButtonItem?.tintColor = tintColor
         navigationItem.leftBarButtonItem = nil
         
         title = group.name
-    
     }
-    
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let deleteAction = UITableViewRowAction(style: .destructive, title: "удалить") { (action, indexPath) in
-            
 
            // self.group.listSongs.remove(at: indexPath.row)// возможно нуджно торвать оит резалтс
             
           //  self.groupdao!.update(oldItem: self.group)
             let song = self.group.listSongs[indexPath.row]
             self.songDao!.delete(item: song)
-    
         }
         
         let updateAction = UITableViewRowAction(style: .default, title: "изменить"){ (action, indexPath) in
-     
             self.performSegue(withIdentifier: "updateSong", sender: self.group.listSongs[indexPath.row])
-      
         }
-        
         
         deleteAction.backgroundColor = .red
         updateAction.backgroundColor = .green
@@ -134,6 +129,17 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         default:
             return
         }      
+    }
+    
+    func setStyleApp() {
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "woodBackground")!)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.tabBarController?.tabBar.backgroundImage = UIImage()
+        tableView.backgroundColor = UIColor(patternImage: UIImage())
+        navigationItem.rightBarButtonItem?.tintColor = tintColor
+        
+        let top = navigationController?.navigationBar.topItem
+        top?.backBarButtonItem?.tintColor = tintColor
     }
     
     private func setNotificationToken() {
