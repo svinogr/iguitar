@@ -9,11 +9,10 @@
 import RealmSwift
 
 class Group: CommomWithId {
-    
     @objc dynamic var name = ""
     @objc dynamic var descriptionGroup = ""
     @objc dynamic var isUser = false
     @objc dynamic var imgData: Data?
     @objc dynamic var isFavorite = false
-    let listSongs = List<Song>()
+    var listSongs = List<Song>()
 }

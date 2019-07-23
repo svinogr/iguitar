@@ -429,37 +429,71 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func temFunccraete() {
-        let acDao = AckordDao()
+    
+    var array = [Group]()
         
-        for i in 0...1000 {
+        for i in 0...10 {
             let group = Group()
             group.name = "Группа \(i)"
+           
             
-            
-            for y in 0...3 {
+            for y in 0...30 {
                 let song = Song()
                 song.name = "песня \(y)"
                 song.text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."
-                for _ in 0...2 {
+              
+                for o in 0...2 {
                     let acckord = Ackord()
-                    acckord.name = "dm"
-                    _ =  acDao.create(newItem: acckord)
+                    acckord.name = "dm\(o)"
+                    
                     song.ackords.append(acckord)
                 }
                 
-                _ = songDao.create(newItem: song)
+               
                 group.listSongs.append(song)
+               
             }
-            _ = groupDao.create(newItem: group)
-            
+             array.append(group)
         }
         
+        createNewDataBase(groups: array)
         
     }
     
+    private func createNewDataBase(groups: [Group]){
+        
+        let ackDao = AckordDao()
+        
+        for gr in groups {
+            
+            var newGr = Group()
+            newGr.name = gr.name
+            
+            newGr =  groupDao.create(newItem: newGr)
+            
+            for song in gr.listSongs{
+                
+                let newSn = Song()
+                newSn.parentId = newGr.id
+                newSn.name = song.name
+                newSn.text = song.text
+                
+                for ack in song.ackords{
+                    var newAck = Ackord()
+                    newAck.name = ack.name
+                    newAck = ackDao.create(newItem: newAck)
+                    newSn.ackords.append(newAck)
+                }
+                
+                _ =   songDao.create(newItem: newSn)
+                //update ackk
+            }
+        }
+        
+    }
     
     func setupGroups() {
-        // temFunccraete()
+        temFunccraete()
         realmGroup = groupDao.getAllItemsSortByName()
     }
     

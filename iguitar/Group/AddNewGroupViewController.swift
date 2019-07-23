@@ -35,7 +35,7 @@ class AddNewGroupViewController: UITableViewController {
         if(isUpdate) {
             let checkSame = checkSameByName(name: saveGroup.name)
             saveGroup.id = group!.id
-            
+            saveGroup.listSongs = group!.listSongs
             if(checkSame && !isChageImage){
                 displayErrore()
                 return
@@ -125,7 +125,7 @@ class AddNewGroupViewController: UITableViewController {
     private func getGroupForSave() -> Group {
         let group = Group()
         group.name = nameGroup.text!
-        group.imgData = imageView.image?.jpegData(compressionQuality: 0.75)
+        group.imgData = imageView.image?.jpegData(compressionQuality: 0.2)
         return group
     }
     
@@ -179,7 +179,6 @@ extension AddNewGroupViewController: UIImagePickerControllerDelegate, UINavigati
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
         imageView.image = info[.editedImage] as? UIImage
         imageView.contentMode = .scaleToFill
         imageView.clipsToBounds = true

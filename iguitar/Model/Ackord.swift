@@ -11,5 +11,5 @@ import RealmSwift
 class Ackord: CommomWithId {
     @objc dynamic var name = ""
     @objc dynamic var imageData: Data?
-    let parent = LinkingObjects(fromType: Song.self, property: "ackords")
+  //  let parent = LinkingObjects(fromType: Song.self, property: "ackords")
 }

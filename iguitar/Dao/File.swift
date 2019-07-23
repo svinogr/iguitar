@@ -38,11 +38,14 @@ class SongDao: RealmDao<Song> {
             realm.add(newItem)
             print(newItem.parentId)
             let group = realm.objects(Group.self).filter("id = %@", newItem.parentId)
+            print(group.count)
             group[0].listSongs.append(newItem)
         }
         
         return newItem
     }
+    
+    
     
     public func addToFavorite(item: Song) {
         try! realm.write {

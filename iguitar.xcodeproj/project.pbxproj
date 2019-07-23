@@ -168,6 +168,7 @@
 		609A449B22B8B1DF0037102C /* iguitar */ = {
 			isa = PBXGroup;
 			children = (
+				60C69F2722E7035F00AF993C /* Utils */,
 				602467D722C5F80400D57E00 /* Abstract */,
 				6072B40422BA143100F9E5F6 /* Dao */,
 				6072B40322BA141E00F9E5F6 /* Model */,
@@ -195,6 +196,13 @@
 				6084B94F22E1B147003053EB /* myTableRowAction.swift */,
 			);
 			path = main;
+			sourceTree = "<group>";
+		};
+		60C69F2722E7035F00AF993C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		E28C5C6D6A1761DF21670C37 /* Pods */ = {

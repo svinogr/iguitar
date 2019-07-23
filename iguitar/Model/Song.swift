@@ -11,10 +11,10 @@ import RealmSwift
 class Song: CommomWithId {
     @objc dynamic var name = ""
     @objc dynamic var text = ""
-    let parent = LinkingObjects(fromType: Group.self, property: "listSongs")
+  //  let parent = LinkingObjects(fromType: Group.self, property: "listSongs")
     @objc dynamic var isUser = false
     @objc dynamic var isFavorite = false
-    let ackords = List<Ackord>()
+    var ackords = List<Ackord>()
     var parentId = 0
 }
 

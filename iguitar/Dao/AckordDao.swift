@@ -10,4 +10,14 @@ import Foundation
 
 class AckordDao: RealmDao<Ackord> {
     
+    override func create(newItem: Ackord) -> Ackord {
+        let arr = realm.objects(Ackord.self).filter("name == %@", newItem.name)
+        
+        if (arr.count == 0) {
+          return super.create(newItem: newItem)
+        } else {
+        return arr[0]
+        }
+       
+    }
 }

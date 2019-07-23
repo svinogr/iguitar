@@ -309,7 +309,7 @@
                                     <constraint firstAttribute="width" constant="72" id="LKi-yl-sCm"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="alphabetCell" id="o1Z-dT-Lsn" customClass="AlphabetViewCell" customModule="iguitar" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="alphabetCell" id="o1Z-dT-Lsn" customClass="AlphabetViewCell" customModule="iguitar" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="72" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o1Z-dT-Lsn" id="TRm-Rg-9lX">
@@ -1086,7 +1086,7 @@
                                     <constraint firstAttribute="width" constant="72" id="Acz-Sn-gFp"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="alphabetCell" id="Zhw-5G-Qy2" customClass="AlphabetViewCell" customModule="iguitar" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="alphabetCell" id="Zhw-5G-Qy2" customClass="AlphabetViewCell" customModule="iguitar" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="72" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zhw-5G-Qy2" id="HSo-Yo-bJw">
@@ -1203,9 +1203,9 @@
         <image name="Photo" width="194.66667175292969" height="195.66667175292969"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lAI-2B-ILd"/>
-        <segue reference="OTv-4H-AUB"/>
-        <segue reference="gZZ-PO-fi3"/>
-        <segue reference="uPP-OP-kYn"/>
+        <segue reference="1t8-qc-qqR"/>
+        <segue reference="zcL-wa-mkk"/>
+        <segue reference="BdW-vi-Hpk"/>
+        <segue reference="bds-Hp-AKe"/>
     </inferredMetricsTieBreakers>
 </document>
