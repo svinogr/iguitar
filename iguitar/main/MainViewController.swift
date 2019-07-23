@@ -493,7 +493,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func setupGroups() {
-        temFunccraete()
+       // temFunccraete()
         realmGroup = groupDao.getAllItemsSortByName()
     }
     

@@ -620,7 +620,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="alphabet" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wTF-bg-vtx">
-                                <rect key="frame" x="322" y="64" width="72" height="623"/>
+                                <rect key="frame" x="322" y="64" width="72" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="c88-A3-li0"/>
@@ -661,6 +661,7 @@
                                         <connections>
                                             <outlet property="ackordImage" destination="xGN-SP-gdN" id="U0t-rJ-bFh"/>
                                             <outlet property="nameAckord" destination="6MT-Mc-tld" id="7Xd-al-lIU"/>
+                                            <segue destination="LxQ-Vy-1aU" kind="show" identifier="showAckord" id="J6s-tB-3ha"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -670,10 +671,10 @@
                                 </connections>
                             </tableView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="voo-gt-Dz3">
-                                <rect key="frame" x="0.0" y="64" width="322" height="623"/>
+                                <rect key="frame" x="0.0" y="64" width="322" height="672"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="caS-5A-p88">
-                                        <rect key="frame" x="8" y="0.0" width="306" height="623"/>
+                                        <rect key="frame" x="8" y="0.0" width="306" height="672"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -711,6 +712,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WNh-R6-iv2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4834.7826086956529" y="429.61956521739131"/>
+        </scene>
+        <!--Ackord View Controller-->
+        <scene sceneID="aV7-4w-XZr">
+            <objects>
+                <viewController id="LxQ-Vy-1aU" customClass="AckordViewController" customModule="iguitar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ddJ-mt-uVz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Neo-Ey-IwJ">
+                                <rect key="frame" x="20" y="64" width="374" height="274"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="S2B-ua-VW2"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qa5-bI-wM1"/>
+                    <connections>
+                        <outlet property="ackordImage" destination="Neo-Ey-IwJ" id="jAk-M1-KnI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ScC-Q5-9b3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6310" y="457"/>
         </scene>
         <!--Главная-->
         <scene sceneID="X9i-gt-gTj">
@@ -1198,6 +1224,24 @@
             </objects>
             <point key="canvasLocation" x="3049" y="-1310"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Rnv-WM-0Tf">
+            <objects>
+                <navigationController restorationIdentifier="acckordNavReID" storyboardIdentifier="acckordNav" automaticallyAdjustsScrollViewInsets="NO" id="vCe-cY-Uyi" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="g2k-Bb-SGA">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LxQ-Vy-1aU" kind="relationship" relationship="rootViewController" id="cyI-jI-usq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eB7-N5-4PA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6067" y="-721"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Photo" width="194.66667175292969" height="195.66667175292969"/>
@@ -1205,7 +1249,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="1t8-qc-qqR"/>
         <segue reference="zcL-wa-mkk"/>
-        <segue reference="BdW-vi-Hpk"/>
+        <segue reference="J6s-tB-3ha"/>
+        <segue reference="qrL-bg-aYF"/>
         <segue reference="bds-Hp-AKe"/>
     </inferredMetricsTieBreakers>
 </document>

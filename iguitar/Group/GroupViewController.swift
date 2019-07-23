@@ -164,7 +164,7 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         case "showSong":
             guard let index =  tableView.indexPathForSelectedRow?.row else { return }
             
-            let  song = group.listSongs[index]
+            let song = group.listSongs[index]
             
             let groupVC = segue.destination as! SongViewController
             groupVC.song = song

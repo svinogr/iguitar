@@ -13,11 +13,8 @@ class SongViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textSong: UITextView!
     
-    
     var song: Song!
-   // var ackords = [Ackord]()
-    
-    
+
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         hidesBottomBarWhenPushed = true
@@ -61,15 +58,13 @@ class SongViewController: UIViewController, UITableViewDelegate, UITableViewData
         textSong.backgroundColor = UIColor(patternImage: UIImage())
         textSong.layer.cornerRadius = 6 // подобрано вручную- пересчитать
         textSong.clipsToBounds = true
-        
-        let top = navigationController?.navigationBar.topItem
-        top?.backBarButtonItem?.tintColor = tintColor
     }
     
     private func setupNavigationBar() {
         let top = navigationController?.navigationBar.topItem
         top?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil) // убираем кнопку кансел и все что идет после стрелочки кнопки назад
         navigationItem.leftBarButtonItem = nil
+        top?.backBarButtonItem?.tintColor = tintColor
         title = song.name
     }
     
@@ -77,8 +72,20 @@ class SongViewController: UIViewController, UITableViewDelegate, UITableViewData
         textSong.text = song.text
     }
 
-    
- 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        switch segue.identifier {
+        case "showAckord":
+            let ackVC = segue.destination as! AckordViewController
+            
+            guard let index =  tableView.indexPathForSelectedRow?.row else { return }
+            let ackord =  self.song.ackords[index]
+          
+            ackVC.ackord = ackord
+        default:
+            return
+        }
+    }
     
     /*
     // MARK: - Navigation
