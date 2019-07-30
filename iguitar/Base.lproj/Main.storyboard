@@ -714,12 +714,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Neo-Ey-IwJ">
-                                <rect key="frame" x="20" y="64" width="374" height="274"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Neo-Ey-IwJ">
+                                <rect key="frame" x="20" y="64" width="374" height="623"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Neo-Ey-IwJ" firstAttribute="leading" secondItem="ddJ-mt-uVz" secondAttribute="leadingMargin" id="JWn-S6-Jwp"/>
+                            <constraint firstItem="Neo-Ey-IwJ" firstAttribute="centerX" secondItem="S2B-ua-VW2" secondAttribute="centerX" id="Qek-gr-g8u"/>
+                            <constraint firstItem="Neo-Ey-IwJ" firstAttribute="centerY" secondItem="S2B-ua-VW2" secondAttribute="centerY" id="WUl-Qf-3LP"/>
+                            <constraint firstItem="Neo-Ey-IwJ" firstAttribute="top" secondItem="S2B-ua-VW2" secondAttribute="top" id="YdZ-9B-Mfv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="S2B-ua-VW2"/>
                     </view>
                     <navigationItem key="navigationItem" id="qa5-bI-wM1"/>
