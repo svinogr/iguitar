@@ -58,6 +58,8 @@ class SongViewController: UIViewController, UITableViewDelegate, UITableViewData
         textSong.backgroundColor = UIColor(patternImage: UIImage())
         textSong.layer.cornerRadius = 6 // подобрано вручную- пересчитать
         textSong.clipsToBounds = true
+        
+         navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     private func setupNavigationBar() {

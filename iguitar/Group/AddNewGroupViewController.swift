@@ -112,6 +112,8 @@ class AddNewGroupViewController: UITableViewController {
         tableView.cellForRow(at: IndexPath(item: 1, section: 0))?.backgroundColor = UIColor(patternImage: UIImage())
        
         nameGroup.backgroundColor = tintColor.withAlphaComponent(0.3)
+        
+         navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     private func displayErrore(){

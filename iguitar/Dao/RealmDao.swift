@@ -8,7 +8,13 @@
 
 import RealmSwift
 
-let realm = try! Realm()
+
+func getFileDB() -> URL {
+    let fp =  Bundle.main.url(forResource: "db", withExtension:  "realm")
+    return fp!
+}
+
+let realm = try! Realm(fileURL: getFileDB())
 
 class RealmDao<T: CommomWithId> {
     

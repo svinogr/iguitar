@@ -31,6 +31,7 @@
 		609A44AF22B8B6330037102C /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A44AE22B8B6330037102C /* MainViewCell.swift */; };
 		609A44B122B8B6440037102C /* AlphabetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A44B022B8B6440037102C /* AlphabetViewCell.swift */; };
 		609A44B422B8C3050037102C /* AlphabetStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A44B322B8C3050037102C /* AlphabetStructure.swift */; };
+		60A2EB5D22F01C0E006284F7 /* db.realm in Resources */ = {isa = PBXBuildFile; fileRef = 60A2EB5C22F01C0E006284F7 /* db.realm */; };
 		60AEFAAF22BCC212007FD02C /* CommonWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AEFAAE22BCC212007FD02C /* CommonWithId.swift */; };
 		60AEFAB322BCFB6B007FD02C /* FavoriteGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AEFAB222BCFB6B007FD02C /* FavoriteGroup.swift */; };
 		60B57CEB22C0A95D0013304E /* FavoriteSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B57CEA22C0A95D0013304E /* FavoriteSongViewController.swift */; };
@@ -67,6 +68,7 @@
 		609A44AE22B8B6330037102C /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		609A44B022B8B6440037102C /* AlphabetViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetViewCell.swift; sourceTree = "<group>"; };
 		609A44B322B8C3050037102C /* AlphabetStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetStructure.swift; sourceTree = "<group>"; };
+		60A2EB5C22F01C0E006284F7 /* db.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = db.realm; sourceTree = "<group>"; };
 		60AEFAAE22BCC212007FD02C /* CommonWithId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWithId.swift; sourceTree = "<group>"; };
 		60AEFAB222BCFB6B007FD02C /* FavoriteGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteGroup.swift; sourceTree = "<group>"; };
 		60B57CEA22C0A95D0013304E /* FavoriteSongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSongViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 		609A449B22B8B1DF0037102C /* iguitar */ = {
 			isa = PBXGroup;
 			children = (
+				60A2EB5C22F01C0E006284F7 /* db.realm */,
 				60C69F2722E7035F00AF993C /* Utils */,
 				602467D722C5F80400D57E00 /* Abstract */,
 				6072B40422BA143100F9E5F6 /* Dao */,
@@ -286,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				609A44A722B8B1E00037102C /* LaunchScreen.storyboard in Resources */,
+				60A2EB5D22F01C0E006284F7 /* db.realm in Resources */,
 				609A44A422B8B1E00037102C /* Assets.xcassets in Resources */,
 				609A44A222B8B1DF0037102C /* Main.storyboard in Resources */,
 			);

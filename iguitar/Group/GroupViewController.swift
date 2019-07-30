@@ -183,6 +183,7 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let top = navigationController?.navigationBar.topItem
         top?.backBarButtonItem?.tintColor = tintColor
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     private func setNotificationToken() {

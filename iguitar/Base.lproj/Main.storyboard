@@ -171,17 +171,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fpJ-Nb-6Og">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Nrx-FK-Adw">
-                            <connections>
-                                <segue destination="iwC-m9-kau" kind="presentation" identifier="addNewGroup" id="0oS-Eb-8Vy"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="fpJ-Nb-6Og"/>
                     <connections>
                         <outlet property="alphabetTableView" destination="xKS-Dt-DAr" id="A1E-Eu-bTr"/>
                         <outlet property="mainTableView" destination="NWH-Tl-auf" id="wgo-fT-KSB"/>
-                        <outlet property="newItemBtn" destination="Nrx-FK-Adw" id="Fur-kT-DlU"/>
                         <outlet property="segments" destination="42l-q7-RdE" id="efc-CT-9Nk"/>
                         <segue destination="iwC-m9-kau" kind="show" identifier="updateGroup" id="OTv-4H-AUB"/>
                         <segue destination="xtK-ah-bOb" kind="show" identifier="updateSong" id="boR-jb-Paq"/>
@@ -620,7 +613,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="alphabet" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wTF-bg-vtx">
-                                <rect key="frame" x="322" y="64" width="72" height="672"/>
+                                <rect key="frame" x="322" y="64" width="72" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="c88-A3-li0"/>
@@ -671,10 +664,10 @@
                                 </connections>
                             </tableView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="voo-gt-Dz3">
-                                <rect key="frame" x="0.0" y="64" width="322" height="672"/>
+                                <rect key="frame" x="0.0" y="64" width="322" height="623"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="caS-5A-p88">
-                                        <rect key="frame" x="8" y="0.0" width="306" height="672"/>
+                                        <rect key="frame" x="8" y="0.0" width="306" height="623"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -853,15 +846,15 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="236" id="vza-1u-Kup">
-                                        <rect key="frame" x="0.0" y="160" width="414" height="236"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="426" id="vza-1u-Kup">
+                                        <rect key="frame" x="0.0" y="160" width="414" height="426"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vza-1u-Kup" id="vAu-iO-L05">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="236"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="426"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IeS-lm-XBy">
-                                                    <rect key="frame" x="20" y="16" width="374" height="220"/>
+                                                    <rect key="frame" x="20" y="16" width="374" height="410"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Текст" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svX-Eu-M4s">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="20.666666666666668"/>
@@ -870,7 +863,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bHs-uA-3TP">
-                                                            <rect key="frame" x="0.0" y="28.666666666666671" width="374" height="191.33333333333331"/>
+                                                            <rect key="frame" x="0.0" y="28.666666666666657" width="374" height="381.33333333333337"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
@@ -1157,11 +1150,18 @@
                         <viewLayoutGuide key="safeArea" id="Lry-rp-7s9"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="n01-Ys-RXR"/>
-                    <navigationItem key="navigationItem" id="zUm-ig-mnA"/>
+                    <navigationItem key="navigationItem" id="zUm-ig-mnA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xHR-nJ-0Og">
+                            <connections>
+                                <segue destination="iwC-m9-kau" kind="presentation" identifier="addNewGroup" id="o9h-Ys-Zf9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="alphabetTableView" destination="syE-o3-2Yk" id="ec3-PY-UEr"/>
                         <outlet property="mainTableView" destination="4yU-dU-SJK" id="nlL-Ej-g5n"/>
+                        <outlet property="newItemBtn" destination="xHR-nJ-0Og" id="8dM-xJ-Grb"/>
                         <outlet property="segments" destination="oqa-0E-noH" id="404-HM-VHA"/>
                     </connections>
                 </viewController>
@@ -1247,10 +1247,10 @@
         <image name="Photo" width="194.66667175292969" height="195.66667175292969"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1t8-qc-qqR"/>
-        <segue reference="zcL-wa-mkk"/>
+        <segue reference="boR-jb-Paq"/>
+        <segue reference="o9h-Ys-Zf9"/>
         <segue reference="J6s-tB-3ha"/>
-        <segue reference="qrL-bg-aYF"/>
+        <segue reference="BdW-vi-Hpk"/>
         <segue reference="bds-Hp-AKe"/>
     </inferredMetricsTieBreakers>
 </document>

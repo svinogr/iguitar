@@ -38,6 +38,8 @@ class AckordViewController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         
         navigationItem.leftBarButtonItem?.tintColor = tintColor
+        
+         navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     private func setupNavigationBar() {
@@ -45,7 +47,7 @@ class AckordViewController: UIViewController {
         top?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil) // убираем кнопку кансел и все что идет после стрелочки кнопки назад
         navigationItem.leftBarButtonItem = nil
         top?.backBarButtonItem?.tintColor = tintColor
-//        title = ackord.name
+       title = ackord.name
     }
     /*
     // MARK: - Navigation

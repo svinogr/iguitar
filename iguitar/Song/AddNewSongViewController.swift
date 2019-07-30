@@ -146,6 +146,8 @@ class AddNewSongViewController: UITableViewController {
         textSong.backgroundColor = tintColor.withAlphaComponent(0.3)
         textSong.layer.cornerRadius = 6 // подобрано вручную- пересчитать
         textSong.clipsToBounds = true
+        
+         navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     @objc func updateFieldListener() {
