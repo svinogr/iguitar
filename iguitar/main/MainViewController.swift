@@ -92,6 +92,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                         if (self.segments.selectedSegmentIndex == 0) {
                             self.performSegue(withIdentifier: "updateGroup", sender: self.realmGroup![index])
                         } else {
+                            print("par up id \(self.realmSongs![index].parentId)")
                             self.performSegue(withIdentifier: "updateSong", sender: self.realmSongs![index])
                         }
                     }
@@ -189,7 +190,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.imageViewGroup.image = image
                 cell.imageViewGroup.layer.cornerRadius = cell.imageViewGroup.frame.width / 2
                 cell.imageViewGroup.clipsToBounds = true
-                cell.labalGroupName.text = group.name
+                cell.labalGroupName.text = group.name.capitalized
                 cell.labelSongQuantity.text = String(format: "кол-во песен: %X", group.listSongs.count)
                
                 if(group.isFavorite) {
@@ -206,7 +207,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 song = realmSongs[indexPath.row]
                 
-                cell.nameSangLabel.text = song.name
+                cell.nameSangLabel.text = song.name.capitalized
                 if(song.isFavorite) {
                     cell.favoriteImage.image = UIImage(named: "emptyStar")
                 } else {
@@ -287,7 +288,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     //MARK: DIDLOW
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("start")
         setupNavigationBar()
         setupSearch()
         setupGroups()
@@ -319,15 +320,18 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let fontAttribute = [NSAttributedString.Key.font: UIFont(name: "Apple SD Gothic Neo", size: 14)!,
                              NSAttributedString.Key.foregroundColor: UIColor.black]
         segments.setTitleTextAttributes(fontAttribute, for: .normal)
+        tabBarController?.tabBar.tintColor = tintColor
+      
     }
     
     func setupNavigationBar() {
         title = "Все"
+    
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        print("did")
         if(!isOpenedYet){
             self.tableView(alphabetTableView, didSelectRowAt: IndexPath(item: 0, section: 2))
             isOpenedYet = true
@@ -342,8 +346,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             backgroundView?.layer.cornerRadius = 10.5
             backgroundView?.layer.masksToBounds = true
-            
-           
             //Continue changing more properties...
         }
            searchController.searchBar.tintColor = tintColor
@@ -361,7 +363,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         if(notificationToken != nil){
             notificationToken!.invalidate()
         }
-        
+       
         notificationToken = realmGroup.observe { [weak self] (changes: RealmCollectionChange) in
             //   guard let tableView = self?.tableView else { return }
             switch changes {
@@ -393,35 +395,36 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         if(notificationToken != nil){
             notificationToken!.invalidate()
         }
-        
+          print("from song realm0")
         notificationToken = realmSongs.observe { [weak self] (changes: RealmCollectionChange) in
-            //   guard let tableView = self?.tableView else { return }
+               guard let mainTableView = self?.mainTableView else { return }
             switch changes {
             case .initial:
                 // Results are now populated and can be accessed without blocking the UI
-                self!.mainTableView.reloadData()
+              mainTableView.reloadData()
                 
             case .update(_, let deletions, let insertions, let modifications):
                 // Query results have changed, so apply them to the UITableView
                 print("from song realm")
-                self!.mainTableView.beginUpdates()
-                self!.mainTableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
+                mainTableView.beginUpdates()
+                mainTableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
                                                with: .automatic)
-                self!.mainTableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
+                mainTableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
                                                with: .automatic)
-                self!.mainTableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
+                mainTableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
                                                with: .automatic)
-                self!.mainTableView.endUpdates()
+                mainTableView.endUpdates()
             case .error(let error):
                 // An error occurred while opening the Realm file on the background worker thread
                 // fatalError("\(error)")
-                print(error)
+                print("err \(error)")
             }
         }
     }
     
     deinit {
         notificationToken = nil
+        notificationTokenFiltered = nil
     }
     
     func setupSongs() {
@@ -449,10 +452,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                     song.ackords.append(acckord)
                 }
                 
-               
                 group.listSongs.append(song)
-               
-            }
+                           }
              array.append(group)
         }
         
@@ -537,8 +538,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             let addNewVC = top.viewControllers[0] as! AddNewSongViewController
             
             let song = sender as! Song
-            
+            print("pare maim \(song.parentId)")
             addNewVC.song = song
+            addNewVC.isUpdate = true
         case "showGroup":
             guard let group = getSelectedItem() else {return}
             
@@ -577,8 +579,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if(segments.selectedSegmentIndex == 0) {
             setNotificationTokenForGroup()
-            
+            print("group")
         } else{
+            print("song")
             setNotificationTokenForSong()
         }
         

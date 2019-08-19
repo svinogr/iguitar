@@ -44,7 +44,7 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let song = group.listSongs[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "songCell") as! SongViewCell
         
-        cell.nameSangLabel.text = song.name
+        cell.nameSangLabel.text = song.name.capitalized
         cell.backgroundColor = UIColor(patternImage: UIImage())
        
         if(song.isFavorite) {
@@ -147,7 +147,7 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let top = segue.destination as! UINavigationController
             
             let song = sender as! Song
-            song.parentId = group.id
+         //   song.parentId = group.id
             
             let addNSC = top.viewControllers[0] as! AddNewSongViewController
             addNSC.song = song

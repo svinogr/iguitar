@@ -10,7 +10,7 @@ import RealmSwift
 
 
 func getFileDB() -> URL {
-    let fp =  Bundle.main.url(forResource: "db", withExtension:  "realm")
+    let fp =  Bundle.main.url(forResource: "default", withExtension:  "realm")
     return fp!
 }
 
@@ -49,6 +49,7 @@ class RealmDao<T: CommomWithId> {
     public func update(oldItem: T) {
         try! realm.write {
             realm.add(oldItem, update: .modified)
+         //   realm.create(T.self, value: oldItem, update: .modified)
         }
     }
     
@@ -80,7 +81,14 @@ class RealmDao<T: CommomWithId> {
     }
     
     public func getBy(name: String) ->Results<T>? {
-        return realm.objects(T.self).filter("name == %@", name.capitalized)
+        return realm.objects(T.self).filter("name == %@", name.lowercased())
+    }
+    
+    public func checkBy(nameOf: T) -> Bool {
+        
+        // pereopredelb
+        
+        return true
     }
     
     public func contains(name: String) -> Results<T>{
@@ -97,5 +105,10 @@ class RealmDao<T: CommomWithId> {
         let object = containsAsc(name: name)
         let fav = true
         return  object.filter("isFavorite = %@", fav)
+    }
+    
+    public func getBy(id: Int) -> Results<T> {
+        let objects = realm.objects(T.self).filter("id = %@", id)
+        return objects
     }
 }

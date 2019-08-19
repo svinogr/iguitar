@@ -26,17 +26,26 @@ class AddNewSongViewController: UITableViewController {
         let saveSong = getSongForSave()
         
         if(isUpdate) {
-            let checkSame = checkSameByName(name: saveSong.name)
+          let checkSame = checkSameByName(nameOf: saveSong)
             saveSong.id = song!.id
+
+           let  chackUpdateName = saveSong.name.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) == song?.name.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
             
-            if(checkSame){
+            if(checkSame && !chackUpdateName){
                 displayErrore()
                 return
             }
-            
-            songDao.update(oldItem: saveSong)
+     
+            for ackord in saveSong.ackords {
+                if (ackord.id == 0) {
+                   _ =  ackordDao.create(newItem: ackord)
+                    print(ackord.id)
+                }
+            }
+          
+               songDao.update(oldItem: saveSong)
         } else {
-            let checkSame = checkSameByName(name: saveSong.name)
+            let checkSame = checkSameByName(nameOf: saveSong)
             
             if(checkSame){
                 displayErrore()
@@ -44,6 +53,12 @@ class AddNewSongViewController: UITableViewController {
             }
             
             saveSong.isUser = true
+            
+            for ackord in saveSong.ackords {
+                if (ackord.id == 0) {
+                  _ =  ackordDao.create(newItem: ackord)
+                }
+            }
             _ = songDao.create(newItem: saveSong)
         }
         
@@ -58,6 +73,7 @@ class AddNewSongViewController: UITableViewController {
         song.name = songName.text!
         song.text = textSong.text!
         song.parentId = self.song!.parentId
+        song.isUser = self.song!.isUser
         setAckordsFor(song: song)
         
         return song
@@ -66,30 +82,34 @@ class AddNewSongViewController: UITableViewController {
     private func setAckordsFor(song: Song) {
         let line =  ackords.text!
         
-        if (!line.isEmpty) {return}
+        if (line.isEmpty) {return}
         
-        var ackkordArr = [Ackord]()
+       // var ackkordArr = [Ackord]()
         
         let ackordsSplit = line.split(separator: ",")
         
-        for ack in ackordsSplit {
-            
+        var setAck = Set<String>()
+        
+        for ackSplit in ackordsSplit {
+            setAck.insert(String(ackSplit).lowercased().trimmingCharacters(in: .whitespacesAndNewlines))
+        }
+        
+        for ack in setAck {
             let nameAckkord = String(ack)
             
             let ackord = chekAckordBy(name: nameAckkord)
-            
-            ackkordArr.append(ackord)
-            
+      
             song.ackords.append(ackord)
         }
-    
     }
     
     private func chekAckordBy(name: String) -> Ackord {
-       let ackords =  ackordDao.getBy(name: name.lowercased())
+        let ack = Ackord()
+        ack.name = name
+        let check =  ackordDao.checkBy(nameOf: ack)
         
-        if (ackords!.count > 0) {
-            return ackords![0]
+        if (check) {
+            return ackordDao.getBy(name: name.lowercased().trimmingCharacters(in: .whitespacesAndNewlines))![0]
         } else {
             let ackord = Ackord()
             ackord.name = name
@@ -98,16 +118,14 @@ class AddNewSongViewController: UITableViewController {
         }
     }
     
-    private func checkSameByName(name: String) -> Bool {
-        let songs = songDao.getBy(name: name)!
-        return songs.count > 0
+    private func checkSameByName(nameOf: Song) -> Bool {
+        return songDao.checkBy(nameOf: nameOf)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      
-            view.endEditing(true)
-        
-    }
+                  view.endEditing(true)
+            }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
@@ -119,13 +137,7 @@ class AddNewSongViewController: UITableViewController {
             ackords.addTarget(self, action: #selector(updateFieldListener), for: .editingChanged)
             textSong.delegate = self
         }
-        
-//        if(song != nil) {
-//            isUpdate = true
-//        }else {
-//            song = Song()
-//        }
-        
+
         setupSong()
         setStyleApp()
     }
@@ -147,7 +159,7 @@ class AddNewSongViewController: UITableViewController {
         textSong.layer.cornerRadius = 6 // подобрано вручную- пересчитать
         textSong.clipsToBounds = true
         
-         navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     @objc func updateFieldListener() {
@@ -172,7 +184,7 @@ class AddNewSongViewController: UITableViewController {
             }
         }
         
-        ackords.text = line
+        ackords.text = line.ackordUpCase
     }
     
     @objc func emptyFieldListener() { // tgis
@@ -207,8 +219,10 @@ class AddNewSongViewController: UITableViewController {
 
 }
 
+
 extension AddNewSongViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
+        print("listen")
         updateFieldListener()
     }
 }

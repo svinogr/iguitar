@@ -25,4 +25,25 @@ class GroupDao: RealmDao<Group> {
             item.isFavorite = !item.isFavorite
         }
     }
+    
+    override func checkBy(nameOf: Group) -> Bool {
+        var check = false
+        
+        let checkName = nameOf.name.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+        let groups = contains(name: checkName)
+        
+        if (checkName.count > 0) {
+        
+            for group in groups {
+                
+                if(group.name.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) == checkName) {
+                    check = true
+                    break
+                } else {continue}
+            }
+            
+        }
+        return check
+    }
+    
 }

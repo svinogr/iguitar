@@ -654,7 +654,7 @@
                                         <connections>
                                             <outlet property="ackordImage" destination="xGN-SP-gdN" id="U0t-rJ-bFh"/>
                                             <outlet property="nameAckord" destination="6MT-Mc-tld" id="7Xd-al-lIU"/>
-                                            <segue destination="LxQ-Vy-1aU" kind="show" identifier="showAckord" id="J6s-tB-3ha"/>
+                                            <segue destination="LxQ-Vy-1aU" kind="show" identifier="showAckord" id="VdA-Rw-Q7B"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -720,27 +720,39 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Neo-Ey-IwJ" firstAttribute="leading" secondItem="ddJ-mt-uVz" secondAttribute="leadingMargin" id="JWn-S6-Jwp"/>
+                            <constraint firstItem="Neo-Ey-IwJ" firstAttribute="leading" secondItem="S2B-ua-VW2" secondAttribute="leading" constant="20" id="4JK-BG-JxZ"/>
                             <constraint firstItem="Neo-Ey-IwJ" firstAttribute="centerX" secondItem="S2B-ua-VW2" secondAttribute="centerX" id="Qek-gr-g8u"/>
                             <constraint firstItem="Neo-Ey-IwJ" firstAttribute="centerY" secondItem="S2B-ua-VW2" secondAttribute="centerY" id="WUl-Qf-3LP"/>
                             <constraint firstItem="Neo-Ey-IwJ" firstAttribute="top" secondItem="S2B-ua-VW2" secondAttribute="top" id="YdZ-9B-Mfv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S2B-ua-VW2"/>
                     </view>
-                    <navigationItem key="navigationItem" id="qa5-bI-wM1"/>
+                    <navigationItem key="navigationItem" id="qa5-bI-wM1">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1hM-jZ-mol">
+                            <connections>
+                                <action selector="cansel:" destination="LxQ-Vy-1aU" id="Dr9-E1-fNS"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="8HP-ci-8e0">
+                            <connections>
+                                <action selector="save:" destination="LxQ-Vy-1aU" id="2BX-Xd-96a"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="ackordImage" destination="Neo-Ey-IwJ" id="jAk-M1-KnI"/>
+                        <outlet property="saveBtn" destination="8HP-ci-8e0" id="O8P-Ir-wrO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ScC-Q5-9b3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6310" y="457"/>
         </scene>
-        <!--Главная-->
+        <!--Navigation Controller-->
         <scene sceneID="X9i-gt-gTj">
             <objects>
                 <navigationController storyboardIdentifier="mainNavId" automaticallyAdjustsScrollViewInsets="NO" id="crk-pa-MT0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Главная" id="fbn-mQ-Rdw"/>
+                    <tabBarItem key="tabBarItem" title="" image="med-1" id="fbn-mQ-Rdw"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="l0m-94-wQH">
@@ -939,10 +951,10 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="odC-7n-wzp" customClass="TabViewController" customModule="iguitar" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ERv-bL-SPv">
+                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="ERv-bL-SPv">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.54117647058823526" green="0.16470588235294117" blue="0.062745098039215685" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <outlet property="tabBar" destination="ERv-bL-SPv" id="nsa-dD-MIs"/>
@@ -959,7 +971,7 @@
         <scene sceneID="gMb-Ar-h3P">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f6j-jz-4qD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Избранное" id="Rfh-cD-czR"/>
+                    <tabBarItem key="tabBarItem" title="Избранное" image="med-2" id="Rfh-cD-czR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0gr-FO-KyW">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -1168,17 +1180,19 @@
                         <outlet property="mainTableView" destination="4yU-dU-SJK" id="nlL-Ej-g5n"/>
                         <outlet property="newItemBtn" destination="xHR-nJ-0Og" id="8dM-xJ-Grb"/>
                         <outlet property="segments" destination="oqa-0E-noH" id="404-HM-VHA"/>
+                        <segue destination="iwC-m9-kau" kind="show" identifier="updateGroup" id="P7g-gZ-w19"/>
+                        <segue destination="xtK-ah-bOb" kind="show" identifier="updateSong" id="TRD-uc-Ftt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Rm-c2-sOr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1947.826086956522" y="2360.8695652173915"/>
+            <point key="canvasLocation" x="1781" y="2433"/>
         </scene>
         <!--Item-->
         <scene sceneID="zBv-Xo-aQi">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IfZ-FR-MIx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="klI-Me-RZY"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="med-3" id="klI-Me-RZY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="66J-E3-bb7">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -1250,12 +1264,15 @@
     </scenes>
     <resources>
         <image name="Photo" width="194.66667175292969" height="195.66667175292969"/>
+        <image name="med-1" width="30" height="30"/>
+        <image name="med-2" width="30" height="30"/>
+        <image name="med-3" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="boR-jb-Paq"/>
-        <segue reference="o9h-Ys-Zf9"/>
-        <segue reference="J6s-tB-3ha"/>
-        <segue reference="BdW-vi-Hpk"/>
-        <segue reference="bds-Hp-AKe"/>
+        <segue reference="1t8-qc-qqR"/>
+        <segue reference="zcL-wa-mkk"/>
+        <segue reference="VdA-Rw-Q7B"/>
+        <segue reference="2Tk-Ci-qaH"/>
+        <segue reference="uHD-P1-VVy"/>
     </inferredMetricsTieBreakers>
 </document>

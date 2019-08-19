@@ -34,6 +34,7 @@ class AddNewGroupViewController: UITableViewController {
       
         if(isUpdate) {
             let checkSame = checkSameByName(name: saveGroup.name)
+            print(saveGroup.isUser)
             saveGroup.id = group!.id
             saveGroup.listSongs = group!.listSongs
             if(checkSame && !isChageImage){
@@ -58,8 +59,10 @@ class AddNewGroupViewController: UITableViewController {
     }
     
     private func checkSameByName(name: String) -> Bool {
-        let group = groupDao.getBy(name: name)!
-        return group.count > 0
+        let group = Group()
+        group.name = name
+        let check = groupDao.checkBy(nameOf: group)
+        return check
     }
     
     @IBOutlet weak var saveBtn: UIBarButtonItem!
@@ -127,6 +130,7 @@ class AddNewGroupViewController: UITableViewController {
     private func getGroupForSave() -> Group {
         let group = Group()
         group.name = nameGroup.text!
+        group.isUser = true
         group.imgData = imageView.image?.jpegData(compressionQuality: 0.2)
         return group
     }

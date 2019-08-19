@@ -14,6 +14,7 @@
 		602467DD22C6212A00D57E00 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602467DC22C6212A00D57E00 /* TableViewController.swift */; };
 		602467DF22C6245B00D57E00 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602467DE22C6245B00D57E00 /* File.swift */; };
 		602467E122C6320A00D57E00 /* AckordDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602467E022C6320A00D57E00 /* AckordDao.swift */; };
+		60421CDB230146CA00DA5932 /* defaultPreNot.realm in Resources */ = {isa = PBXBuildFile; fileRef = 60421CDA230146CA00DA5932 /* defaultPreNot.realm */; };
 		6072B3FE22BA0F5100F9E5F6 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B3FD22BA0F5100F9E5F6 /* GroupViewController.swift */; };
 		6072B40022BA12A400F9E5F6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B3FF22BA12A400F9E5F6 /* Group.swift */; };
 		6072B40622BA146100F9E5F6 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B40522BA146100F9E5F6 /* Song.swift */; };
@@ -22,7 +23,9 @@
 		6072B40D22BA4AE800F9E5F6 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B40C22BA4AE800F9E5F6 /* SongViewController.swift */; };
 		6072B40F22BA4D1D00F9E5F6 /* Ackord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B40E22BA4D1D00F9E5F6 /* Ackord.swift */; };
 		607B3CE722C0F8CA006D8022 /* AddNewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607B3CE622C0F8CA006D8022 /* AddNewGroupViewController.swift */; };
+		6082F940230530B600DE4637 /* default2.realm in Resources */ = {isa = PBXBuildFile; fileRef = 6082F93F230530B600DE4637 /* default2.realm */; };
 		6084B95022E1B147003053EB /* myTableRowAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6084B94F22E1B147003053EB /* myTableRowAction.swift */; };
+		6090DEF2230A76DE000664E3 /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 6090DEF1230A76DD000664E3 /* default.realm */; };
 		609A449D22B8B1DF0037102C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A449C22B8B1DF0037102C /* AppDelegate.swift */; };
 		609A449F22B8B1DF0037102C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A449E22B8B1DF0037102C /* MainViewController.swift */; };
 		609A44A222B8B1DF0037102C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 609A44A022B8B1DF0037102C /* Main.storyboard */; };
@@ -31,7 +34,6 @@
 		609A44AF22B8B6330037102C /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A44AE22B8B6330037102C /* MainViewCell.swift */; };
 		609A44B122B8B6440037102C /* AlphabetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A44B022B8B6440037102C /* AlphabetViewCell.swift */; };
 		609A44B422B8C3050037102C /* AlphabetStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A44B322B8C3050037102C /* AlphabetStructure.swift */; };
-		60A2EB5D22F01C0E006284F7 /* db.realm in Resources */ = {isa = PBXBuildFile; fileRef = 60A2EB5C22F01C0E006284F7 /* db.realm */; };
 		60AEFAAF22BCC212007FD02C /* CommonWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AEFAAE22BCC212007FD02C /* CommonWithId.swift */; };
 		60AEFAB322BCFB6B007FD02C /* FavoriteGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AEFAB222BCFB6B007FD02C /* FavoriteGroup.swift */; };
 		60B57CEB22C0A95D0013304E /* FavoriteSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B57CEA22C0A95D0013304E /* FavoriteSongViewController.swift */; };
@@ -49,6 +51,7 @@
 		602467DC22C6212A00D57E00 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		602467DE22C6245B00D57E00 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		602467E022C6320A00D57E00 /* AckordDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AckordDao.swift; sourceTree = "<group>"; };
+		60421CDA230146CA00DA5932 /* defaultPreNot.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = defaultPreNot.realm; sourceTree = "<group>"; };
 		6072B3FD22BA0F5100F9E5F6 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		6072B3FF22BA12A400F9E5F6 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		6072B40522BA146100F9E5F6 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
@@ -57,7 +60,9 @@
 		6072B40C22BA4AE800F9E5F6 /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 		6072B40E22BA4D1D00F9E5F6 /* Ackord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ackord.swift; sourceTree = "<group>"; };
 		607B3CE622C0F8CA006D8022 /* AddNewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGroupViewController.swift; sourceTree = "<group>"; };
+		6082F93F230530B600DE4637 /* default2.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default2.realm; sourceTree = "<group>"; };
 		6084B94F22E1B147003053EB /* myTableRowAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTableRowAction.swift; sourceTree = "<group>"; };
+		6090DEF1230A76DD000664E3 /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.realm; sourceTree = "<group>"; };
 		609A449922B8B1DF0037102C /* iguitar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iguitar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		609A449C22B8B1DF0037102C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		609A449E22B8B1DF0037102C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -68,7 +73,6 @@
 		609A44AE22B8B6330037102C /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		609A44B022B8B6440037102C /* AlphabetViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetViewCell.swift; sourceTree = "<group>"; };
 		609A44B322B8C3050037102C /* AlphabetStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetStructure.swift; sourceTree = "<group>"; };
-		60A2EB5C22F01C0E006284F7 /* db.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = db.realm; sourceTree = "<group>"; };
 		60AEFAAE22BCC212007FD02C /* CommonWithId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWithId.swift; sourceTree = "<group>"; };
 		60AEFAB222BCFB6B007FD02C /* FavoriteGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteGroup.swift; sourceTree = "<group>"; };
 		60B57CEA22C0A95D0013304E /* FavoriteSongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSongViewController.swift; sourceTree = "<group>"; };
@@ -172,7 +176,9 @@
 		609A449B22B8B1DF0037102C /* iguitar */ = {
 			isa = PBXGroup;
 			children = (
-				60A2EB5C22F01C0E006284F7 /* db.realm */,
+				6090DEF1230A76DD000664E3 /* default.realm */,
+				6082F93F230530B600DE4637 /* default2.realm */,
+				60421CDA230146CA00DA5932 /* defaultPreNot.realm */,
 				60C69F2722E7035F00AF993C /* Utils */,
 				602467D722C5F80400D57E00 /* Abstract */,
 				6072B40422BA143100F9E5F6 /* Dao */,
@@ -288,10 +294,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6082F940230530B600DE4637 /* default2.realm in Resources */,
 				609A44A722B8B1E00037102C /* LaunchScreen.storyboard in Resources */,
-				60A2EB5D22F01C0E006284F7 /* db.realm in Resources */,
 				609A44A422B8B1E00037102C /* Assets.xcassets in Resources */,
 				609A44A222B8B1DF0037102C /* Main.storyboard in Resources */,
+				60421CDB230146CA00DA5932 /* defaultPreNot.realm in Resources */,
+				6090DEF2230A76DE000664E3 /* default.realm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

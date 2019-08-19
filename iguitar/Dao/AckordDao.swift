@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import RealmSwift
 class AckordDao: RealmDao<Ackord> {
     
     override func create(newItem: Ackord) -> Ackord {
@@ -18,6 +18,19 @@ class AckordDao: RealmDao<Ackord> {
         } else {
         return arr[0]
         }
-       
     }
+    
+    override func checkBy(nameOf: Ackord) -> Bool {
+        var check = false
+        
+        let ackords = realm.objects(Ackord.self).filter("name = %@", nameOf.name.lowercased().trimmingCharacters(in: .whitespacesAndNewlines))
+        
+        print("cou \(ackords.count)")
+        if(ackords.count > 0) {
+            check = true
+        }
+        print("ch \(check)")
+        return check
+    }
+    
 }

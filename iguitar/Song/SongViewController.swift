@@ -7,14 +7,15 @@
 //
 
 import UIKit
-
+import RealmSwift
 class SongViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textSong: UITextView!
     
     var song: Song!
-
+    var notificationToken: NotificationToken? = nil
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         hidesBottomBarWhenPushed = true
@@ -31,11 +32,17 @@ class SongViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "ackordCell") as! AckordViewCell
-        cell.nameAckord.text = song.ackords[indexPath.row].name
-        cell.ackordImage.image = UIImage(named: "Photo")
-      
+        let ackkord = song.ackords[indexPath.row]
+        cell.nameAckord.text = ackkord.name.ackordUpCase
+        cell.backgroundColor = UIColor(patternImage: UIImage())
+      //  cell.ackordImage.image = UIImage(named: "Photo")
+        if (ackkord.imageData != nil){
+            
+            if let picA = UIImage(data: ackkord.imageData!) {
+                cell.ackordImage.image = picA
+            } else  {cell.ackordImage.image = UIImage(named: "Photo")}
+        }
         return cell
     }
     
@@ -44,6 +51,7 @@ class SongViewController: UIViewController, UITableViewDelegate, UITableViewData
         setupSong()
         setupNavigationBar()
         setStyleApp()
+        setNotificationToken()
     }
     
     func setStyleApp() {
@@ -71,15 +79,13 @@ class SongViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     private func setupSong() {
-        textSong.text = song.text
-    }
+        textSong.attributedText = "<pre> \(song.text) </pre>".htmlToAttributedString    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         switch segue.identifier {
         case "showAckord":
             let ackVC = segue.destination as! AckordViewController
-            
             guard let index =  tableView.indexPathForSelectedRow?.row else { return }
             let ackord =  self.song.ackords[index]
           
@@ -89,16 +95,45 @@ class SongViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setNotificationToken() {
+        
+        notificationToken = song.ackords.observe { [weak self] (changes: RealmCollectionChange) in
+            //   guard let tableView = self?.tableView else { return }
+            switch changes {
+            case .initial:
+                // Results are now populated and can be accessed without blocking the UI
+                self!.tableView.reloadData()
+                
+            case .update(_, let deletions, let insertions, let modifications):
+                // Query results have changed, so apply them to the UITableView
+                self!.tableView.beginUpdates()
+                self!.tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
+                                           with: .automatic)
+                self!.tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
+                                           with: .fade)
+                self!.tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
+                                           with: .automatic)
+                self!.tableView.endUpdates()
+            case .error(let error):
+                // An error occurred while opening the Realm file on the background worker thread
+                // fatalError("\(error)")
+                print(error)
+            }
+        }
     }
-    */
+    
+    deinit {
+        notificationToken = nil
+    }
 
+}
+extension String {
+    var ackordUpCase: String {
+        if let two = firstIndex(of: "/") {
+            _ = self[two].uppercased()
+        }
+        return self.capitalized
+    }
 }
 
     

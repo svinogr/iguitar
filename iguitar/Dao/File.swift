@@ -45,7 +45,29 @@ class SongDao: RealmDao<Song> {
         return newItem
     }
     
+   public override func checkBy(nameOf: Song) -> Bool {
+    var check = false
+    let checkName = nameOf.name.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+    let idGroup = nameOf.parentId
     
+    let groupDao = GroupDao()
+    let group = groupDao.getBy(id: idGroup)[0]
+    
+    let songs = group.listSongs
+    
+    for song in songs {
+        
+        if(song.name.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) == checkName) {
+            print(song.name.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) )
+            print(checkName)
+            check = true
+            break
+        } else {continue}
+        
+    }
+    
+    return check
+    }
     
     public func addToFavorite(item: Song) {
         try! realm.write {
