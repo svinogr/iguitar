@@ -39,7 +39,6 @@ class AddNewSongViewController: UITableViewController {
             for ackord in saveSong.ackords {
                 if (ackord.id == 0) {
                    _ =  ackordDao.create(newItem: ackord)
-                    print(ackord.id)
                 }
             }
           
@@ -193,7 +192,7 @@ class AddNewSongViewController: UITableViewController {
             title = "Новая песня"
         } else {
             saveBtn.isEnabled = true
-            title = songName.text!
+            title = songName.text!.capitalized
         }
     }
     
@@ -219,10 +218,8 @@ class AddNewSongViewController: UITableViewController {
 
 }
 
-
 extension AddNewSongViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        print("listen")
         updateFieldListener()
     }
 }

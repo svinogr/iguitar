@@ -81,7 +81,7 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         top?.backBarButtonItem?.tintColor = tintColor
         navigationItem.leftBarButtonItem = nil
         
-        title = group.name
+        title = group.name.capitalized
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -91,12 +91,13 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
             (a, b, c) in
             let song = self.group.listSongs[index]
             self.songDao!.delete(item: song)
-            
+             c(true)
         })
         delete.image = UIImage(named: "trash")
         
         let updateAction = UIContextualAction(style: .normal, title: "изменить"){ (action, indexPath, c) in
              self.performSegue(withIdentifier: "updateSong", sender: self.group.listSongs[index])
+            c(true)
         }
         
         let config = UISwipeActionsConfiguration(actions:[delete, updateAction])

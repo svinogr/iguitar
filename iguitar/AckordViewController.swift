@@ -21,9 +21,8 @@ class AckordViewController: UIViewController {
         let ackordDao = AckordDao()
         let saveAcckord = getAcckordForSave()
         
-        
         ackordDao.update(oldItem: saveAcckord)
-        dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func getAcckordForSave() -> Ackord {
@@ -31,6 +30,7 @@ class AckordViewController: UIViewController {
         saveAckord.imageData = ackordImage.image?.jpegData(compressionQuality: 0.2)
         saveAckord.name = ackord.name
         saveAckord.id = ackord.id
+        saveAckord.isUser = true
     
         return saveAckord
     }
@@ -45,18 +45,31 @@ class AckordViewController: UIViewController {
     }
     
     private func setupAccord() {
-         if (ackord.imageData != nil){
-        if let image = UIImage(data: ackord.imageData!) {
-            ackordImage.image = image
-        }
+        if (!ackord.isUser) {
+            setupTryAppImage()
          } else {
             setupTryAddImage()
         }
     }
     
+    private func setupTryAppImage() {
+        if (ackord.imageData != nil ){
+            if let image = UIImage(data: ackord.imageData!) {
+                ackordImage.image = image
+            }
+        } else {
+            setupTryAddImage()
+        }
+    }
+    
     private func setupTryAddImage() {
-        ackordImage.image = UIImage(named: "trash")
-        
+        if (ackord.imageData != nil ){
+            if let image = UIImage(data: ackord.imageData!) {
+                ackordImage.image = image
+            }
+        } else {
+            ackordImage.image = UIImage(named: "trash")
+        }
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(gesture:)))
         ackordImage.addGestureRecognizer(tapGesture)
         ackordImage.isUserInteractionEnabled = true
@@ -84,15 +97,6 @@ class AckordViewController: UIViewController {
         top?.backBarButtonItem?.tintColor = tintColor
         title = ackord.name.ackordUpCase
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 extension AckordViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

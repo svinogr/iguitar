@@ -75,12 +75,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let delete = UIContextualAction(style: .destructive, title: "", handler: {
             (a, b, c) in
-          
-            print(self.realmGroup[index])
+      
             switch self.segments.selectedSegmentIndex {
             case 0: self.groupDao.deleteWithChilds(item: self.realmGroup![index])
+                c(true)
             case 1:
                 self.songDao.delete(item:self.realmSongs![index])
+                c(true)
             default:
                 print("nothing to del")
             }
@@ -91,9 +92,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let updateAction = UIContextualAction(style: .normal, title: "изменить"){ (action, indexPath, c) in
                         if (self.segments.selectedSegmentIndex == 0) {
                             self.performSegue(withIdentifier: "updateGroup", sender: self.realmGroup![index])
+                             c(true)
                         } else {
-                            print("par up id \(self.realmSongs![index].parentId)")
                             self.performSegue(withIdentifier: "updateSong", sender: self.realmSongs![index])
+                            c(true)
                         }
                     }
 
@@ -121,49 +123,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return config
     }
-    
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//        let deleteAction = MyTableRowAction(style: .default, title: "") { (action, indexPath) in
-//            let index = indexPath.row
-//            switch self.segments.selectedSegmentIndex {
-//            case 0: self.groupDao.deleteWithChilds(item: self.realmGroup![index])
-//            case 1:
-//                self.songDao.delete(item:self.realmSongs![index])
-//            default:
-//                print("nothing to del")
-//            }
-//        }
-//
-//        let favoriteAction = MyTableRowAction(style: .destructive, title: "избранное") { (action, indexPath) in
-//            let index = indexPath.row
-//            switch self.segments.selectedSegmentIndex {
-//            case 0: self.groupDao.addToFavorite(item: self.realmGroup![index])
-//            case 1:
-//                self.songDao.addToFavorite(item:self.realmSongs![index])
-//            default:
-//                print("nothing to del")
-//            }
-//        }
-//
-//        let updateAction = UITableViewRowAction(style: .default, title: "изменить"){ (action, indexPath) in
-//            if (self.segments.selectedSegmentIndex == 0) {
-//                self.performSegue(withIdentifier: "updateGroup", sender: self.realmGroup[indexPath.row])
-//            } else {
-//                self.performSegue(withIdentifier: "updateSong", sender: self.realmSongs[indexPath.row])
-//            }
-//        }
-//
-//        let image = UIImage(named: "Photo")
-//       // deleteAction.image = image
-//      //  deleteAction.backgroundColor = UIColor(patternImage: image!)
-//        updateAction.backgroundColor = .green
-//        favoriteAction.setIcon(iconImage: image!, backColor: UIColor(patternImage: UIImage()), cellHeight: tableView.rowHeight, customSwipPartWidth: 30, iconSizePercentage: 80)
-//        favoriteAction.valu
-//
-//
-//        return[favoriteAction, updateAction, deleteAction]
-//    }
-//
+  
     func numberOfSections(in tableView: UITableView) -> Int {
         if tableView.restorationIdentifier == "main" { return 1}
         else {return alpgabetDataCell.count}
@@ -288,7 +248,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     //MARK: DIDLOW
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("start")
         setupNavigationBar()
         setupSearch()
         setupGroups()
@@ -331,7 +290,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("did")
         if(!isOpenedYet){
             self.tableView(alphabetTableView, didSelectRowAt: IndexPath(item: 0, section: 2))
             isOpenedYet = true
@@ -373,7 +331,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
             case .update(_, let deletions, let insertions, let modifications):
                 // Query results have changed, so apply them to the UITableView
-                print("from group realm")
                 
                 self!.mainTableView.beginUpdates()
                 self!.mainTableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
@@ -395,7 +352,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         if(notificationToken != nil){
             notificationToken!.invalidate()
         }
-          print("from song realm0")
         notificationToken = realmSongs.observe { [weak self] (changes: RealmCollectionChange) in
                guard let mainTableView = self?.mainTableView else { return }
             switch changes {
@@ -405,7 +361,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
             case .update(_, let deletions, let insertions, let modifications):
                 // Query results have changed, so apply them to the UITableView
-                print("from song realm")
                 mainTableView.beginUpdates()
                 mainTableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
                                                with: .automatic)
@@ -538,7 +493,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             let addNewVC = top.viewControllers[0] as! AddNewSongViewController
             
             let song = sender as! Song
-            print("pare maim \(song.parentId)")
             addNewVC.song = song
             addNewVC.isUpdate = true
         case "showGroup":
@@ -579,9 +533,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if(segments.selectedSegmentIndex == 0) {
             setNotificationTokenForGroup()
-            print("group")
         } else{
-            print("song")
             setNotificationTokenForSong()
         }
         

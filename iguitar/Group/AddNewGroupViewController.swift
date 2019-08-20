@@ -30,13 +30,13 @@ class AddNewGroupViewController: UITableViewController {
     }
     
     @IBAction func save(_ sender: Any) {
-         let saveGroup = getGroupForSave()
+        let saveGroup = getGroupForSave()
       
         if(isUpdate) {
             let checkSame = checkSameByName(name: saveGroup.name)
-            print(saveGroup.isUser)
             saveGroup.id = group!.id
             saveGroup.listSongs = group!.listSongs
+          
             if(checkSame && !isChageImage){
                 displayErrore()
                 return
@@ -144,7 +144,7 @@ class AddNewGroupViewController: UITableViewController {
             
         } else {
             saveBtn.isEnabled = true
-            title = nameGroup.text!
+            title = nameGroup.text!.capitalized
         }
     }
 

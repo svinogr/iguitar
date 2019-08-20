@@ -14,6 +14,7 @@ class AckordDao: RealmDao<Ackord> {
         let arr = realm.objects(Ackord.self).filter("name == %@", newItem.name)
         
         if (arr.count == 0) {
+            newItem.isUser = true
           return super.create(newItem: newItem)
         } else {
         return arr[0]
@@ -25,11 +26,9 @@ class AckordDao: RealmDao<Ackord> {
         
         let ackords = realm.objects(Ackord.self).filter("name = %@", nameOf.name.lowercased().trimmingCharacters(in: .whitespacesAndNewlines))
         
-        print("cou \(ackords.count)")
         if(ackords.count > 0) {
             check = true
         }
-        print("ch \(check)")
         return check
     }
     

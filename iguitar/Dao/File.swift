@@ -36,9 +36,7 @@ class SongDao: RealmDao<Song> {
             let id = incrementID()
             newItem.id = id
             realm.add(newItem)
-            print(newItem.parentId)
             let group = realm.objects(Group.self).filter("id = %@", newItem.parentId)
-            print(group.count)
             group[0].listSongs.append(newItem)
         }
         
@@ -58,8 +56,6 @@ class SongDao: RealmDao<Song> {
     for song in songs {
         
         if(song.name.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) == checkName) {
-            print(song.name.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) )
-            print(checkName)
             check = true
             break
         } else {continue}

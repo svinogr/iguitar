@@ -75,7 +75,7 @@ class SongViewController: UIViewController, UITableViewDelegate, UITableViewData
         top?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil) // убираем кнопку кансел и все что идет после стрелочки кнопки назад
         navigationItem.leftBarButtonItem = nil
         top?.backBarButtonItem?.tintColor = tintColor
-        title = song.name
+        title = song.name.capitalized
     }
     
     private func setupSong() {
