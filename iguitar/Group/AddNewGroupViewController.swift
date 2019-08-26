@@ -153,7 +153,7 @@ class AddNewGroupViewController: UITableViewController {
         imageView.backgroundColor = UIColor(patternImage: UIImage())
         
         if (group?.imgData == nil) {
-            image = UIImage(named: "Photo")!
+            image = UIImage(named: "plus")!
         } else {
             image = UIImage(data: group!.imgData!)!
         }

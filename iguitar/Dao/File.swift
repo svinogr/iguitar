@@ -12,6 +12,14 @@ import RealmSwift
 class SongDao: RealmDao<Song> {
     
     override func contains(name: String) -> Results<Song> {
+        let ackDao = AckordDao()
+        let ack = Ackord()
+        ack.name = name
+        let check = ackDao.checkBy(nameOf: ack)
+        if (check) {
+           return realm.objects(Song.self).filter("name CONTAINS[c] %@", name)
+        }
+        
         return realm.objects(Song.self).filter("name CONTAINS[c] %@ OR text CONTAINS[c] %@", name, name)
     }
     

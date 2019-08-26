@@ -87,9 +87,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
         })
-        delete.image = UIImage(named: "trash")
+        delete.image = UIImage(named: "trash2")
         
-        let updateAction = UIContextualAction(style: .normal, title: "изменить"){ (action, indexPath, c) in
+        let updateAction = UIContextualAction(style: .normal, title: ""){ (action, indexPath, c) in
                         if (self.segments.selectedSegmentIndex == 0) {
                             self.performSegue(withIdentifier: "updateGroup", sender: self.realmGroup![index])
                              c(true)
@@ -99,6 +99,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                         }
                     }
 
+        updateAction.image = UIImage(named: "compose")
+        
         let config = UISwipeActionsConfiguration(actions:[delete, updateAction])
         config.performsFirstActionWithFullSwipe = false
     
@@ -108,7 +110,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let index = indexPath.row
 
-        let favoriteAction = UIContextualAction(style: .normal, title: "избранное") { (action, indexPath, c) in
+        let favoriteAction = UIContextualAction(style: .normal, title: "") { (action, indexPath, c) in
                         switch self.segments.selectedSegmentIndex {
                         case 0: self.groupDao.addToFavorite(item: self.realmGroup![index])
                         case 1:
@@ -117,6 +119,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                             print("nothing to del")
                         }
                     }
+        favoriteAction.image = UIImage(named: "favorite")
         
         let config = UISwipeActionsConfiguration(actions: [favoriteAction])
         config.performsFirstActionWithFullSwipe = false

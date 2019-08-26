@@ -93,12 +93,14 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.songDao!.delete(item: song)
              c(true)
         })
-        delete.image = UIImage(named: "trash")
+        delete.image = UIImage(named: "trash2")
         
         let updateAction = UIContextualAction(style: .normal, title: "изменить"){ (action, indexPath, c) in
              self.performSegue(withIdentifier: "updateSong", sender: self.group.listSongs[index])
             c(true)
         }
+        
+         updateAction.image = UIImage(named: "compose")
         
         let config = UISwipeActionsConfiguration(actions:[delete, updateAction])
         config.performsFirstActionWithFullSwipe = false
@@ -111,35 +113,18 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let favoriteAction = UIContextualAction(style: .normal, title: "избранное") { (action, indexPath, c) in
            let song = self.group.listSongs[index]
+            c(true)
             self.songDao?.addToFavorite(item: song)
         }
+        
+        favoriteAction.image = UIImage(named: "favorite")
         
         let config = UISwipeActionsConfiguration(actions: [favoriteAction])
         config.performsFirstActionWithFullSwipe = false
         
         return config
     }
-    
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//
-//        let deleteAction = UITableViewRowAction(style: .destructive, title: "удалить") { (action, indexPath) in
-//
-//           // self.group.listSongs.remove(at: indexPath.row)// возможно нуджно торвать оит резалтс
-//
-//          //  self.groupdao!.update(oldItem: self.group)
-//            let song = self.group.listSongs[indexPath.row]
-//            self.songDao!.delete(item: song)
-//        }
-//
-//        let updateAction = UITableViewRowAction(style: .default, title: "изменить"){ (action, indexPath) in
-//            self.performSegue(withIdentifier: "updateSong", sender: self.group.listSongs[indexPath.row])
-//        }
-//
-//        deleteAction.backgroundColor = .red
-//        updateAction.backgroundColor = .green
-//
-//        return[updateAction, deleteAction]
-//    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
