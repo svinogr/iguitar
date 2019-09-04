@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import SwiftyStoreKit
 
 let tintColor = UIColor(displayP3Red: 138/255, green: 42/255, blue: 16/255, alpha: 0.80)
 
@@ -17,10 +18,16 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var alphabetTableView: UITableView!
     @IBOutlet weak var segments: UISegmentedControl!
     @IBOutlet weak var newItemBtn: UIBarButtonItem!
+    @IBAction func restore(_ sender: Any) {
+        restore()
+    }
     
     
     let groupDao =   GroupDao()
     let songDao = SongDao()
+    let userDef = UserDefaults.standard
+    let identifier = "com.updevel.iguitar.nonCons"
+    let maxVisible = 5
     
     var realmGroup: Results<Group>!
     
@@ -73,14 +80,21 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let index = indexPath.row
         
-        let delete = UIContextualAction(style: .destructive, title: "", handler: {
+        let delete = UIContextualAction(style: .normal, title: "", handler: {
             (a, b, c) in
       
             switch self.segments.selectedSegmentIndex {
-            case 0: self.groupDao.deleteWithChilds(item: self.realmGroup![index])
+            case 0:
+                  print(indexPath.row)
+               if self.checkForRowUserDef(indexPath: indexPath) {
+                print(indexPath.row)
+                self.groupDao.deleteWithChilds(item: self.realmGroup![index])
+                }
                 c(true)
             case 1:
+             if self.checkForRowUserDef(indexPath: indexPath){
                 self.songDao.delete(item:self.realmSongs![index])
+                }
                 c(true)
             default:
                 print("nothing to del")
@@ -88,14 +102,20 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         })
         delete.image = UIImage(named: "trash2")
+        delete.backgroundColor = UIColor.red
         
-        let updateAction = UIContextualAction(style: .normal, title: ""){ (action, indexPath, c) in
-                        if (self.segments.selectedSegmentIndex == 0) {
-                            self.performSegue(withIdentifier: "updateGroup", sender: self.realmGroup![index])
-                             c(true)
-                        } else {
-                            self.performSegue(withIdentifier: "updateSong", sender: self.realmSongs![index])
-                            c(true)
+        let updateAction = UIContextualAction(style: .normal, title: ""){ (action, i, c) in
+            if (self.segments.selectedSegmentIndex == 0) {
+                if self.checkForRowUserDef(indexPath: indexPath){
+                    self.performSegue(withIdentifier: "updateGroup", sender: self.realmGroup![index])
+                }
+                c(true)
+            } else {
+                if self.checkForRowUserDef(indexPath: indexPath){
+                    self.performSegue(withIdentifier: "updateSong", sender: self.realmSongs![index])
+                }
+                c(true)
+                
                         }
                     }
 
@@ -110,11 +130,18 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let index = indexPath.row
 
-        let favoriteAction = UIContextualAction(style: .normal, title: "") { (action, indexPath, c) in
+        let favoriteAction = UIContextualAction(style: .normal, title: "") { (action, i, c) in
                         switch self.segments.selectedSegmentIndex {
-                        case 0: self.groupDao.addToFavorite(item: self.realmGroup![index])
+                        case 0:
+                            if self.checkForRowUserDef(indexPath: indexPath){
+                            self.groupDao.addToFavorite(item: self.realmGroup![index])
+                            }// можно написать что только в платной
+                            c(true)
                         case 1:
+                             if self.checkForRowUserDef(indexPath: indexPath){
                             self.songDao.addToFavorite(item:self.realmSongs![index])
+                             }
+                            c(true)
                         default:
                             print("nothing to del")
                         }
@@ -193,13 +220,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
              cell.backgroundColor = UIColor(patternImage: UIImage())
             return cell
         }
-        
-        //return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView.restorationIdentifier == "main" {
-            
+          
         }else {
             if indexPath.row == 0 {
                 if !alpgabetDataCell[indexPath.section].isOpened {
@@ -221,18 +246,19 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     private func moveToLetter(letter: String){
         var index: Int?
-        
+        print(letter)
         switch segments.selectedSegmentIndex {
         case 0:
             for i in realmGroup {
-                if i.name.first! == Character(letter)  {
+                if i.name.first! == Character(letter.lowercased())  { // lowercase взависимости от записи в базе
+                
                     index = realmGroup.firstIndex(of: i)  /// сделать в фоновом потоке
                     break
                 }
             }
         case 1:
             for i in realmSongs {
-                if i.name.first! == Character(letter)  {
+                if i.name.first! == Character(letter.lowercased())  { // lowercase взависимости от записи в базе
                     index = realmSongs.firstIndex(of: i)  /// сделать в фоновом потоке
                     break
                 }
@@ -242,7 +268,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             print(1)
         }
         
-        if index == nil{ return}
+        if index == nil{return}
         let row = IndexPath(row: index!, section: 0)
         
         mainTableView.scrollToRow(at: row, at: .middle, animated: true)
@@ -480,38 +506,82 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        //purchase()
+        let indexPath = mainTableView.indexPathForSelectedRow
+      return checkForRowUserDef(indexPath: indexPath!)
+    }
+    
+    private func checkForRowUserDef(indexPath: IndexPath) -> Bool {
+        print(indexPath.row)
+        
+         var canAction = false
+        
+        if checkUserDef() {
+            canAction =  true
+        } else {
+            
+            switch self.segments.selectedSegmentIndex {
+            case 0:
+                if realmGroup[indexPath.row].id < maxVisible {
+                    canAction = true
+                }
+                
+                
+                // можно написать что только в платной
+                
+            case 1:
+                if realmSongs[indexPath.row].id < maxVisible {
+                    canAction = true
+                }
+            default: break
+                
+                
+            }
+        }
+        return canAction
+    }
+    
+    private func checkUserDef()-> Bool {
+        let purchased = userDef.bool(forKey: "purchased")
+        return purchased
+    }
+    
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let identifier = segue.identifier
+            
+            switch identifier {
+            case "updateGroup":
+                let top = segue.destination as! UINavigationController
+                let addNewVC = top.viewControllers[0] as! AddNewGroupViewController
+                
+                let group = sender as! Group
+                
+                addNewVC.group = group
+            case "updateSong":
+                let top = segue.destination as! UINavigationController
+                let addNewVC = top.viewControllers[0] as! AddNewSongViewController
+                
+                let song = sender as! Song
+                addNewVC.song = song
+                addNewVC.isUpdate = true
+            case "showGroup":
+                guard let group = getSelectedItem() else {return}
+                
+                let groupVC = segue.destination as! GroupViewController
+                groupVC.group = (group as! Group)
+                
+            case "showSong":
+                guard let song = getSelectedItem() else {return}
+                
+                let songVC = segue.destination as! SongViewController
+                songVC.song = (song as! Song)
+            default:
+                return
+            }
         
-        switch identifier {
-        case "updateGroup":
-            let top = segue.destination as! UINavigationController
-            let addNewVC = top.viewControllers[0] as! AddNewGroupViewController
-            
-            let group = sender as! Group
-            
-            addNewVC.group = group
-        case "updateSong":
-            let top = segue.destination as! UINavigationController
-            let addNewVC = top.viewControllers[0] as! AddNewSongViewController
-            
-            let song = sender as! Song
-            addNewVC.song = song
-            addNewVC.isUpdate = true
-        case "showGroup":
-            guard let group = getSelectedItem() else {return}
-            
-            let groupVC = segue.destination as! GroupViewController
-            groupVC.group = (group as! Group)
-            
-        case "showSong":
-            guard let song = getSelectedItem() else {return}
-            
-            let songVC = segue.destination as! SongViewController
-            songVC.song = (song as! Song)
-        default:
-            return
-        }
     }
     
     private func getSelectedItem() -> CommomWithId? {
@@ -570,6 +640,86 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         mainTableView.reloadData()
     }
+    
+    private func restore() {
+        NetworkActivityIndicator.networkOperationStarted()
+        SwiftyStoreKit.restorePurchases(atomically: false) { results in
+            NetworkActivityIndicator.networkOperationFinished()
+            if results.restoreFailedPurchases.count > 0 {
+                print("Restore Failed: \(results.restoreFailedPurchases)")
+            }
+            else if results.restoredPurchases.count > 0 {
+                for purchase in results.restoredPurchases {
+                    // fetch content from your server, then:
+                    if purchase.needsFinishTransaction {
+                        SwiftyStoreKit.finishTransaction(purchase.transaction)
+                    }
+                }
+                self.userDef.set(true, forKey: "purchased")
+                //   self.setupProducts()
+              //  self.tableView.reloadData()  здесть рсторе или юзер дефолтс
+                
+                print("Restore Success: \(results.restoredPurchases)")
+                
+            }
+            else {
+                print("Nothing to Restore")
+            }
+        }
+    }
+    
+    func purchase()  {
+        NetworkActivityIndicator.networkOperationStarted()
+        let idString = identifier
+        SwiftyStoreKit.retrieveProductsInfo([idString]) { result in
+            NetworkActivityIndicator.networkOperationFinished()
+            if let productRetriv = result.retrievedProducts.first {
+                SwiftyStoreKit.purchaseProduct(productRetriv, quantity: 1, atomically: true) { result in
+                    // handle result (same as above)
+                    print(productRetriv.localizedTitle)
+                    print(result)
+                    switch result {
+                    case .success(let productRetriv):
+                        // fetch content from your server, then:
+                        if productRetriv.needsFinishTransaction {
+                            SwiftyStoreKit.finishTransaction(productRetriv.transaction)
+                        }
+                       // product.isPurchased = true  поставить юзер дефолт тру
+                       // self.tableView.reloadData()
+                        
+                    // print("Purchase Success: \(productRetriv.productId)")
+                    case .error(let error):
+                        switch error.code {
+                        case .unknown: print("Unknown error. Please contact support")
+                        case .clientInvalid: print("Not allowed to make the payment")
+                        case .paymentCancelled: break
+                        case .paymentInvalid: print("The purchase identifier was invalid")
+                        case .paymentNotAllowed: print("The device is not allowed to make the payment")
+                        case .storeProductNotAvailable: print("The product is not available in the current storefront")
+                        case .cloudServicePermissionDenied: print("Access to cloud service information is not allowed")
+                        case .cloudServiceNetworkConnectionFailed: print("Could not connect to the network")
+                        case .cloudServiceRevoked: print("User has revoked permission to use this cloud service")
+                        case .privacyAcknowledgementRequired:
+                            print("case pokupri")
+                        case .unauthorizedRequestData:
+                                print("case pokupri")
+                        case .invalidOfferIdentifier:
+                                print("case pokupri")
+                        case .invalidSignature:
+                                print("case pokupri")
+                        case .missingOfferParams:
+                                print("case pokupri")
+                        case .invalidOfferPrice:
+                                print("case pokupri")
+                        @unknown default:
+                                print("case pokupri")
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
 extension MainViewController: UISearchResultsUpdating, UISearchBarDelegate {
@@ -579,3 +729,25 @@ extension MainViewController: UISearchResultsUpdating, UISearchBarDelegate {
 }
 
 
+class NetworkActivityIndicator: NSObject {
+    private static var loadingCount = 0
+    
+    class func networkOperationStarted() {
+        if loadingCount == 0 {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        }
+        loadingCount += 1
+    }
+    
+    class func networkOperationFinished(){
+        if loadingCount > 0{
+            loadingCount -= 1
+        }
+        
+        if loadingCount == 0{
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        }
+    }
+    
+    
+}

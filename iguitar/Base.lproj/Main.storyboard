@@ -171,7 +171,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fpJ-Nb-6Og"/>
+                    <navigationItem key="navigationItem" id="fpJ-Nb-6Og">
+                        <barButtonItem key="rightBarButtonItem" title="restore" id="nYI-MT-SGN">
+                            <connections>
+                                <action selector="restore:" destination="BYZ-38-t0r" id="Cz0-N3-9CC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="alphabetTableView" destination="xKS-Dt-DAr" id="A1E-Eu-bTr"/>
                         <outlet property="mainTableView" destination="NWH-Tl-auf" id="wgo-fT-KSB"/>
