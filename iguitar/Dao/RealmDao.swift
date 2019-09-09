@@ -10,8 +10,38 @@ import RealmSwift
 
 
 func getFileDB() -> URL {
-    let fp =  Bundle.main.url(forResource: "default", withExtension:  "realm")
-    return fp!
+    copyDatabaseIfNeeded()
+   // let fp =  Bundle.main.url(forResource: "default", withExtension:  "realm")
+    let fileManager = FileManager.default
+    guard let documentsUrl = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return URL(fileReferenceLiteralResourceName: " ") }
+    
+    let finalDatabaseURL = documentsUrl.appendingPathComponent("default.realm")
+    return finalDatabaseURL
+}
+func copyDatabaseIfNeeded() {
+    // Move database file from bundle to documents folder
+    
+    let fileManager = FileManager.default
+    
+    guard let documentsUrl = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+    
+    let finalDatabaseURL = documentsUrl.appendingPathComponent("default.realm")
+    
+    do {
+        if !fileManager.fileExists(atPath: finalDatabaseURL.path) {
+            // print("DB does not exist in documents folder")
+            
+            if let dbFilePath = Bundle.main.path(forResource: "default", ofType: "realm") {
+                try fileManager.copyItem(atPath: dbFilePath, toPath: finalDatabaseURL.path)
+            } else {
+                //  print("Uh oh - foo.db is not in the app bundle")
+            }
+        } else {
+            //  print("Database file found at path: \(finalDatabaseURL.path)")
+        }
+    } catch {
+        //print("Unable to copy foo.db: \(error)")
+    }
 }
 
 let realm = try! Realm(fileURL: getFileDB())
@@ -21,6 +51,7 @@ class RealmDao<T: CommomWithId> {
     public  func getAllItems()-> Results<T> {
         return realm.objects(T.self)
     }
+    
     
     public  func getAllItemsSortByName()-> Results<T> {
         return realm.objects(T.self).sorted(byKeyPath: "name", ascending: true)

@@ -509,7 +509,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         //purchase()
         let indexPath = mainTableView.indexPathForSelectedRow
-      return checkForRowUserDef(indexPath: indexPath!)
+        return checkForRowUserDef(indexPath: indexPath!)
     }
     
     private func checkForRowUserDef(indexPath: IndexPath) -> Bool {
@@ -520,34 +520,63 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         if checkUserDef() {
             canAction =  true
         } else {
-            
             switch self.segments.selectedSegmentIndex {
             case 0:
                 if realmGroup[indexPath.row].id < maxVisible {
                     canAction = true
+                } else {
+                getProductWitInfo()
                 }
-                
+                print(realmGroup[indexPath.row].id < maxVisible)
                 
                 // можно написать что только в платной
                 
             case 1:
                 if realmSongs[indexPath.row].id < maxVisible {
                     canAction = true
-                }
+                }else {
+                    getProductWitInfo()
+            }
             default: break
-                
                 
             }
         }
+        print(canAction)
         return canAction
+    }
+    
+    func getProductWitInfo(){
+        NetworkActivityIndicator.networkOperationStarted()
+        SwiftyStoreKit.retrieveProductsInfo([identifier], completion:{
+            result in
+            // моя ахине странно но работает
+            NetworkActivityIndicator.networkOperationFinished()
+            
+            let _ = result.retrievedProducts.first?.localizedTitle
+            let cost = result.retrievedProducts.first?.localizedPrice
+            let _ = result.retrievedProducts.first?.localizedDescription
+            
+            let dialog = UIAlertController(title: "Информция", message: "В бесплатной версии доступны только первые 5 групп. Остальное доступно в полной версии стоимостью \(cost!)", preferredStyle: .alert)
+            
+            let yesAction = UIAlertAction(title: "Купить", style: .default, handler: {c in
+                self.purchase()
+            })
+            
+            let cancel = UIAlertAction(title: "Отмена", style: .destructive, handler: nil)
+            
+            dialog.addAction(yesAction)
+            dialog.addAction(cancel)
+            
+            self.present(dialog, animated: true, completion: nil)
+            
+        }
+        )
     }
     
     private func checkUserDef()-> Bool {
         let purchased = userDef.bool(forKey: "purchased")
         return purchased
     }
-    
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let identifier = segue.identifier
@@ -668,7 +697,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    func purchase()  {
+    @objc func purchase()  {
         NetworkActivityIndicator.networkOperationStarted()
         let idString = identifier
         SwiftyStoreKit.retrieveProductsInfo([idString]) { result in

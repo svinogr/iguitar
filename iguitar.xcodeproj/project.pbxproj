@@ -15,6 +15,7 @@
 		602467DF22C6245B00D57E00 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602467DE22C6245B00D57E00 /* File.swift */; };
 		602467E122C6320A00D57E00 /* AckordDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602467E022C6320A00D57E00 /* AckordDao.swift */; };
 		60421CDB230146CA00DA5932 /* defaultPreNot.realm in Resources */ = {isa = PBXBuildFile; fileRef = 60421CDA230146CA00DA5932 /* defaultPreNot.realm */; };
+		605A6A1623265E500088ABBB /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 605A6A1523265E500088ABBB /* default.realm */; };
 		6072B3FE22BA0F5100F9E5F6 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B3FD22BA0F5100F9E5F6 /* GroupViewController.swift */; };
 		6072B40022BA12A400F9E5F6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B3FF22BA12A400F9E5F6 /* Group.swift */; };
 		6072B40622BA146100F9E5F6 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B40522BA146100F9E5F6 /* Song.swift */; };
@@ -25,7 +26,7 @@
 		607B3CE722C0F8CA006D8022 /* AddNewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607B3CE622C0F8CA006D8022 /* AddNewGroupViewController.swift */; };
 		6082F940230530B600DE4637 /* default2.realm in Resources */ = {isa = PBXBuildFile; fileRef = 6082F93F230530B600DE4637 /* default2.realm */; };
 		6084B95022E1B147003053EB /* myTableRowAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6084B94F22E1B147003053EB /* myTableRowAction.swift */; };
-		6090DEF6230BCFD0000664E3 /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 6090DEF5230BCFD0000664E3 /* default.realm */; };
+		6090DEF6230BCFD0000664E3 /* default1.realm in Resources */ = {isa = PBXBuildFile; fileRef = 6090DEF5230BCFD0000664E3 /* default1.realm */; };
 		609A449D22B8B1DF0037102C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A449C22B8B1DF0037102C /* AppDelegate.swift */; };
 		609A449F22B8B1DF0037102C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A449E22B8B1DF0037102C /* MainViewController.swift */; };
 		609A44A222B8B1DF0037102C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 609A44A022B8B1DF0037102C /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 		602467DE22C6245B00D57E00 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		602467E022C6320A00D57E00 /* AckordDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AckordDao.swift; sourceTree = "<group>"; };
 		60421CDA230146CA00DA5932 /* defaultPreNot.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = defaultPreNot.realm; sourceTree = "<group>"; };
+		605A6A1523265E500088ABBB /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.realm; sourceTree = "<group>"; };
 		6072B3FD22BA0F5100F9E5F6 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		6072B3FF22BA12A400F9E5F6 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		6072B40522BA146100F9E5F6 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
@@ -63,7 +65,7 @@
 		607B3CE622C0F8CA006D8022 /* AddNewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGroupViewController.swift; sourceTree = "<group>"; };
 		6082F93F230530B600DE4637 /* default2.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default2.realm; sourceTree = "<group>"; };
 		6084B94F22E1B147003053EB /* myTableRowAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTableRowAction.swift; sourceTree = "<group>"; };
-		6090DEF5230BCFD0000664E3 /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.realm; sourceTree = "<group>"; };
+		6090DEF5230BCFD0000664E3 /* default1.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default1.realm; sourceTree = "<group>"; };
 		609A449922B8B1DF0037102C /* iguitar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iguitar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		609A449C22B8B1DF0037102C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		609A449E22B8B1DF0037102C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -179,8 +181,9 @@
 		609A449B22B8B1DF0037102C /* iguitar */ = {
 			isa = PBXGroup;
 			children = (
+				605A6A1523265E500088ABBB /* default.realm */,
 				60E83431231D19A700E0AB27 /* Manager */,
-				6090DEF5230BCFD0000664E3 /* default.realm */,
+				6090DEF5230BCFD0000664E3 /* default1.realm */,
 				6082F93F230530B600DE4637 /* default2.realm */,
 				60421CDA230146CA00DA5932 /* defaultPreNot.realm */,
 				60C69F2722E7035F00AF993C /* Utils */,
@@ -312,11 +315,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6082F940230530B600DE4637 /* default2.realm in Resources */,
+				605A6A1623265E500088ABBB /* default.realm in Resources */,
 				609A44A722B8B1E00037102C /* LaunchScreen.storyboard in Resources */,
 				609A44A422B8B1E00037102C /* Assets.xcassets in Resources */,
 				609A44A222B8B1DF0037102C /* Main.storyboard in Resources */,
 				60421CDB230146CA00DA5932 /* defaultPreNot.realm in Resources */,
-				6090DEF6230BCFD0000664E3 /* default.realm in Resources */,
+				6090DEF6230BCFD0000664E3 /* default1.realm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
