@@ -178,6 +178,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
                 
                 cell.imageViewGroup.image = image
+                cell.imageViewGroup.layer.borderColor = tintColor.cgColor
+                cell.imageViewGroup.layer.borderWidth = 1
                 cell.imageViewGroup.layer.cornerRadius = cell.imageViewGroup.frame.width / 2
                 cell.imageViewGroup.clipsToBounds = true
                 cell.labalGroupName.text = group.name.capitalized
@@ -575,7 +577,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     private func checkUserDef()-> Bool {
         let purchased = userDef.bool(forKey: "purchased")
-        return purchased
+        return true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
