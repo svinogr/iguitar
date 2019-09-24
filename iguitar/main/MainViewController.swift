@@ -85,11 +85,20 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
       
             switch self.segments.selectedSegmentIndex {
             case 0:
-                  print(indexPath.row)
+                var canDo = false
+                
                if self.checkForRowUserDef(indexPath: indexPath) {
-                print(indexPath.row)
-                self.groupDao.deleteWithChilds(item: self.realmGroup![index])
+                canDo = true
                 }
+                
+                if(self.realmGroup[index].isUser) {
+                    canDo = true
+                }
+                
+                if(canDo) {
+                    self.groupDao.deleteWithChilds(item: self.realmGroup![index])
+                }
+                
                 c(true)
             case 1:
              if self.checkForRowUserDef(indexPath: indexPath){
@@ -510,8 +519,27 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         //purchase()
-        let indexPath = mainTableView.indexPathForSelectedRow
-        return checkForRowUserDef(indexPath: indexPath!)
+        guard let index = mainTableView.indexPathForSelectedRow else {
+            return true
+        }
+       // let indexPath = mainTableView.indexPathForSelectedRow
+        
+        switch segments.selectedSegmentIndex {
+        case 0:
+        
+            if(realmGroup[index.row].isUser){
+                return true
+            }
+        case 1:
+            
+            if(realmSongs[index.row].isUser){
+                return true
+            }
+        default:
+         break
+        }
+        
+        return checkForRowUserDef(indexPath: index)
     }
     
     private func checkForRowUserDef(indexPath: IndexPath) -> Bool {
@@ -558,7 +586,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cost = result.retrievedProducts.first?.localizedPrice
             let _ = result.retrievedProducts.first?.localizedDescription
             
-            let dialog = UIAlertController(title: "Информция", message: "В бесплатной версии доступны только первые 5 групп. Остальное доступно в полной версии стоимостью \(cost!)", preferredStyle: .alert)
+            let dialog = UIAlertController(title: "Информация", message: "В бесплатной версии доступны только первые 5 групп. Остальное доступно в полной версии стоимостью \(cost!)", preferredStyle: .alert)
             
             let yesAction = UIAlertAction(title: "Купить", style: .default, handler: {c in
                 self.purchase()
@@ -577,7 +605,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     private func checkUserDef()-> Bool {
         let purchased = userDef.bool(forKey: "purchased")
-        return true
+        
+        return purchased
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -715,7 +744,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                         if productRetriv.needsFinishTransaction {
                             SwiftyStoreKit.finishTransaction(productRetriv.transaction)
                         }
-                       // product.isPurchased = true  поставить юзер дефолт тру
+                         self.userDef.set(true, forKey: "purchased")
+                       // product.isPurchased = true // поставить юзер дефолт тру
                        // self.tableView.reloadData()
                         
                     // print("Purchase Success: \(productRetriv.productId)")

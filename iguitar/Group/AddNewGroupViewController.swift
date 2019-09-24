@@ -131,7 +131,8 @@ class AddNewGroupViewController: UITableViewController {
         let group = Group()
         group.name = nameGroup.text!
         group.isUser = true
-        group.imgData = imageView.image?.jpegData(compressionQuality: 0.2)
+        group.isFavorite = self.group!.isFavorite
+        group.imgData = imageView.image?.pngData()
         return group
     }
     
