@@ -20,37 +20,25 @@ func checkUserDef()-> Bool {
 class PurchaseManager {
     
     let identifier = "com.updevel.iguitar.nonCons"
-    let textForByuer = "В бесплатной версии доступны только первые 5 групп. Остальное доступно в полной версии стоимостью "
+    static let shared = PurchaseManager()
     
-    
-    func getProductWitInfo(present: @escaping ()->()) {
+    func getProductWitInfo() -> RetrieveResults? {
         NetworkActivityIndicator.networkOperationStarted()
+        var product: RetrieveResults?
+        
         SwiftyStoreKit.retrieveProductsInfo([identifier], completion:{
             result in
             // моя ахине странно но работает
             NetworkActivityIndicator.networkOperationFinished()
             
-            let _ = result.retrievedProducts.first?.localizedTitle
-            let cost = result.retrievedProducts.first?.localizedPrice
-            let _ = result.retrievedProducts.first?.localizedDescription
-            
-            let dialog = UIAlertController(title: "Информация", message: "\(self.textForByuer) \(cost!)", preferredStyle: .alert)
-            
-            let yesAction = UIAlertAction(title: "Купить", style: .default, handler: {c in
-                self.purchase()
-            })
-            
-            let cancel = UIAlertAction(title: "Отмена", style: .destructive, handler: nil)
-            
-            dialog.addAction(yesAction)
-            dialog.addAction(cancel)
             
             
-            present()
-            //self.present(dialog, animated: true, completion: nil)
+            product =  result
+            
             
         }
         )
+        return product
     }
     
     @objc func purchase()  {
@@ -102,6 +90,33 @@ class PurchaseManager {
                         }
                     }
                 }
+            }
+        }
+    }
+    
+     func restore() {
+        NetworkActivityIndicator.networkOperationStarted()
+        SwiftyStoreKit.restorePurchases(atomically: false) { results in
+            NetworkActivityIndicator.networkOperationFinished()
+            if results.restoreFailedPurchases.count > 0 {
+                print("Restore Failed: \(results.restoreFailedPurchases)")
+            }
+            else if results.restoredPurchases.count > 0 {
+                for purchase in results.restoredPurchases {
+                    // fetch content from your server, then:
+                    if purchase.needsFinishTransaction {
+                        SwiftyStoreKit.finishTransaction(purchase.transaction)
+                    }
+                }
+                userDef.set(true, forKey: "purchased")
+                //   self.setupProducts()
+                //  self.tableView.reloadData()  здесть рсторе или юзер дефолтс
+                
+                print("Restore Success: \(results.restoredPurchases)")
+                
+            }
+            else {
+                print("Nothing to Restore")
             }
         }
     }

@@ -760,7 +760,7 @@
         <scene sceneID="X9i-gt-gTj">
             <objects>
                 <navigationController storyboardIdentifier="mainNavId" automaticallyAdjustsScrollViewInsets="NO" id="crk-pa-MT0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="med-1" id="fbn-mQ-Rdw"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="med-1" id="fbn-mQ-Rdw"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="l0m-94-wQH">
@@ -954,10 +954,10 @@
             </objects>
             <point key="canvasLocation" x="4361" y="-590"/>
         </scene>
-        <!--Tab View Controller-->
+        <!--Tab-->
         <scene sceneID="3Hi-tn-2MF">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="odC-7n-wzp" customClass="TabViewController" customModule="iguitar" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="odC-7n-wzp" customClass="Tab" customModule="iguitar" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="ERv-bL-SPv">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -979,7 +979,7 @@
         <scene sceneID="gMb-Ar-h3P">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f6j-jz-4qD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Избранное" image="med-2" id="Rfh-cD-czR"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Избранное" image="med-2" id="Rfh-cD-czR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0gr-FO-KyW">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -1200,7 +1200,7 @@
         <scene sceneID="zBv-Xo-aQi">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IfZ-FR-MIx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="med-3" id="klI-Me-RZY"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="Item" image="med-3" id="klI-Me-RZY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="66J-E3-bb7">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>

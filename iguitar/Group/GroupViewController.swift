@@ -91,12 +91,18 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
             (a, b, c) in
             let song = self.group.listSongs[index]
             self.songDao!.delete(item: song)
-             c(true)
+            
+            c(true)
         })
         delete.image = UIImage(named: "trash2")
         
         let updateAction = UIContextualAction(style: .normal, title: "изменить"){ (action, indexPath, c) in
+            if(self.group.listSongs[index].isUser){
              self.performSegue(withIdentifier: "updateSong", sender: self.group.listSongs[index])
+            } else {
+                self.showMessageForActionsWithNotUserItems(message: "Возможно изменять только свои добавленые песни")
+            }
+            
             c(true)
         }
         
@@ -106,6 +112,15 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         config.performsFirstActionWithFullSwipe = false
         
         return config
+    }
+    
+    func showMessageForActionsWithNotUserItems(message: String) {
+        let cancel = UIAlertAction(title: "Закрыть", style: .cancel, handler: nil)
+        
+        let dialog = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        dialog.addAction(cancel)
+        
+        present(dialog, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
