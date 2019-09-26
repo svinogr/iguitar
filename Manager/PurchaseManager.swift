@@ -9,10 +9,18 @@
 import Foundation
 import SwiftyStoreKit
 
+let userDef = UserDefaults.standard
+
+func checkUserDef()-> Bool {
+    let purchased = userDef.bool(forKey: "purchased")
+    
+    return purchased
+}
+
 class PurchaseManager {
     
     let identifier = "com.updevel.iguitar.nonCons"
-    let userDef = UserDefaults.standard
+    let textForByuer = "В бесплатной версии доступны только первые 5 групп. Остальное доступно в полной версии стоимостью "
     
     
     func getProductWitInfo(present: @escaping ()->()) {
@@ -26,7 +34,7 @@ class PurchaseManager {
             let cost = result.retrievedProducts.first?.localizedPrice
             let _ = result.retrievedProducts.first?.localizedDescription
             
-            let dialog = UIAlertController(title: "Информация", message: "В бесплатной версии доступны только первые 5 групп. Остальное доступно в полной версии стоимостью \(cost!)", preferredStyle: .alert)
+            let dialog = UIAlertController(title: "Информация", message: "\(self.textForByuer) \(cost!)", preferredStyle: .alert)
             
             let yesAction = UIAlertAction(title: "Купить", style: .default, handler: {c in
                 self.purchase()
@@ -45,12 +53,6 @@ class PurchaseManager {
         )
     }
     
-    private func checkUserDef()-> Bool {
-        let purchased = userDef.bool(forKey: "purchased")
-        
-        return purchased
-    }
-    
     @objc func purchase()  {
         NetworkActivityIndicator.networkOperationStarted()
         let idString = identifier
@@ -67,7 +69,7 @@ class PurchaseManager {
                         if productRetriv.needsFinishTransaction {
                             SwiftyStoreKit.finishTransaction(productRetriv.transaction)
                         }
-                        self.userDef.set(true, forKey: "purchased")
+                        userDef.set(true, forKey: "purchased")
                         // product.isPurchased = true // поставить юзер дефолт тру
                         // self.tableView.reloadData()
                         

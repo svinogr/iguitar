@@ -39,13 +39,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Realm.Configuration.defaultConfiguration = config
         
-        IAPManager.shared.setupPurchases{success in
-            if success {
-                IAPManager.shared.getProducts()
-            }
-            
-            
-        }
+//        IAPManager.shared.setupPurchases{success in
+//            if success {
+//                IAPManager.shared.getProducts()
+//            }
+//
+        
+  //      }
     
         SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
             for purchase in purchases {
