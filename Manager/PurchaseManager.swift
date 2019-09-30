@@ -18,27 +18,19 @@ func checkUserDef()-> Bool {
 }
 
 class PurchaseManager {
-    
     let identifier = "com.updevel.iguitar.nonCons"
     static let shared = PurchaseManager()
     
-    func getProductWitInfo() -> RetrieveResults? {
+    func getProductWitInfo(complition: @escaping(RetrieveResults) -> ()) {
         NetworkActivityIndicator.networkOperationStarted()
-        var product: RetrieveResults?
         
         SwiftyStoreKit.retrieveProductsInfo([identifier], completion:{
             result in
             // моя ахине странно но работает
             NetworkActivityIndicator.networkOperationFinished()
-            
-            
-            
-            product =  result
-            
-            
+            complition(result)
         }
         )
-        return product
     }
     
     @objc func purchase()  {
