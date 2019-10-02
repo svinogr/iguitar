@@ -36,6 +36,7 @@
 		609A44AF22B8B6330037102C /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A44AE22B8B6330037102C /* MainViewCell.swift */; };
 		609A44B122B8B6440037102C /* AlphabetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A44B022B8B6440037102C /* AlphabetViewCell.swift */; };
 		609A44B422B8C3050037102C /* AlphabetStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A44B322B8C3050037102C /* AlphabetStructure.swift */; };
+		60AB91E72341DBB800E54EAC /* TextFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AB91E62341DBB800E54EAC /* TextFormat.swift */; };
 		60AEFAAF22BCC212007FD02C /* CommonWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AEFAAE22BCC212007FD02C /* CommonWithId.swift */; };
 		60AEFAB322BCFB6B007FD02C /* FavoriteGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AEFAB222BCFB6B007FD02C /* FavoriteGroup.swift */; };
 		60B57CED22C0C5F00013304E /* MyGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B57CEC22C0C5F00013304E /* MyGroupViewController.swift */; };
@@ -79,6 +80,7 @@
 		609A44AE22B8B6330037102C /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		609A44B022B8B6440037102C /* AlphabetViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetViewCell.swift; sourceTree = "<group>"; };
 		609A44B322B8C3050037102C /* AlphabetStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetStructure.swift; sourceTree = "<group>"; };
+		60AB91E62341DBB800E54EAC /* TextFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormat.swift; sourceTree = "<group>"; };
 		60AEFAAE22BCC212007FD02C /* CommonWithId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWithId.swift; sourceTree = "<group>"; };
 		60AEFAB222BCFB6B007FD02C /* FavoriteGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteGroup.swift; sourceTree = "<group>"; };
 		60B57CEC22C0C5F00013304E /* MyGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 		60C69F2722E7035F00AF993C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				60AB91E62341DBB800E54EAC /* TextFormat.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				60AEFAB322BCFB6B007FD02C /* FavoriteGroup.swift in Sources */,
 				609A44B422B8C3050037102C /* AlphabetStructure.swift in Sources */,
 				602467DD22C6212A00D57E00 /* TableViewController.swift in Sources */,
+				60AB91E72341DBB800E54EAC /* TextFormat.swift in Sources */,
 				609A449F22B8B1DF0037102C /* MainViewController.swift in Sources */,
 				60C69F2A22E7239900AF993C /* AckordViewController.swift in Sources */,
 				602467DB22C6015900D57E00 /* AddNewItemProtocol.swift in Sources */,

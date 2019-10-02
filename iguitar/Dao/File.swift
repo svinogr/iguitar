@@ -40,6 +40,9 @@ class SongDao: RealmDao<Song> {
     }
     
     override func create(newItem: Song) -> Song {
+        let tf = TextFormat()
+        print (tf.formatToHTML(text: newItem.text))
+        
         try! realm.write{
             let id = incrementID()
             newItem.id = id
