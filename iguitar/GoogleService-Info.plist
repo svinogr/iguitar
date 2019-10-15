@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>885862659717-rgataqo8bmuisi2i0kahs2cuuk6ulfe7.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.885862659717-rgataqo8bmuisi2i0kahs2cuuk6ulfe7</string>
+	<key>API_KEY</key>
+	<string>AIzaSyApoEbz2xzx1PgG6rSG8TcrLB1kD8kmQnE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>885862659717</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.updevel.iguitar</string>
+	<key>PROJECT_ID</key>
+	<string>iguitar-afbea</string>
+	<key>STORAGE_BUCKET</key>
+	<string>iguitar-afbea.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:885862659717:ios:d545e70c45d8a1b8899bec</string>
+	<key>DATABASE_URL</key>
+	<string>https://iguitar-afbea.firebaseio.com</string>
+</dict>
+</plist>

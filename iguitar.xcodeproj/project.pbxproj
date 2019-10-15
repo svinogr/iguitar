@@ -43,6 +43,7 @@
 		60C69F2A22E7239900AF993C /* AckordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C69F2922E7239900AF993C /* AckordViewController.swift */; };
 		60D25919233C8D3200154175 /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D25918233C8D3200154175 /* PurchaseManager.swift */; };
 		60D2591B233CCCCE00154175 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D2591A233CCCCE00154175 /* Tab.swift */; };
+		60D635372355DA5A00741050 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60D635362355DA5A00741050 /* GoogleService-Info.plist */; };
 		60E83430231D16CD00E0AB27 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E8342F231D16CD00E0AB27 /* StoreKit.framework */; };
 		68325E18A0E25DFF1E8D9AD5 /* Pods_iguitar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A78213B1CCE1480683B8B8C /* Pods_iguitar.framework */; };
 /* End PBXBuildFile section */
@@ -87,6 +88,7 @@
 		60C69F2922E7239900AF993C /* AckordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AckordViewController.swift; sourceTree = "<group>"; };
 		60D25918233C8D3200154175 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		60D2591A233CCCCE00154175 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		60D635362355DA5A00741050 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		60E8342F231D16CD00E0AB27 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		8A78213B1CCE1480683B8B8C /* Pods_iguitar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iguitar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB59C9A7A526B8E5352567A /* Pods-iguitar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iguitar.debug.xcconfig"; path = "Target Support Files/Pods-iguitar/Pods-iguitar.debug.xcconfig"; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				609A44A022B8B1DF0037102C /* Main.storyboard */,
 				609A44A322B8B1E00037102C /* Assets.xcassets */,
 				609A44A522B8B1E00037102C /* LaunchScreen.storyboard */,
+				60D635362355DA5A00741050 /* GoogleService-Info.plist */,
 				609A44A822B8B1E00037102C /* Info.plist */,
 			);
 			path = iguitar;
@@ -329,6 +332,7 @@
 				609A44A722B8B1E00037102C /* LaunchScreen.storyboard in Resources */,
 				609A44A422B8B1E00037102C /* Assets.xcassets in Resources */,
 				609A44A222B8B1DF0037102C /* Main.storyboard in Resources */,
+				60D635372355DA5A00741050 /* GoogleService-Info.plist in Resources */,
 				60421CDB230146CA00DA5932 /* defaultPreNot.realm in Resources */,
 				6090DEF6230BCFD0000664E3 /* default1.realm in Resources */,
 			);
