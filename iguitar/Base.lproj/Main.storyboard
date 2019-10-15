@@ -619,7 +619,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="alphabet" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wTF-bg-vtx">
-                                <rect key="frame" x="322" y="64" width="72" height="623"/>
+                                <rect key="frame" x="322" y="64" width="72" height="565"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="c88-A3-li0"/>
@@ -670,10 +670,10 @@
                                 </connections>
                             </tableView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="voo-gt-Dz3">
-                                <rect key="frame" x="0.0" y="64" width="322" height="623"/>
+                                <rect key="frame" x="0.0" y="64" width="322" height="573"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="caS-5A-p88">
-                                        <rect key="frame" x="8" y="0.0" width="306" height="623"/>
+                                        <rect key="frame" x="8" y="0.0" width="306" height="573"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
@@ -689,21 +689,37 @@
                                     <constraint firstAttribute="bottom" secondItem="caS-5A-p88" secondAttribute="bottom" id="olr-60-JV7"/>
                                 </constraints>
                             </scrollView>
+                            <stackView opaque="NO" contentMode="center" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8ZV-Bh-Yna">
+                                <rect key="frame" x="20" y="637" width="374" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xav-0m-64r" customClass="GADBannerView">
+                                        <rect key="frame" x="12" y="0.0" width="350" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="KOk-le-2KV"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="VsA-A6-C5m"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="8ZV-Bh-Yna" firstAttribute="leading" secondItem="Ozp-vd-msJ" secondAttribute="leading" constant="20" id="Rcg-aF-U21"/>
                             <constraint firstItem="wTF-bg-vtx" firstAttribute="top" secondItem="Ozp-vd-msJ" secondAttribute="top" id="aDc-3y-tjq"/>
                             <constraint firstItem="wTF-bg-vtx" firstAttribute="leading" secondItem="voo-gt-Dz3" secondAttribute="trailing" id="ehg-zb-UY7"/>
-                            <constraint firstItem="wTF-bg-vtx" firstAttribute="bottom" secondItem="Ozp-vd-msJ" secondAttribute="bottom" id="gBp-6h-aTA"/>
-                            <constraint firstItem="Ozp-vd-msJ" firstAttribute="bottom" secondItem="voo-gt-Dz3" secondAttribute="bottom" id="gJY-Q9-GuF"/>
+                            <constraint firstItem="wTF-bg-vtx" firstAttribute="bottom" secondItem="Ozp-vd-msJ" secondAttribute="bottom" constant="-58" id="gBp-6h-aTA"/>
+                            <constraint firstItem="Ozp-vd-msJ" firstAttribute="bottom" secondItem="voo-gt-Dz3" secondAttribute="bottom" constant="50" id="gJY-Q9-GuF"/>
                             <constraint firstItem="Ozp-vd-msJ" firstAttribute="trailing" secondItem="wTF-bg-vtx" secondAttribute="trailing" constant="20" id="hIo-4b-E3I"/>
+                            <constraint firstItem="Ozp-vd-msJ" firstAttribute="trailing" secondItem="8ZV-Bh-Yna" secondAttribute="trailing" constant="20" id="sUh-rK-9NK"/>
                             <constraint firstItem="voo-gt-Dz3" firstAttribute="leading" secondItem="Ozp-vd-msJ" secondAttribute="leading" id="sqc-tx-T5X"/>
+                            <constraint firstItem="Ozp-vd-msJ" firstAttribute="bottom" secondItem="8ZV-Bh-Yna" secondAttribute="bottom" id="trl-8n-8GS"/>
                             <constraint firstItem="voo-gt-Dz3" firstAttribute="top" secondItem="Ozp-vd-msJ" secondAttribute="top" id="zB9-3C-sSh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ozp-vd-msJ"/>
                     </view>
                     <navigationItem key="navigationItem" id="iYf-2L-cJt"/>
                     <connections>
+                        <outlet property="banner" destination="xav-0m-64r" id="eLo-3u-j4s"/>
                         <outlet property="tableView" destination="wTF-bg-vtx" id="cZw-UR-kpD"/>
                         <outlet property="textSong" destination="caS-5A-p88" id="DuW-v2-qKl"/>
                     </connections>

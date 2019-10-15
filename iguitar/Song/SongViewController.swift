@@ -8,10 +8,13 @@
 
 import UIKit
 import RealmSwift
-class SongViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+import GoogleMobileAds
+
+class SongViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,GADBannerViewDelegate{
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textSong: UITextView!
+    @IBOutlet weak var banner: GADBannerView!
     
     var song: Song!
     var notificationToken: NotificationToken? = nil
@@ -52,6 +55,14 @@ class SongViewController: UIViewController, UITableViewDelegate, UITableViewData
         setupNavigationBar()
         setStyleApp()
         setNotificationToken()
+        setupBanner()
+    }
+    
+    private func setupBanner() {
+        banner.adUnitID = "ca-app-pub-3940256099942544/2934735716" // поменять на свою
+        banner.rootViewController = self
+        banner.load(GADRequest())
+        banner.delegate = self
     }
     
     func setStyleApp() {
