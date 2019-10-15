@@ -28,7 +28,7 @@ class SongViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return song.ackords.count
+        return song.ackords.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,10 +79,10 @@ class SongViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     private func setupSong() {
-        textSong.attributedText = "<pre> \(song.text) </pre>".htmlToAttributedString    }
+        textSong.attributedText = "<pre><br>\(song.text) </pre>".htmlToAttributedString
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         switch segue.identifier {
         case "showAckord":
             let ackVC = segue.destination as! AckordViewController

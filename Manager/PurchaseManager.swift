@@ -9,17 +9,18 @@
 import Foundation
 import SwiftyStoreKit
 
-let userDef = UserDefaults.standard
-
-func checkUserDef()-> Bool {
-    let purchased = userDef.bool(forKey: "purchased")
-    
-    return purchased
-}
 
 class PurchaseManager {
     let identifier = "com.updevel.iguitar.nonCons"
     static let shared = PurchaseManager()
+    static let userDef = UserDefaults.standard
+    
+    static func checkUserDef()-> Bool {
+        let purchased = userDef.bool(forKey: "purchased")
+        
+        // return purchased
+        return true
+    }
     
     func getProductWitInfo(complition: @escaping(RetrieveResults) -> ()) {
         NetworkActivityIndicator.networkOperationStarted()
@@ -49,7 +50,7 @@ class PurchaseManager {
                         if productRetriv.needsFinishTransaction {
                             SwiftyStoreKit.finishTransaction(productRetriv.transaction)
                         }
-                        userDef.set(true, forKey: "purchased")
+                        PurchaseManager.userDef.set(true, forKey: "purchased")
                         // product.isPurchased = true // поставить юзер дефолт тру
                         // self.tableView.reloadData()
                         
@@ -100,7 +101,7 @@ class PurchaseManager {
                         SwiftyStoreKit.finishTransaction(purchase.transaction)
                     }
                 }
-                userDef.set(true, forKey: "purchased")
+                PurchaseManager.userDef.set(true, forKey: "purchased")
                 //   self.setupProducts()
                 //  self.tableView.reloadData()  здесть рсторе или юзер дефолтс
                 

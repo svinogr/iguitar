@@ -20,7 +20,7 @@ class Tab: UITabBarController, UITabBarControllerDelegate {
         var flag = true
         let tag = viewController.tabBarItem.tag
         
-        let purchased = userDef.bool(forKey: "purchased")
+        let purchased = PurchaseManager.checkUserDef()
         
         if(tag == 2 || tag == 3) {
             
