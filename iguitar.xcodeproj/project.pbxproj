@@ -15,6 +15,7 @@
 		602467DF22C6245B00D57E00 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602467DE22C6245B00D57E00 /* File.swift */; };
 		602467E122C6320A00D57E00 /* AckordDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602467E022C6320A00D57E00 /* AckordDao.swift */; };
 		60421CDB230146CA00DA5932 /* defaultPreNot.realm in Resources */ = {isa = PBXBuildFile; fileRef = 60421CDA230146CA00DA5932 /* defaultPreNot.realm */; };
+		605950442358411900E45B69 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605950432358411900E45B69 /* SettingsViewController.swift */; };
 		605A0CCE2327EC41001C5AEC /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 605A0CCD2327EC41001C5AEC /* default.realm */; };
 		605A6A1623265E500088ABBB /* defaultPic.realm in Resources */ = {isa = PBXBuildFile; fileRef = 605A6A1523265E500088ABBB /* defaultPic.realm */; };
 		6072B3FE22BA0F5100F9E5F6 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B3FD22BA0F5100F9E5F6 /* GroupViewController.swift */; };
@@ -58,6 +59,7 @@
 		602467DE22C6245B00D57E00 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		602467E022C6320A00D57E00 /* AckordDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AckordDao.swift; sourceTree = "<group>"; };
 		60421CDA230146CA00DA5932 /* defaultPreNot.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = defaultPreNot.realm; sourceTree = "<group>"; };
+		605950432358411900E45B69 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		605A0CCD2327EC41001C5AEC /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.realm; sourceTree = "<group>"; };
 		605A6A1523265E500088ABBB /* defaultPic.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = defaultPic.realm; sourceTree = "<group>"; };
 		6072B3FD22BA0F5100F9E5F6 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				609A44B022B8B6440037102C /* AlphabetViewCell.swift */,
 				6084B94F22E1B147003053EB /* myTableRowAction.swift */,
 				60D2591A233CCCCE00154175 /* Tab.swift */,
+				605950432358411900E45B69 /* SettingsViewController.swift */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				602467DD22C6212A00D57E00 /* TableViewController.swift in Sources */,
 				60AB91E72341DBB800E54EAC /* TextFormat.swift in Sources */,
 				609A449F22B8B1DF0037102C /* MainViewController.swift in Sources */,
+				605950442358411900E45B69 /* SettingsViewController.swift in Sources */,
 				60C69F2A22E7239900AF993C /* AckordViewController.swift in Sources */,
 				602467DB22C6015900D57E00 /* AddNewItemProtocol.swift in Sources */,
 				60D2591B233CCCCE00154175 /* Tab.swift in Sources */,

@@ -18,9 +18,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var alphabetTableView: UITableView!
     @IBOutlet weak var segments: UISegmentedControl!
     @IBOutlet weak var newItemBtn: UIBarButtonItem!
-    @IBAction func restore(_ sender: Any) {
-        restore()
-    }
     
     let groupDao =   GroupDao()
     let songDao = SongDao()
@@ -664,9 +661,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         mainTableView.reloadData()
     }
     
-    private func restore() {
-       PurchaseManager.shared.restore()
-    }
 }
 
 extension MainViewController: UISearchResultsUpdating, UISearchBarDelegate {

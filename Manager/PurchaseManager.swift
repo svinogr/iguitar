@@ -20,6 +20,7 @@ class PurchaseManager {
         
         // return purchased
         return true
+        //return false
     }
     
     func getProductWitInfo(complition: @escaping(RetrieveResults) -> ()) {
