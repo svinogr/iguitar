@@ -19,7 +19,7 @@ class FavoriteGroup: MainViewController {
     }
     
     override func setupNavigationBar() {
-        title = "Избранные"
+        title = NSLocalizedString("Favorite", comment: "Favorite")
     }
     
     override func filterBy(text: String) {

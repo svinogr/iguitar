@@ -18,8 +18,6 @@ class SettingsViewController: UIViewController {
         restore()
     }
     
-    
-    
     @IBAction func hideReclamaBtn(_ sender: Any) {
        purchasereclama()
             }
@@ -28,12 +26,10 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setStyleApp()
-
-        // Do any additional setup after loading the view.
     }
     
     private func setupView(){
-        title = "Настройки"
+        title = NSLocalizedString("Settings", comment: "Settings")
     }
     
     func setStyleApp() {
@@ -66,12 +62,12 @@ class SettingsViewController: UIViewController {
             let cost = product.retrievedProducts.first?.localizedPrice
             let localizedDescription = product.retrievedProducts.first?.localizedDescription
             
-            let cancel = UIAlertAction(title: "Закрыть", style: .cancel, handler: nil)
-            let buy = UIAlertAction(title: "Купить", style: .default, handler:  { c in
+            let cancel = UIAlertAction(title:NSLocalizedString("Cancel", comment: "Cancel"), style: .cancel, handler: nil)
+            let buy = UIAlertAction(title: NSLocalizedString("Purchase", comment: "Purchase"), style: .default, handler:  { c in
                 PurchaseManager.shared.purchase()
             })
             
-            let dialog = UIAlertController(title: "", message: "\(cost) \(localizedDescription)", preferredStyle: .alert)
+            let dialog = UIAlertController(title: "", message: "\(String(describing: cost)) \(String(describing: localizedDescription))", preferredStyle: .alert)
             dialog.addAction(cancel)
             dialog.addAction(buy)
             

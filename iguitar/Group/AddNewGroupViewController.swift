@@ -120,7 +120,7 @@ class AddNewGroupViewController: UITableViewController {
     }
     
     private func displayErrore(){
-        let aContr = UIAlertController(title: nil, message: "Такая группа уже есть в приложении", preferredStyle: .alert)
+        let aContr = UIAlertController(title: nil, message: NSLocalizedString("This group is already in the application", comment: "This group is already in the application"), preferredStyle: .alert)
         let aAction = UIAlertAction(title: "ok", style: .cancel, handler: nil)
         aContr.addAction(aAction)
         
@@ -141,7 +141,7 @@ class AddNewGroupViewController: UITableViewController {
     @objc func emptyFieldListener() { // tgis
         if(nameGroup.text!.isEmpty) {
             saveBtn.isEnabled = false
-            title = "Новая группа"
+            title = NSLocalizedString("New group", comment: "New group")
             
         } else {
             saveBtn.isEnabled = true

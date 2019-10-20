@@ -82,9 +82,7 @@ class AddNewSongViewController: UITableViewController {
         let line =  ackords.text!
         
         if (line.isEmpty) {return}
-        
-       // var ackkordArr = [Ackord]()
-        
+    
         let ackordsSplit = line.split(separator: ",")
         
         var setAck = Set<String>()
@@ -189,7 +187,7 @@ class AddNewSongViewController: UITableViewController {
     @objc func emptyFieldListener() { // tgis
         if(songName.text!.isEmpty) {
             saveBtn.isEnabled = false
-            title = "Новая песня"
+            title = NSLocalizedString("New song", comment: "new song")
         } else {
             saveBtn.isEnabled = true
             title = songName.text!.capitalized
@@ -197,7 +195,7 @@ class AddNewSongViewController: UITableViewController {
     }
     
     private func displayErrore(){
-        let aContr = UIAlertController(title: nil, message: "Такое название песни уже есть в приложении", preferredStyle: .alert)
+        let aContr = UIAlertController(title: nil, message:NSLocalizedString("This song name is already in the application", comment: "This song name is already in the application"), preferredStyle: .alert)
         let aAction = UIAlertAction(title: "ok", style: .cancel, handler: nil)
         aContr.addAction(aAction)
         

@@ -19,7 +19,7 @@ class MyGroupViewController: MainViewController {
     }
     
     override func setupNavigationBar() {
-            title  = "Мои добавленные"
+        title  = NSLocalizedString("Yours", comment: "Yours")
     }
     
     override func filterBy(text: String) {

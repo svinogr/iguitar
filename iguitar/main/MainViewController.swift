@@ -81,52 +81,28 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
       
             switch self.segments.selectedSegmentIndex {
             case 0:
-           //     var canDo = false
-                
-          //     if self.checkForRowUserDef(indexPath: indexPath) {
-           //     canDo = true
-           //     }
-                
-             //   if(self.realmGroup[index].isUser) {
-               //     canDo = true
-              //  }
-                
-              //  if(canDo) {
                     self.groupDao.deleteWithChilds(item: self.realmGroup![index])
-              //  }
-                
                 c(true)
             case 1:
-            // if self.checkForRowUserDef(indexPath: indexPath){
                 self.songDao.delete(item:self.realmSongs![index])
-              //  }
                 c(true)
             default:
                 print("nothing to del")
             }
-            
-        })
+                    })
+        
         delete.image = UIImage(named: "trash2")
         delete.backgroundColor = UIColor.red
         
         let updateAction = UIContextualAction(style: .normal, title: ""){ (action, i, c) in
             if (self.segments.selectedSegmentIndex == 0) {
-           //     if self.checkForRowUserDef(indexPath: indexPath){
-         
-                //       if(self.realmSongs[index].isUser) {
-                
                     self.performSegue(withIdentifier: "updateGroup", sender: self.realmGroup![index])
-               // } else {
-           //         self.showMessageForActionsWithNotUserItems(message: "Изменять возможно только свои добавленые группы")
-            //    }
-            //    }
                 c(true)
             } else {
-              //  if self.checkForRowUserDef(indexPath: indexPath){
                 if(self.realmSongs[index].isUser) {
                     self.performSegue(withIdentifier: "updateSong", sender: self.realmSongs![index])
                 } else {
-                    self.showMessageForActionsWithNotUserItems(message: "Изменять возможно только свои добавленые песни")
+                    self.showMessageForActionsWithNotUserItems(message: NSLocalizedString("You can only change your added songs", comment: "You can only change your added songs"))
                 }
                 c(true)
                 
@@ -142,7 +118,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func showMessageForActionsWithNotUserItems(message: String) {
-        let cancel = UIAlertAction(title: "Закрыть", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .cancel, handler: nil)
         
         let dialog = UIAlertController(title: "", message: message, preferredStyle: .alert)
         dialog.addAction(cancel)
@@ -206,7 +182,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.imageViewGroup.layer.cornerRadius = cell.imageViewGroup.frame.width / 2
                 cell.imageViewGroup.clipsToBounds = true
                 cell.labalGroupName.text = group.name.capitalized
-                cell.labelSongQuantity.text = String(format: "кол-во песен: %X", group.listSongs.count)
+                cell.labelSongQuantity.text = String(format: NSLocalizedString("number of songs: %X", comment: ""), group.listSongs.count)
                
                 if(group.isFavorite) {
                     cell.imageViewFavorite.image = UIImage(named: "emptyStar")
@@ -338,7 +314,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func setupNavigationBar() {
-        title = "Все"
+        title = NSLocalizedString("All", comment: "All")
     
     }
     
@@ -440,70 +416,69 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         realmSongs = songDao.getAllItemsSortByName()
     }
     
-    func temFunccraete() {
+//    func temFunccraete() {
+//
+//    var array = [Group]()
+//
+//        for i in 0...10 {
+//            let group = Group()
+//            group.name = NSLocalizedString("Group", comment: "Group") + " \(i)"
+//
+//
+//            for y in 0...30 {
+//                let song = Song()
+//                song.name = NSLocalizedString("song", comment: "song") + " \(y)"
+//                song.text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."
+//
+//                for o in 0...2 {
+//                    let acckord = Ackord()
+//                    acckord.name = "dm\(o)"
+//
+//                    song.ackords.append(acckord)
+//                }
+//
+//                group.listSongs.append(song)
+//                           }
+//             array.append(group)
+//        }
+//
+//        createNewDataBase(groups: array)
+//
+//    }
     
-    var array = [Group]()
-        
-        for i in 0...10 {
-            let group = Group()
-            group.name = "Группа \(i)"
-           
-            
-            for y in 0...30 {
-                let song = Song()
-                song.name = "песня \(y)"
-                song.text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."
-              
-                for o in 0...2 {
-                    let acckord = Ackord()
-                    acckord.name = "dm\(o)"
-                    
-                    song.ackords.append(acckord)
-                }
-                
-                group.listSongs.append(song)
-                           }
-             array.append(group)
-        }
-        
-        createNewDataBase(groups: array)
-        
-    }
-    
-    private func createNewDataBase(groups: [Group]){
-        
-        let ackDao = AckordDao()
-        
-        for gr in groups {
-            
-            var newGr = Group()
-            newGr.name = gr.name
-            
-            newGr =  groupDao.create(newItem: newGr)
-            
-            for song in gr.listSongs{
-                
-                let newSn = Song()
-                newSn.parentId = newGr.id
-                newSn.name = song.name
-                newSn.text = song.text
-                
-                for ack in song.ackords{
-                    var newAck = Ackord()
-                    newAck.name = ack.name
-                    newAck = ackDao.create(newItem: newAck)
-                    newSn.ackords.append(newAck)
-                }
-                
-                _ =   songDao.create(newItem: newSn)
-                //update ackk
-            }
-        }
-        
-    }
-    
+//    private func createNewDataBase(groups: [Group]){
+//
+//        let ackDao = AckordDao()
+//
+//        for gr in groups {
+//
+//            var newGr = Group()
+//            newGr.name = gr.name
+//
+//            newGr =  groupDao.create(newItem: newGr)
+//
+//            for song in gr.listSongs{
+//
+//                let newSn = Song()
+//                newSn.parentId = newGr.id
+//                newSn.name = song.name
+//                newSn.text = song.text
+//
+//                for ack in song.ackords{
+//                    var newAck = Ackord()
+//                    newAck.name = ack.name
+//                    newAck = ackDao.create(newItem: newAck)
+//                    newSn.ackords.append(newAck)
+//                }
+//
+//                _ =   songDao.create(newItem: newSn)
+//                //update ackk
+//            }
+//        }
+//
+//    }
+//
     func setupGroups() {
-       // temFunccraete()
         realmGroup = groupDao.getAllItemsSortByName()
     }
     
@@ -559,17 +534,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 //
    
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-     //   if let barViewControllers = segue.destination as?  {
-            print("jwdhjkwhdkwhdkwdw")
-     //   }
-//        let nav = barViewControllers.viewControllers![2] as! UINavigationController
-//        let destinationViewController = nav.topviewcontroller as ProfileController
-//        destinationViewController.firstName = self.firstName
-//        destinationViewController.lastName = self.lastName
-//
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) { 
         let identifier = segue.identifier
             
             switch identifier {

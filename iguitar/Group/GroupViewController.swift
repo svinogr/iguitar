@@ -96,11 +96,11 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
         })
         delete.image = UIImage(named: "trash2")
         
-        let updateAction = UIContextualAction(style: .normal, title: "изменить"){ (action, indexPath, c) in
+        let updateAction = UIContextualAction(style: .normal, title: NSLocalizedString("change", comment: "change")){ (action, indexPath, c) in
             if(self.group.listSongs[index].isUser){
              self.performSegue(withIdentifier: "updateSong", sender: self.group.listSongs[index])
             } else {
-                self.showMessageForActionsWithNotUserItems(message: "Возможно изменять только свои добавленые песни")
+                self.showMessageForActionsWithNotUserItems(message: NSLocalizedString("It is possible to change only your added songs", comment: "It is possible to change only your added songs"))
             }
             
             c(true)
@@ -115,7 +115,7 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func showMessageForActionsWithNotUserItems(message: String) {
-        let cancel = UIAlertAction(title: "Закрыть", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .cancel, handler: nil)
         
         let dialog = UIAlertController(title: "", message: message, preferredStyle: .alert)
         dialog.addAction(cancel)
@@ -126,7 +126,7 @@ class GroupViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let index = indexPath.row
         
-        let favoriteAction = UIContextualAction(style: .normal, title: "избранное") { (action, indexPath, c) in
+        let favoriteAction = UIContextualAction(style: .normal, title: NSLocalizedString("favorite", comment: "favorite")) { (action, indexPath, c) in
            let song = self.group.listSongs[index]
             c(true)
             self.songDao?.addToFavorite(item: song)

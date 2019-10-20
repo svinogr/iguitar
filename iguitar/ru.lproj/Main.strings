@@ -1,0 +1,102 @@
+
+/* Class = "UILabel"; text = "Group"; ObjectID = "3kK-jh-YUr"; */
+"3kK-jh-YUr.text" = "Группа";
+
+/* Class = "UISegmentedControl"; 42l-q7-RdE.segmentTitles[0] = "Groups"; ObjectID = "42l-q7-RdE"; */
+"42l-q7-RdE.segmentTitles[0]" = "Группы";
+
+/* Class = "UISegmentedControl"; 42l-q7-RdE.segmentTitles[1] = "Songs"; ObjectID = "42l-q7-RdE"; */
+"42l-q7-RdE.segmentTitles[1]" = "Песни";
+
+/* Class = "UILabel"; text = "Am"; ObjectID = "6MT-Mc-tld"; */
+"6MT-Mc-tld.text" = "Am";
+
+/* Class = "UILabel"; text = "Group"; ObjectID = "Fhn-Td-1eT"; */
+"Fhn-Td-1eT.text" = "Группв";
+
+/* Class = "UILabel"; text = "songs:"; ObjectID = "Hb8-Vv-Mez"; */
+"Hb8-Vv-Mez.text" = "песни:";
+
+/* Class = "UITextField"; placeholder = "title of song"; ObjectID = "Lxu-67-GPI"; */
+"Lxu-67-GPI.placeholder" = "название песни";
+
+/* Class = "UITextField"; placeholder = "название группы"; ObjectID = "OTl-VY-LA3"; */
+"OTl-VY-LA3.placeholder" = "название группы";
+
+/* Class = "UITabBarItem"; title = "Favorite"; ObjectID = "Rfh-cD-czR"; */
+"Rfh-cD-czR.title" = "Избранное";
+
+/* Class = "UIButton"; normalTitle = "Hide ad"; ObjectID = "Ud0-ve-SZM"; */
+"Ud0-ve-SZM.normalTitle" = "Скрыть рекламу";
+
+/* Class = "UILabel"; text = "Title of song"; ObjectID = "Zfs-MB-Aua"; */
+"Zfs-MB-Aua.text" = "Название песни";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ayL-pW-ze9"; */
+"ayL-pW-ze9.text" = "Label";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "bHs-uA-3TP"; */
+"bHs-uA-3TP.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "Title of song"; ObjectID = "bO9-w5-ita"; */
+"bO9-w5-ita.text" = "Название песни";
+
+/* Class = "UISegmentedControl"; cKI-Ar-V42.segmentTitles[0] = "Groups"; ObjectID = "cKI-Ar-V42"; */
+"cKI-Ar-V42.segmentTitles[0]" = "Группы";
+
+/* Class = "UISegmentedControl"; cKI-Ar-V42.segmentTitles[1] = "Songs"; ObjectID = "cKI-Ar-V42"; */
+"cKI-Ar-V42.segmentTitles[1]" = "Песни";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "caS-5A-p88"; */
+"caS-5A-p88.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UIButton"; normalTitle = "Restore"; ObjectID = "dRT-sb-HCw"; */
+"dRT-sb-HCw.normalTitle" = "Востановление покупок";
+
+/* Class = "UITabBarItem"; title = "All"; ObjectID = "fbn-mQ-Rdw"; */
+"fbn-mQ-Rdw.title" = "Все";
+
+/* Class = "UILabel"; text = "Group"; ObjectID = "feq-NE-0wj"; */
+"feq-NE-0wj.text" = "Группа";
+
+/* Class = "UITabBarItem"; title = "Песни"; ObjectID = "fky-f5-G0W"; */
+"fky-f5-G0W.title" = "Песни";
+
+/* Class = "UILabel"; text = "songs:"; ObjectID = "gRz-47-TDi"; */
+"gRz-47-TDi.text" = "песни:";
+
+/* Class = "UITabBarItem"; title = "Yours"; ObjectID = "klI-Me-RZY"; */
+"klI-Me-RZY.title" = "Свои";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "n01-Ys-RXR"; */
+"n01-Ys-RXR.title" = "Item";
+
+/* Class = "UILabel"; text = "songs:"; ObjectID = "oOs-tK-2xv"; */
+"oOs-tK-2xv.text" = "песни:";
+
+/* Class = "UISegmentedControl"; oqa-0E-noH.segmentTitles[0] = "Groups"; ObjectID = "oqa-0E-noH"; */
+"oqa-0E-noH.segmentTitles[0]" = "Группы";
+
+/* Class = "UISegmentedControl"; oqa-0E-noH.segmentTitles[1] = "Songs"; ObjectID = "oqa-0E-noH"; */
+"oqa-0E-noH.segmentTitles[1]" = "Песни";
+
+/* Class = "UITextField"; placeholder = "comma separated chords: Am, G.."; ObjectID = "rSr-qZ-3gK"; */
+"rSr-qZ-3gK.placeholder" = "аккорды через запятую: Am, G..";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "sTu-nI-9LQ"; */
+"sTu-nI-9LQ.title" = "Настройки";
+
+/* Class = "UILabel"; text = "Text"; ObjectID = "svX-Eu-M4s"; */
+"svX-Eu-M4s.text" = "Text";
+
+/* Class = "UILabel"; text = "Chords"; ObjectID = "tPq-lo-cl6"; */
+"tPq-lo-cl6.text" = "Аккорды";
+
+/* Class = "UILabel"; text = "Title of song"; ObjectID = "ubo-z3-JZo"; */
+"ubo-z3-JZo.text" = "Название песни";
+
+/* Class = "UILabel"; text = "Название группы"; ObjectID = "v4i-yM-bP8"; */
+"v4i-yM-bP8.text" = "Название группы";
+
+/* Class = "UILabel"; text = "Title of song"; ObjectID = "zHq-jd-Ayp"; */
+"zHq-jd-Ayp.text" = "Название песни";

@@ -57,46 +57,20 @@ class SongViewController: UIViewController, UITableViewDelegate, UITableViewData
         setStyleApp()
         setNotificationToken()
         
-        //print("jkl;jk;",stackBanner.frame.height)
          if (PurchaseManager.checkUserDef()) {
-        //stackBanner.removeArrangedSubview(banner)
-             //setupBanner()
-          //  banner.isHidden = true
-          //  view.layoutIfNeeded()
+   
      banner.removeFromSuperview()
          } else {
             setupBanner()
         }
-        
-   
-    }
+       }
     
     private func setupBanner() {
-        //banner = GADBannerView(adSize: kGADAdSizeBanner)
         banner!.adUnitID = "ca-app-pub-3940256099942544/2934735716" // поменять на свою
         banner!.rootViewController = self
         banner!.load(GADRequest())
         banner!.delegate = self
         banner!.translatesAutoresizingMaskIntoConstraints = false
-        
-//        stackBanner.addConstraints(
-//            [NSLayoutConstraint(item: banner!,
-//                                attribute: .bottom,
-//                                relatedBy: .equal,
-//                                toItem: bottomLayoutGuide,
-//                                attribute: .top,
-//                                multiplier: 1,
-//                                constant: 0),
-//             NSLayoutConstraint(item: banner!,
-//                                attribute: .centerX,
-//                                relatedBy: .equal,
-//                                toItem: view,
-//                                attribute: .centerX,
-//                                multiplier: 1,
-//                                constant: 0)
-//            ])
-
-        
     }
     
     func setStyleApp() {

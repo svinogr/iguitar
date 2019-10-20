@@ -19,8 +19,8 @@ class PurchaseManager {
         let purchased = userDef.bool(forKey: "purchased")
         
         // return purchased
-        return true
-        //return false
+        //return true
+        return false
     }
     
     func getProductWitInfo(complition: @escaping(RetrieveResults) -> ()) {
