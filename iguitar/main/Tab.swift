@@ -16,40 +16,4 @@ class Tab: UITabBarController, UITabBarControllerDelegate {
     
     }
     
-    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        var flag = true
-        let tag = viewController.tabBarItem.tag
-        
-        let purchased = PurchaseManager.checkUserDef()
-        
-        if(tag == 2 || tag == 3) {
-            
-            if(!purchased){
-                showMessageForPurchased()
-                flag = false
-            }
-        }
-        
-        return flag
-    }
-
-    func showMessageForPurchased() {
-        PurchaseManager.shared.getProductWitInfo { (product) in
-            
-            let title = product.retrievedProducts.first?.localizedTitle
-            let cost = product.retrievedProducts.first?.localizedPrice
-            let localizedDescription = product.retrievedProducts.first?.localizedDescription
-            
-            let cancel = UIAlertAction(title: "Закрыть", style: .cancel, handler: nil)
-            let buy = UIAlertAction(title: "Купить", style: .default, handler:  { c in
-                PurchaseManager.shared.purchase()
-            })
-            
-            let dialog = UIAlertController(title: "", message: "\(cost) \(localizedDescription)", preferredStyle: .alert)
-            dialog.addAction(cancel)
-            dialog.addAction(buy)
-            
-            self.present(dialog, animated: true, completion: nil)
-        }
-     }
 }
