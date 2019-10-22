@@ -14,7 +14,8 @@ class SongViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textSong: UITextView!
-   @IBOutlet weak var banner: GADBannerView!
+    @IBOutlet weak var banner: GADBannerView!
+    private  let adMobId = "ca-app-pub-7715449191385617~7108195028"
     
    
     var song: Song!
@@ -66,7 +67,8 @@ class SongViewController: UIViewController, UITableViewDelegate, UITableViewData
        }
     
     private func setupBanner() {
-        banner!.adUnitID = "ca-app-pub-3940256099942544/2934735716" // поменять на свою
+    banner!.adUnitID = "ca-app-pub-3940256099942544/2934735716" // поменять на свою
+      //   banner!.adUnitID = adMobId // поменять на свою
         banner!.rootViewController = self
         banner!.load(GADRequest())
         banner!.delegate = self
@@ -115,7 +117,6 @@ class SongViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     private func setNotificationToken() {
-        
         notificationToken = song.ackords.observe { [weak self] (changes: RealmCollectionChange) in
             //   guard let tableView = self?.tableView else { return }
             switch changes {

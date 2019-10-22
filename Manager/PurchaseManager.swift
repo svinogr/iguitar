@@ -18,9 +18,7 @@ class PurchaseManager {
     static func checkUserDef()-> Bool {
         let purchased = userDef.bool(forKey: "purchased")
         
-        // return purchased
-        //return true
-        return false
+         return purchased
     }
     
     func getProductWitInfo(complition: @escaping(RetrieveResults) -> ()) {

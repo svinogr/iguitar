@@ -109,11 +109,12 @@
       "scale" : "2x"
     },
     {
-      "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "ItunesArtwork@2x.png",
+      "size" : "1024x1024",
+       "filename" : "ItunesArtwork@2x.png",
       "scale" : "1x"
     }
+   
   ],
   "info" : {
     "version" : 1,

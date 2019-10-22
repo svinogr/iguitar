@@ -58,7 +58,7 @@ class SettingsViewController: UIViewController {
     func showMessageForPurchased() {
         PurchaseManager.shared.getProductWitInfo { (product) in
             
-            let title = product.retrievedProducts.first?.localizedTitle
+            _ = product.retrievedProducts.first?.localizedTitle
             let cost = product.retrievedProducts.first?.localizedPrice
             let localizedDescription = product.retrievedProducts.first?.localizedDescription
             
@@ -67,7 +67,7 @@ class SettingsViewController: UIViewController {
                 PurchaseManager.shared.purchase()
             })
             
-            let dialog = UIAlertController(title: "", message: "\(String(describing: cost)) \(String(describing: localizedDescription))", preferredStyle: .alert)
+            let dialog = UIAlertController(title: "", message: "\(String(describing: localizedDescription!)) -  \(String(describing: cost!)) ", preferredStyle: .alert)
             dialog.addAction(cancel)
             dialog.addAction(buy)
             
