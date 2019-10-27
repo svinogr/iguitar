@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  iguitar
+
+  Created by  UpDevelForCataline on 20.10.2019.
+  Copyright © 2019 Up Devel. All rights reserved.
+*/
+"You can only change your added songs" = "Изменять возможно только свои добавленые песни";
+"Cancel" = "Закрыть";
+"number of songs: %X" = "кол-во песен: %X";
+"All" = "Все";
+"Group" = "Группа";
+"song" = "песня";
+"Yours" = "Мои добавленные";
+"Favorite" = "Избранные";
+"Settings" = "Настройки";
+"Purchase" = "Купить";
+"This group is already in the application." = "Такая группа уже есть в приложении";
+"New group" = "Новая группа";
+"change" = "изменить";
+"It is possible to change only your added songs" = "Возможно изменять только свои добавленые песни";
+"favorite" = "избранное";
+"New song" = "Новая песня";
+"This song name is already in the application" = "Такое название песни уже есть в приложении";

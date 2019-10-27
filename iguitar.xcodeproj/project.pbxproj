@@ -437,6 +437,7 @@
 				5240A420235C9CFA00446463 /* ru */,
 			);
 			name = Localizable.strings;
+			path = iguitar;
 			sourceTree = "<group>";
 		};
 		609A44A022B8B1DF0037102C /* Main.storyboard */ = {
