@@ -67,8 +67,8 @@ class SongViewController: UIViewController, UITableViewDelegate, UITableViewData
        }
     
     private func setupBanner() {
-    banner!.adUnitID = "ca-app-pub-3940256099942544/2934735716" // поменять на свою
-      //   banner!.adUnitID = adMobId // поменять на свою
+   // banner!.adUnitID = "ca-app-pub-3940256099942544/2934735716" // поменять на свою
+         banner!.adUnitID = adMobId // поменять на свою
         banner!.rootViewController = self
         banner!.load(GADRequest())
         banner!.delegate = self

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5240A41F235C9CFA00446463 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5240A421235C9CFA00446463 /* Localizable.strings */; };
+		529AF2C823689942000B51A1 /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 529AF2C723689941000B51A1 /* default.realm */; };
 		600216C422BB7EA9003CAC87 /* RealmDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600216C322BB7EA9003CAC87 /* RealmDao.swift */; };
 		601571D522C2471300E8D574 /* GroupDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601571D422C2471300E8D574 /* GroupDao.swift */; };
 		602467D622C5F25B00D57E00 /* AddNewSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602467D522C5F25B00D57E00 /* AddNewSongViewController.swift */; };
@@ -15,10 +16,7 @@
 		602467DD22C6212A00D57E00 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602467DC22C6212A00D57E00 /* TableViewController.swift */; };
 		602467DF22C6245B00D57E00 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602467DE22C6245B00D57E00 /* File.swift */; };
 		602467E122C6320A00D57E00 /* AckordDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602467E022C6320A00D57E00 /* AckordDao.swift */; };
-		60421CDB230146CA00DA5932 /* defaultPreNot.realm in Resources */ = {isa = PBXBuildFile; fileRef = 60421CDA230146CA00DA5932 /* defaultPreNot.realm */; };
 		605950442358411900E45B69 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605950432358411900E45B69 /* SettingsViewController.swift */; };
-		605A0CCE2327EC41001C5AEC /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 605A0CCD2327EC41001C5AEC /* default.realm */; };
-		605A6A1623265E500088ABBB /* defaultPic.realm in Resources */ = {isa = PBXBuildFile; fileRef = 605A6A1523265E500088ABBB /* defaultPic.realm */; };
 		6072B3FE22BA0F5100F9E5F6 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B3FD22BA0F5100F9E5F6 /* GroupViewController.swift */; };
 		6072B40022BA12A400F9E5F6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B3FF22BA12A400F9E5F6 /* Group.swift */; };
 		6072B40622BA146100F9E5F6 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B40522BA146100F9E5F6 /* Song.swift */; };
@@ -27,9 +25,7 @@
 		6072B40D22BA4AE800F9E5F6 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B40C22BA4AE800F9E5F6 /* SongViewController.swift */; };
 		6072B40F22BA4D1D00F9E5F6 /* Ackord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6072B40E22BA4D1D00F9E5F6 /* Ackord.swift */; };
 		607B3CE722C0F8CA006D8022 /* AddNewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607B3CE622C0F8CA006D8022 /* AddNewGroupViewController.swift */; };
-		6082F940230530B600DE4637 /* default2.realm in Resources */ = {isa = PBXBuildFile; fileRef = 6082F93F230530B600DE4637 /* default2.realm */; };
 		6084B95022E1B147003053EB /* myTableRowAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6084B94F22E1B147003053EB /* myTableRowAction.swift */; };
-		6090DEF6230BCFD0000664E3 /* default1.realm in Resources */ = {isa = PBXBuildFile; fileRef = 6090DEF5230BCFD0000664E3 /* default1.realm */; };
 		609A449D22B8B1DF0037102C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A449C22B8B1DF0037102C /* AppDelegate.swift */; };
 		609A449F22B8B1DF0037102C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A449E22B8B1DF0037102C /* MainViewController.swift */; };
 		609A44A222B8B1DF0037102C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 609A44A022B8B1DF0037102C /* Main.storyboard */; };
@@ -54,6 +50,7 @@
 		4996A6B109361137DD2B736A /* Pods-iguitar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iguitar.release.xcconfig"; path = "Target Support Files/Pods-iguitar/Pods-iguitar.release.xcconfig"; sourceTree = "<group>"; };
 		5240A41C235C960C00446463 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		5240A420235C9CFA00446463 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		529AF2C723689941000B51A1 /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; name = default.realm; path = ../../default.realm; sourceTree = "<group>"; };
 		600216C322BB7EA9003CAC87 /* RealmDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDao.swift; sourceTree = "<group>"; };
 		601571D422C2471300E8D574 /* GroupDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDao.swift; sourceTree = "<group>"; };
 		602467D522C5F25B00D57E00 /* AddNewSongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewSongViewController.swift; sourceTree = "<group>"; };
@@ -61,10 +58,7 @@
 		602467DC22C6212A00D57E00 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		602467DE22C6245B00D57E00 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		602467E022C6320A00D57E00 /* AckordDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AckordDao.swift; sourceTree = "<group>"; };
-		60421CDA230146CA00DA5932 /* defaultPreNot.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = defaultPreNot.realm; sourceTree = "<group>"; };
 		605950432358411900E45B69 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		605A0CCD2327EC41001C5AEC /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.realm; sourceTree = "<group>"; };
-		605A6A1523265E500088ABBB /* defaultPic.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = defaultPic.realm; sourceTree = "<group>"; };
 		6072B3FD22BA0F5100F9E5F6 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		6072B3FF22BA12A400F9E5F6 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		6072B40522BA146100F9E5F6 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
@@ -73,9 +67,7 @@
 		6072B40C22BA4AE800F9E5F6 /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 		6072B40E22BA4D1D00F9E5F6 /* Ackord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ackord.swift; sourceTree = "<group>"; };
 		607B3CE622C0F8CA006D8022 /* AddNewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGroupViewController.swift; sourceTree = "<group>"; };
-		6082F93F230530B600DE4637 /* default2.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default2.realm; sourceTree = "<group>"; };
 		6084B94F22E1B147003053EB /* myTableRowAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTableRowAction.swift; sourceTree = "<group>"; };
-		6090DEF5230BCFD0000664E3 /* default1.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default1.realm; sourceTree = "<group>"; };
 		609A449922B8B1DF0037102C /* iguitar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iguitar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		609A449C22B8B1DF0037102C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		609A449E22B8B1DF0037102C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +168,7 @@
 		609A449022B8B1DF0037102C = {
 			isa = PBXGroup;
 			children = (
+				529AF2C723689941000B51A1 /* default.realm */,
 				5240A421235C9CFA00446463 /* Localizable.strings */,
 				60D25917233C8CFB00154175 /* Manager */,
 				609A449B22B8B1DF0037102C /* iguitar */,
@@ -196,11 +189,6 @@
 		609A449B22B8B1DF0037102C /* iguitar */ = {
 			isa = PBXGroup;
 			children = (
-				605A0CCD2327EC41001C5AEC /* default.realm */,
-				605A6A1523265E500088ABBB /* defaultPic.realm */,
-				6090DEF5230BCFD0000664E3 /* default1.realm */,
-				6082F93F230530B600DE4637 /* default2.realm */,
-				60421CDA230146CA00DA5932 /* defaultPreNot.realm */,
 				60C69F2722E7035F00AF993C /* Utils */,
 				602467D722C5F80400D57E00 /* Abstract */,
 				6072B40422BA143100F9E5F6 /* Dao */,
@@ -334,16 +322,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6082F940230530B600DE4637 /* default2.realm in Resources */,
-				605A0CCE2327EC41001C5AEC /* default.realm in Resources */,
-				605A6A1623265E500088ABBB /* defaultPic.realm in Resources */,
 				609A44A722B8B1E00037102C /* LaunchScreen.storyboard in Resources */,
 				609A44A422B8B1E00037102C /* Assets.xcassets in Resources */,
 				5240A41F235C9CFA00446463 /* Localizable.strings in Resources */,
 				609A44A222B8B1DF0037102C /* Main.storyboard in Resources */,
 				60D635372355DA5A00741050 /* GoogleService-Info.plist in Resources */,
-				60421CDB230146CA00DA5932 /* defaultPreNot.realm in Resources */,
-				6090DEF6230BCFD0000664E3 /* default1.realm in Resources */,
+				529AF2C823689942000B51A1 /* default.realm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,7 +496,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -568,7 +552,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
